@@ -1,0 +1,129 @@
+<h2 class="fs16 c-6c6 mt15 mb15 oh">评论(共有<span class="c-e43">{$count|default=0}</span>人参与评论)</h2>
+		<nosession name="mid">
+		<!--没有登录 s-->
+		<div class="rep-fm-box">
+			<p class="res-no-login">
+				请 <a href="{:U('public/Passport/login')}">登录</a> 后发表评论。还没有账号<a href="{:U('public/Register')}" class="a1">现在注册</a>也可以使用<a href="{:Addons::createAddonShow('Login','login_sync_other',array('type'=>'sina'))}">新浪微博</a>或者<a href="{:Addons::createAddonShow('Login','login_sync_other',array('type'=>'qzone'))}">QQ账号</a>直接登录
+			</p>
+		</div>
+		<!--没有登录 e-->
+		</nosession>
+		<session name="mid">
+		<!--登录后 s-->
+		<div class="rep-fm-box">
+			<p>发表评论</p>
+			<div class="rep-fm oh">
+				<img src="{$userinfo.avatar_small}" class="user-pic" alt="{$userinfo.uname}" />
+				<div class="rep-fm-info oh">
+					<p><span>{$userinfo.uname}</span><php>echo date('Y/m/d');</php></p>
+					<input class="i-ipt" type="text" id="comment_inputor" />
+					<input class="s-btn s-btn1" type="button" value="提交回复" id="comment_btn" />
+					<p>请回复有价值的信息，无意义的评论将被删除</p>
+					
+					<p class="rep-asc-sta" style="display:none;">
+						<span>恭喜您回复成功</span>
+						<a href="javascript:;" class="rep-btns"></a>
+					</p>
+					<p class="rep-asc-error" style="display:none;">
+						<span>恭喜您回复失败</span>
+						<a href="javascript:;" class="rep-btns"></a>
+					</p>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		<!--登录后 e-->
+		</session>
+		
+		<div class="rep-box oh" id="show_comment_div">
+			<volist name='list.data' id='vo'>
+			<div class="rep-list">
+				<div class="rep-left">
+					<img src="{$vo.user_info.avatar_middle}" />
+					<p class="c-333">游戏币：<span class="c-e43">{$vo.user_info.score}</span></p>
+					<p class="c-333 oh">
+						<if condition="$vo['user_info']['bind']['sina'] != ''">
+						<a class="ico ico1" href="#"></a>
+						</if>
+						<if condition="$vo['user_info']['bind']['qzone'] != ''">
+						<a class="ico ico2" href="#"></a>
+						</if>
+					</p>
+					<p class="mt10">
+						<span  class="fsxx">
+							<em class="ico ico3"></em>
+							<a href="#">发送消息</a>
+						</span>
+						<span  class="jhmp">
+							<em class="ico ico4"></em>
+							<a href="#">交换名片</a>
+						</span>
+					</p>
+				</div>
+				<div class="rep-right">
+					
+					<p class="xx-p">
+						<php>if($vo['is_audit'] || $vo['uid'] == $GLOBALS['ts']['mid']){</php>{$vo.content}<php>}else{</php>内容正在审核<php>}</php>
+					</p>
+					<div class="rep-oper">
+						<eq name='cancomment' value="1">
+						<div>
+							<em class="ico ico6"></em><a href="#">评论</a>
+						</div>
+					    </eq>
+						<div>
+							<em class="ico ico7"></em><a href="#"><b>6</b>条评论</a>
+						</div>
+						<div>
+							<em class="ico ico8"></em><a href="#">修改评论</a>
+						</div>
+						<php>
+						$isdel = 0;
+						if(($vo['uid'] == $GLOBALS['ts']['mid'] && CheckPermission('core_normal','comment_del')) || CheckPermission('core_admin','comment_del')){
+						$isdel = 1;
+						</php>
+						<div>
+							<em class="ico ico9"></em><a href="#">删除评论</a>
+						</div><php>}</php>
+						<span class="fr c-888 fs12">{$vo.ctime|friendlyDate}</span>
+					</div>
+				</div>
+				
+			</div>
+			</volist>
+		</div>
+<script>
+$("#comment_btn").click(function(){
+	var content = $("#comment_inputor").val();
+	if(content){
+		$.ajax({
+			url:'{:U('widget/Comment/addcomment')}',
+			type:'POST',
+			dataType:'JSON',
+			data:'row_id={$row_id}&app_uid={$app_uid}&app_row_id={$app_row_id}&app_name={$app_name}&table_name={$table}&canrepost={$canrepost}&content='+content,
+			success:function(msg){
+				if(msg.status == 1){
+					$("#show_comment_div").prepend(msg.data);
+					$(".rep-asc-sta").show();
+					setTimeout(function(){
+						$(".rep-asc-sta").fadeOut();
+					},2000);
+				}else{
+					$(".rep-asc-error").show();
+					setTimeout(function(){
+						$(".rep-asc-error").fadeOut();
+					},2000);
+				}
+			}
+			
+		});
+	}else{
+		alert('内容不能为空');
+	}
+});
+$(".rep-btns").click(function(){
+	$(this).parent('p').hide();
+});
+</script>

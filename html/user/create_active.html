@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的活动 - 创建活动</title>
+<link href="../css/base.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/user.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--顶部 s-->
+<div id="header">
+	<div class="wrap">
+		<div class="logo-box fl"> <a href="../index.html"><img src="../images/logo.png"/></a>
+			<div class="wb-box oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		<div class="top-ads oh fl">
+			<div class="ta-list"><a href="#"><img src="../test/test6.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="../test/test7.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="../test/t_06.png" /></a></div>
+		</div>
+		<div class="log-box oh fr">
+			<div class="oh"> <a href="#" class="t-btn">注册</a> <a href="#" class="t-btn">登录</a> </div>
+			<div class="log-fot oh">
+				<p class="c-333">使用社交账户快速登陆:</p>
+				<a href="#" title="QQ登录" class="t-ico qq-ico"></a> <a href="#" title="微博登录" class="t-ico wb-ico"></a> </div>
+		</div>
+	</div>
+</div>
+<!--顶部 e--> 
+
+<!--nav s-->
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li class="nav-curr"><a href="#">首页</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">公司</a></li>
+			<li><a href="#">通讯录</a></li>
+			<li><a href="#">活动</a></li>
+			<li><a href="#">新闻</a></li>
+		</ul>
+		<div class="search-box fr pr">
+			<form action="" method="post" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">文章</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="1">文章</li>
+						<li data-id="2">帖子</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="search..." class="search-ipt" />
+				<input type="button" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->
+
+<div  class="wrap oh user-main mt15">
+	<!--左边部分 s-->
+	<div class="user-side">
+		
+		<!--用户信息 s-->
+		<h2 class="user-name fs20">路、一直都在</h2>
+		<div class="user-avatar-box" id="js_avatar_box">
+			<img src="../test/test8.png" />
+			<a href="#" class="edit-avatar" id="js_edit_avatar">
+				<em></em>
+				<span>修改头像</span>
+			</a>
+		</div>
+		<p class="user-game-num"><em></em><b  class="fn">游戏币：</b><span>5984</span></p>
+		<div class="show-mnb">
+			<p>显示已绑定账号</p>
+			<label>
+				<span class="u-ico u-ico1"></span>
+				<input type="checkbox" />
+			</label>
+			<label>
+				<span class="u-ico u-ico2"></span>
+				<input type="checkbox" />
+			</label>
+		</div>
+		
+		<ul class="side-nav side-nav1">
+			<li class="sn1">
+				<a href="my_msg.html">
+					<em></em>
+					<span>我的消息</span>
+				</a>
+			</li>
+			<li class="sn2">
+				<a href="my_collect.html">
+					<em></em>
+					<span>我的收藏</span>
+				</a>
+			</li>
+			<li class="sn3 current">
+				<a href="home.html">
+					<em></em>
+					<span>我的账户</span>
+				</a>
+			</li>
+			<li class="sn4">
+				<a href="my_comments.html">
+					<em></em>
+					<span>我的评论</span>
+				</a>
+			</li>
+		</ul>
+		
+		<ul class="side-nav side-nav2">
+			<li class="sn5">
+				<a href="my_active.html">
+					<em></em>
+					<span>我的活动</span>
+				</a>
+			</li>
+			<li class="sn6">
+				<a href="my_buscard.shtml">
+					<em></em>
+					<span>我的名片</span>
+				</a>
+			</li>
+			<li class="sn7">
+				<a href="my_goods.html">
+					<em></em>
+					<span>我的产品</span>
+				</a>
+			</li>
+			<li class="sn8">
+				<a href="my_company.html">
+					<em></em>
+					<span>我的公司</span>
+				</a>
+			</li>
+		</ul>
+		
+		
+	</div>
+	<!--左边部分 e-->
+	
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的活动</h1>
+			</div>
+            <p class="oh mt5 mb5">创建/编辑活动</p>
+            
+            
+            <div  class="create-act-top oh">
+            	<div class="cr-ac-left fl">
+                	<div class="ca-tlist">
+                    	<div class="c-l">活动名称：</div>
+                        <div class="c-r">
+                        	<input type="text" class="i-ipt" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">活动时间：</div>
+                        <div class="c-r">
+                        	<input type="text" class="i-ipt i-ts" />
+                           	<em style="padding:0 3px;">到</em>
+                            <input type="text" class="i-ipt i-ts" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">所在城市：</div>
+                        <div class="c-r">
+                        	<select class="i-sele i-se1">
+                            	<option>四川</option>
+                            </select>
+                            <select class="i-sele i-se1" style="margin-right:0;">
+                            	<option>成都</option>
+                            </select>
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">活动地点：</div>
+                        <div class="c-r">
+                        	<input type="text" class="i-ipt" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                     <div class="ca-tlist">
+                    	<div class="c-l">需要人数：</div>
+                        <div class="c-r">
+                        	<input type="text" class="i-ipt" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">活动类别：</div>
+                        <div class="c-r">
+                        	<select class="i-sele" style="width:100px;">
+                            	<option>主体沙龙</option>
+                            </select>
+                            <input type="text" style="width:160px; margin-left:-1px;" class="i-ipt" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="cr-ac-right fr">
+                
+                	<div class="ca-tlist">
+                    	<div class="c-l">截止时间：</div>
+                        <div class="c-r">
+                        	<input type="text" class="i-ipt i-ts" />
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">报名方式：</div>
+                        <div class="c-r">
+                            <input type="text" class="i-ipt ac-ipt1" />
+                            <span>活动费用</span>
+                            <input type="text" class="i-ipt ac-ipt1" />
+                        </div>
+                    </div>
+                    
+                     <div class="ca-tlist">
+                    	<div class="c-l">活动图片：</div>
+                        <div class="c-r">
+                        	<a href="#" class="ico-btn ico-btn6">上传</a>
+                            <div class="clear"></div>
+                            <p class="fs12 c-888">添加一张好看的图片，让活动更吸引人</p>
+                            <p class="fs12 c-888">建议大小：300*200px</p>
+                            <img src="../test/test9.png" width="300" height="200" class="mt10" />
+                        </div>
+                    </div>
+                	
+                </div>
+                
+                <div class="clear"></div>
+                <div class="ca-tlist oh">
+                    <div class="c-l">活动介绍：</div>
+                    <div class="c-r">
+                        <textarea class="i-txt" style="width:687px;"></textarea>
+                    </div>
+                </div>  
+                
+                 <div class="ca-tlist">
+                    <div class="c-l">主办方：</div>
+                    <div class="c-r">
+                       <input type="text" class="i-ipt" style="width:100px;"/>
+                       <select class="i-sele" style="width:120px; margin-left:30px;">
+                          <option>承办方</option>
+                       </select>
+                       <input type="text" style="width:120px; margin-left:-1px;" class="i-ipt">
+                    </div>
+                </div>
+                
+                 <div class="ca-tlist">
+                    <div class="c-l">嘉宾：</div>
+                    <div class="c-r">
+                      <a href="javascript:;" id="js_add_jb" class="ico-btn ico-btn6">+ 添加嘉宾</a>
+                      <div class="clear"></div>
+                      <ul class="t-tits oh">
+                        <li class="ts1">姓名</li>
+                        <li class="ts2">职位</li>
+                        <li class="ts3">说明</li>
+                        <li class="ts4">嘉宾头像</li>
+                      </ul>
+                      <div class="clear"></div>
+                      <div class="jb-box oh" id="js_jb_box">
+                      	<div class="jb-list">
+                        	<input type="text" class="i-ipt jbi1" />
+                            <input type="text" class="i-ipt jbi2" />
+                            <input type="text" class="i-ipt jbi3" />
+                         	<a href="#" class="i-fs">上传图片</a>
+                            <span class="de-btn">x</span>
+                        </div>
+                      </div>
+                      
+                      
+                    </div>
+                </div>
+                
+                
+                <div class="ca-tlist">
+                    <div class="c-l">活动议程：</div>
+                    <div class="c-r">
+                      <a href="javascript:;" id="js_add_yc" class="ico-btn ico-btn6">+ 添加议程</a>
+                      <div class="clear"></div>
+                      
+                      <div class="oh mb5">
+                      	<span>时间段</span>
+                        <span style="padding-left:262px;">活动细节</span>
+                      </div>
+                       <ul class="yc-ul" id="js_yc_box">
+                       		<li>
+                            	<input type="text" class="i-ipt i-ts" />
+                                <span>到</span>
+                                <input type="text" class="i-ipt i-ts" />
+                                <input type="text" class="i-ipt i-if" />
+                                <a href="javascript:;" class="de-btn">X</a>
+                            </li>
+                       </ul>
+                       
+                        
+                    </div>
+                </div>
+                
+                <div class="ca-tlist">
+                    <div class="c-l">交通路线：</div>
+                    <div class="c-r">
+                    	<input type="text" class="i-ipt" />
+                    </div>
+                </div> 
+                
+                <div class="ca-tlist" style="border-bottom:1px dashed #ccc; padding-bottom:10px; *padding-bottom:15px; ">
+                    <div class="c-l">注意事项：</div>
+                    <div class="c-r">
+                    	<textarea class="i-txt" style="width:700px;"></textarea>
+                    </div>
+                </div>   
+                
+                <div class="ca-tlist">
+                    <div class="c-l">真实姓名：</div>
+                    <div class="c-r">
+                    	<input type="text" class="i-ipt" />
+                        <span class="c-red">*</span>
+                    </div>
+                </div>      
+                <div class="ca-tlist">
+                    <div class="c-l">公司名称：</div>
+                    <div class="c-r">
+                    	<input type="text" class="i-ipt" />
+                        <span class="c-red">*</span>
+                    </div>
+                </div>   
+                <div class="ca-tlist">
+                    <div class="c-l">公司类型：</div>
+                    <div class="c-r">
+                    	<select class="i-sele">
+                        	<option>国家法律</option>
+                        </select>
+                        <span class="c-red">*</span>
+                    </div>
+                </div> 
+                 <div class="ca-tlist">
+                    <div class="c-l">所在城市：</div>
+                    <div class="c-r">
+                    	<select class="i-sele fl mr10">
+                        	<option>国家法律</option>
+                        </select>
+                        <select class="i-sele fl ">
+                        	<option>国家法律</option>
+                        </select>
+                        <span class="c-red">*</span>
+                    </div>
+                </div>
+                <div class="ca-tlist">
+                    <div class="c-l">职位：</div>
+                    <div class="c-r">
+                    	<input type="text" class="i-ipt" />
+                        <span class="c-red">*</span>
+                    </div>
+                </div>   
+                <div class="ca-tlist">
+                    <div class="c-l">职位类型：</div>
+                    <div class="c-r">
+                    	<select class="i-sele fl mr10">
+                        	<option>国家法律</option>
+                        </select>
+                        <span class="c-red">*</span>
+                    </div>
+                </div> 
+                <div class="ca-tlist">
+                    <div class="c-l">联系电话：</div>
+                    <div class="c-r">
+                    	<input type="text" class="i-ipt" />
+                        <span class="c-red">*</span>
+                    </div>
+                </div> 
+                <div class="ca-tlist">
+                    <div class="c-l">联系邮箱：</div>
+                    <div class="c-r">
+                    	<input type="text" class="i-ipt" />
+                        <span class="c-red">*</span>
+                    </div>
+                </div> 
+                <div class="ca-tlist">
+                    <div class="c-l">联系QQ：</div>
+                    <div class="c-r">
+                    	<input type="text" class="i-ipt" />
+                        <span class="c-red">*</span>
+                    </div>
+                </div>  
+                
+                 <div class="ca-tlist">
+                    <div class="c-l">&nbsp;</div>
+                    <div class="c-r">
+                    	<a href="#" class="ico-btn ico-btn5 fl mr10">预览</a>
+                        <a href="#" class="ico-btn ico-btn5 fl">发布</a>
+                    </div>
+                </div>         
+            
+            </div>
+            			
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+	
+</div>
+
+<!--footer s-->
+<div id="footer">
+	<div class="fot-main oh"> <img src="../images/t_50.png" />
+		<div class="fot-info">
+			<p> <a href="#">关于我们</a> | <a href="#">加入游戏茶馆</a> | <a href="#">联系我们</a> | <a href="#">寻求报道</a> | <a href="#">订阅</a> </p>
+			<p class="fs12 c-888">©2008-2013 <span class="c-fcb">游戏茶馆</span> | 蜀ICP备11004573号</p>
+		</div>
+	</div>
+</div>
+<!--footer e--> 
+</body>
+<script>
+userMode.createActive = {
+	//添加嘉宾
+	addJb:function(){
+		$('#js_add_jb').bind('click',function(){
+			var jbBox = $('#js_jb_box');
+			var t = '<div class="jb-list">';
+					t+='<input type="text" class="i-ipt jbi1" />';
+					t+='<input type="text" class="i-ipt jbi2" />';
+					t+='<input type="text" class="i-ipt jbi3" />';
+					t+='<a href="#" class="i-fs">上传图片</a>';
+					t+='<span class="de-btn">x</span>';
+				t+='</div>';
+			jbBox.append(t);
+		});
+		//删除当前列
+		$('#js_jb_box .de-btn').die().live('click',function(){
+			if(window.confirm('您真的要删除?')){
+				$(this).parents('.jb-list').remove();
+			}else{
+				return false;
+			}
+		});
+	},
+	//添加议程
+	addYc:function(){
+		$('#js_add_yc').bind('click',function(){
+			var ycBox = $('#js_yc_box');
+			var t = '<li>';
+					t+='<input type="text" class="i-ipt i-ts">';
+					t+='<span>到</span>';
+					t+='<input type="text" class="i-ipt i-ts">';
+					t+='<input type="text" class="i-ipt i-if">';
+					t+='<a href="javascript:;" class="de-btn">X</a>';
+				t+='</li>';
+			ycBox.append(t);
+		});
+		$('#js_yc_box .de-btn').die().live('click',function(){
+			if(window.confirm('您真的要删除?')){
+				$(this).parents('li').remove();
+			}else{
+				return false;
+			}
+		});
+	},
+	init:function(){
+		this.addJb();
+		this.addYc();
+	}
+};
+$(document).ready(function(){
+	userMode.createActive.init();
+})
+
+</script>
+</html>

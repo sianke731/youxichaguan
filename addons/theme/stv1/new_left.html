@@ -1,0 +1,63 @@
+<!--左边部分 s-->
+	<div class="user-side">
+		
+		<!--用户信息 s-->
+		{:W('UserInformation', array('uid'=>$mid, 'tpl'=>'left', 'isReturn'=>$isReturn))}
+		
+		<ul class="side-nav side-nav1">
+			<li class="sn1 <php> if(MODULE_NAME =='Message' && APP_NAME=='public'){</php> current<php>}</php>">
+				<a href="{:U('public/Message/notify')}">
+					<em></em>
+					<span>我的消息</span>
+				</a>
+			</li>
+			<li class="sn2 <php> if(MODULE_NAME =='Collection' && APP_NAME=='public'){</php> current<php>}</php>">
+				<a href="{:U('public/Collection')}">
+					<em></em>
+					<span>我的收藏</span>
+				</a>
+			</li>
+			<li class="sn3 <php> if(MODULE_NAME =='Account' && APP_NAME=='public'){</php> current<php>}</php>">
+				<a href="{:U('public/Account/index')}">
+					<em></em>
+					<span>我的账户</span>
+				</a>
+			</li>
+			<li class="sn4 <php> if(MODULE_NAME =='Comment' && APP_NAME=='public'){</php> current<php>}</php>">
+				<a href="{:U('public/Comment',array('type'=>'send'))}">
+					<em></em>
+					<span>我的评论</span>
+				</a>
+			</li>
+		</ul>
+		
+		<ul class="side-nav side-nav2">
+			<li class="sn5 <php> if(APP_NAME=='event'){</php> current<php>}</php>">
+				<a href="{:U('event/Index/myactive')}">
+					<em></em>
+					<span>我的活动</span>
+				</a>
+			</li>
+			<li class="sn6 <php> if(APP_NAME=='member'){</php> current<php>}</php>">
+				<a href="{:U('member/Index/mycard')}">
+					<em></em>
+					<span>我的名片</span>
+				</a>
+			</li>
+			<li class="sn7 <php> if(APP_NAME=='game'){</php> current<php>}</php>">
+				<a href="{:U('game/Index/mygame')}">
+					<em></em>
+					<span>我的产品</span>
+				</a>
+			</li>
+			<li class="sn8 <php> if(APP_NAME=='company'){</php> current<php>}</php>">
+				<a href="{:U('company/Index/mycompany')}">
+					<em></em>
+					<span>我的公司</span>
+				</a>
+			</li>
+		</ul>
+		
+		
+	</div>
+	<!--左边部分 e-->

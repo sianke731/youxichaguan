@@ -1,0 +1,70 @@
+<include file="__THEME__/new_header" />
+
+<div class="mbx-box">
+	<div class="wrap oh">
+		<p class="c-888">
+			首页 &gt;<a href="{:U('news/Index/index')}">新闻</a> &gt;  {$news.news_title}
+		</p>
+	</div>
+</div>
+
+<div  class="wrap oh mt15">
+	<div class="news-main news-view-main fl">
+		<div class="news-title">
+			<h1 style="width:100%;">{$news.news_title}</h1>
+			<div class="news-sub-oper oh mt10 mb20" style="float:left;">
+				<!-- 
+				<a href="#" class="nso nso1"></a>
+				<a href="#" class="nso nso2"></a>
+				<p>
+					<a href="#">曾小鹏</a>
+					<a href="#">礼花</a>
+					<span>等38人分享过</span>
+				</p>
+				<a href="#" class="nso nso3"></a>
+				 -->
+				 <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+			</div>
+			<div class="tgs-box"><!-- <span class="tgs1 tgs">其他</span> --><a href="#" class="t-user">{$news.uid|getUserName}</a> <a href="#" class="t-time">{$news.created|friendlyDate}</a> <a href="#" class="t-look">{$news.hits}views</a> </div>
+		</div>
+		<p class="news-sub-title">
+			导语：{$news.news_content|strip_tags|msubstr=0,100}
+		</p>
+		
+		<div id="news-view-center">
+			{$news.news_content}
+		</div>
+		{:W('Comment',array('tpl'=>'detail', 'table'=>'news', 'row_id'=>$news['news_id'], 'canrepost'=>'0', 'cancomment'=>1, 'cancomment_old'=>0, 'showlist'=>1, 'limit'=>'20', 'order'=>'DESC'))}
+	</div>
+	<div class="news-side fr">
+		<div class="bg-fff oh mb10 zz-box" style="display:none;">
+			<h2 class="oh ml10 mb10 mt10  fs16">关注作者</h2>
+			<img src="test/test8.png" class="user-pic" />
+			<div class="zz-info oh fr">
+				<p>姓名：lisa</p>
+				<p>职位：海外高级记者</p>
+				<div class="clear"></div>
+				<a href="#" class="g-ico g-ico1"></a>
+				<a href="#" class="g-ico g-ico2"></a>
+			</div>
+		</div>
+		
+		<div class="bg-fff oh mb10">
+			<h2 class="oh fs16 mt10 ml10">作者其他文章</h2>
+			<ul class="ilnews2-ul ilnews-ul">
+				<volist name="hotList" id="vo">
+				<li> <span>{$i}</span> <a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}">{$vo.news_title|msubstr=0,15}</a> </li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<include file="__THEME__/new_footer" />
+<script>
+//关闭回复提示
+$('.rep-btns').on('click',function(){
+	$(this).parent().fadeOut(150);
+});
+</script>

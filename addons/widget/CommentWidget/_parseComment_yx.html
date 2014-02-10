@@ -1,0 +1,48 @@
+
+			<div class="rep-list">
+				<div class="rep-left">
+					<img src="{$userInfo.avatar_middle}" />
+					<p class="c-333">游戏币：<span class="c-e43">{$userInfo.score}</span></p>
+					<p class="c-333 oh">
+						<if condition="$userInfo['bind']['sina'] != ''">
+						<a class="ico ico1" href="#"></a>
+						</if>
+						<if condition="$userInfo['bind']['qzone'] != ''">
+						<a class="ico ico2" href="#"></a>
+						</if>
+					</p>
+					<p class="mt10" style="display:none;">
+						<span  class="fsxx">
+							<em class="ico ico3"></em>
+							<a href="#">发送消息</a>
+						</span>
+						<span  class="jhmp">
+							<em class="ico ico4"></em>
+							<a href="#">交换名片</a>
+						</span>
+					</p>
+				</div>
+				<div class="rep-right">
+					
+					<p class="xx-p">{$content}</p>
+					<div class="rep-oper" data-id="{$comment_id}">
+						<eq name='cancomment' value="1">
+						<div>
+							<em class="ico ico6"></em><a href="#" data-args='row_id={$row_id}&app_uid={$app_uid}&to_comment_id={$comment_id}&to_uid={$userInfo.uid}&to_comment_uname={$userInfo.uname}'>评论</a>
+						</div>
+					    </eq>
+						<div>
+							<em class="ico ico7"></em><a href="#"><b>0</b>条评论</a>
+						</div>
+						<div>
+							<em class="ico ico8"></em><a href="#">修改评论</a>
+						</div>
+						<php>if($iscommentdel){</php>
+						<div>
+							<em class="ico ico9"></em><a href="#">删除评论</a>
+						</div><php>}</php>
+						<span class="fr c-888 fs12">{:L('PUBLIC_JUST')}</span>
+					</div>
+				</div>
+				
+			</div>

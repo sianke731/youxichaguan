@@ -1,0 +1,239 @@
+<include file="__THEME__/new_header" />
+<script type="text/javascript" src = "{:APPS_URL}/event/_static/js/ajaxfileupload.js"></script>
+<div  class="wrap oh user-main mt15">
+<include file="__THEME__/new_left" />
+
+
+
+  
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+        
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的名片</h1>
+			</div>
+            <p class="oh mt5 mb5">创建/编辑名片</p>
+            
+            
+            <div  class="create-act-top oh">
+            <form action="{:U('Member/Index/doedit',array('id'=>$member[id]))}" method="post" name="form1" id="form_mycard">
+            	<div class="ca-tlist">
+                    	<div class="c-l">真实姓名：</div>
+                        <div class="c-r">
+                        	<input type="text" name="name" class="i-ipt" value="{$member.name}" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">性别：</div>
+                        <div class="c-r">
+                        	<label class="rds-lb">
+                            	<input class="rds" type="radio" name="sex" value="1" <if condition="$member[sex] eq 1"> checked="checked"</if>  />
+                                <span>男</span>
+                            </label>
+                            <label class="rds-lb">
+                            	<input class="rds" type="radio" name="sex" value="2" <if condition="$member[sex] eq 2"> checked="checked"</if> />
+                                <span>女</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    {:W('Company', array('tpl'=>'index','company_id'=>$member[company_id]))}
+                    
+                
+                <div class="ca-tlist oh">
+                    <div class="c-l">职位：</div>
+                    <div class="c-r">
+                       <input name="position" value="{$member.position}" class="i-ipt"  autocomplete="off" type="text">
+                        <span class="c-red">*</span>
+                    </div>
+                </div>  
+                
+                 <div class="ca-tlist">
+                    <div class="c-l">职位类型：</div>
+                    <div class="c-r">
+                          <select name="position_type" id="position_type" class="i-sele fl">
+                                <option value="">请选择职位类型</option>
+                            <volist name="position_type" id="vo">
+                                <option value="{$vo.id}" <if condition="$vo['id'] eq $member['position_type']"> selected="selected"</if>>{$vo.title}</option>
+                            </volist>
+                          </select> 
+                          <span class="c-red">*</span>
+                    </div>
+                </div>
+                <div class="ca-tlist">
+                    <div class="c-l">&nbsp;</div>
+                    <div class="c-r">
+                     	<a href="javascript:;" id="js_add_zyjl" class="ico-btn ico-btn6">+添加职业经历</a>
+                    </div>
+                </div>
+                
+                
+                 <div class="ca-tlist">
+                    <div class="c-l">联系电话：</div>
+                    <div class="c-r">
+                    	<input name="phone" value="{$member.phone}" class="i-ipt"  autocomplete="off" type="text">
+                         <span class="c-red">*</span>
+                    </div>
+                </div>
+                
+                <div class="ca-tlist">
+                    <div class="c-l">联系邮箱：</div>
+                    <div class="c-r">
+                    	<input name="email" value="{$member.email}" class="i-ipt"  autocomplete="off" type="text">
+                         <span class="c-red">*</span>
+                    </div>
+                </div>
+                
+                <div class="ca-tlist">
+                    <div class="c-l">联系QQ：</div>
+                    <div class="c-r">
+                    	<input name="qq" value="{$member.qq}" class="i-ipt"  autocomplete="off" type="text">
+                         <span class="c-red">*</span>
+                    </div>
+                </div>
+                
+                  <div class="ca-tlist">
+                    <div class="c-l">微博：</div>
+                    <div class="c-r">
+                    	<input name="weibo" value="{$member.weibo}" class="i-ipt"  autocomplete="off" type="text">
+                    </div>
+                </div>
+                
+                  <div class="ca-tlist">
+                    <div class="c-l">微信：</div>
+                    <div class="c-r">
+                    	<input name="wechat" value="{$member.wechat}" class="i-ipt"  autocomplete="off" type="text">
+                    </div>
+                </div>
+                
+                 <div class="ca-tlist">
+                    <div class="c-l">头像：</div>
+                    <div class="c-r">
+                    	<div class="oh pr">
+                        <a href="#" class="ico-btn ico-btn6">上传头像</a>
+                        <input type="file" name="files" onchange="ajaxFileUpload();" style="width:86px; height:28px; background:red; position:absolute; z-index:1; left:0; *left:-5px; top:0; opacity:0; filter:alpha(opacity=0);" id="files" />
+                        <input type="hidden" name="active_img" value="" />
+                        </div>
+                        <p class="c-ccc">添加一张头像，让您更吸引人</p>
+                        <div class="clear"></div>
+                        
+                        <img  id="js_ac_pic" src="{$member.avatar.url|default='/data/upload/avatar/c4/ca/42/original_200_200.jpg'}" width="100" height="100"/>
+                    </div>
+                    <script>
+				function ajaxFileUpload(){
+					$.ajaxFileUpload
+					(
+						{
+							url:'{:U("event/index/upload_img")}',
+							secureuri:false,
+							fileElementId:'files',
+							dataType: 'json',
+							data:{name:'logan', id:'id'}, //这里是参数。你自己可以修改的
+							success: function (data, status)
+							{
+								//console.log(data);
+									console.log(data.status);
+									if(!data.status)
+									{
+										alert('上传错误');
+									}else
+									{
+										$('#js_ac_pic').attr('src',data.data.url);
+										$("input[name=active_img]").val(data.data.attach_id);
+										console.log(data);
+									}
+							},
+							error: function (data, status, e)
+							{
+								alert(e);
+							}
+						}
+					)	
+					return false;
+				}
+				</script>
+                </div>
+                 <div class="ca-tlist">
+                    <div class="c-l">&nbsp;</div>
+                    <div class="c-r">
+                    	
+                        <a href="javascript:;" class="ico-btn ico-btn5 fl" id="submit_a">发布</a>
+                    </div>
+                </div>                  
+            </div>
+            			
+		</div>
+		<!--右边主要区域 e-->
+		
+        <!--js控制弹出-->
+        <div class="dia-box" id="js_dia_box" style="display:none;">
+        	<div class="close_dia_bt" id="js_close_dia_btn">x</div>
+            <div class="v-ls">
+                <span>公司：</span>
+                <div>
+                    <input type="text" class="i-ipt js_cart_ipt" />
+                    <!--下拉ul-->
+                    <ul class="down-ul down-ul1" id="js_down_ul1">
+                        <li><a href="javascript:;">成都xxoo网络公司</a><em class="ico-btn ico-btn2">已认证</em></li>
+                        <li><a href="javascript:;">成都xxoo网络公司</a><em class="ico-btn ico-btn2">已认证</em></li>
+                        <li><a href="javascript:;">成都xxoo网络公司</a><em class="ico-btn ico-btn2">已认证</em></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="v-ls">
+                <span>职位：</span>
+                <div>
+                    <input type="text" class="i-ipt js_cart_ipt" />
+                    <ul class="down-ul down-ul2" id="js_down_ul2">
+                        <li><a href="javascript:;">web开发</a></li>
+                        <li><a href="javascript:;">web111</a></li>
+                        <li><a href="javascript:;">web222</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="v-ls">
+                <span>参与产品：</span>
+                <div>
+                    <input type="text" class="i-ipt js_cart_ipt" />
+                    <ul class="down-ul down-ul3" id="js_down_ul3">
+							<li><a href="javascript:;">欧系产品</a></li>
+                    </ul>
+                    <a href="javascript:;" class="ico-btn ico-btn5 fl" style="width:40px; margin-left:5px; height:33px; line-height:33px; margin-top:1px; padding:0;" id="js_add_tag_btn">添加</a>
+                </div>
+            </div>
+            
+            <div class="oh pl10 pr10" id="js_se_box">
+                <a href="javascript:;" class="sel-lis"><em></em><b>卡牌</b></a>
+            </div>
+            
+             <div class="v-ls oh pl10 pr10">
+             	<span>&nbsp;</span>
+                <input type="button" value="确定添加" class="ico-btn ico-btn5 mt5" />
+            </div>
+           
+        </div>
+        </form>
+        
+        
+        
+	</div>
+        
+        
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+
+  
+</div>
+<script>
+$("#submit_a").click(function(){
+	$("#form_mycard").submit();
+});
+</script>
+<include file="__THEME__/new_footer" />

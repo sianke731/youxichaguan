@@ -1,0 +1,336 @@
+<include file="__THEME__/new_header" />
+
+<!--面包nav s-->
+<div class="mbx-box">
+	<div class="wrap oh">
+		<p class="c-888">
+			首页 > <a href="{:U('company/Index/index')}">公司</a> > <a href="{:U('company/Index/del',array('id'=>$id))}">{$name}</a>
+		</p>
+	</div>
+</div>
+<!--面包nav e-->
+
+<div  class="wrap oh  mt15">
+	<style>
+	.rep-list .rep-right{ width:572px;}
+	.nab-list { height:130px;}
+	.nab-ul li{ float:left; width:157px; text-align:center;}
+	.nab-ul li img{ width:118px; height:70px; border:1px solid #ddd; padding:3px; display:block; margin:auto;}
+	.nab-ul li h2{ width:124px; margin:auto; line-height:20px; text-align:center;}
+	</style>
+	<div class="comp-view-side fl">
+		<div class="oh pr comp-view-pic">
+			<img src="{:getCover($logo)}" alt="{$name}" />
+			<php>if(empty($is_collection)):</php>
+			<a href="{:U('company/Index/collection',array('id'=>$id))}" class="s-btn s-btn12"><em class="st1"></em><span>收藏该公司</span></a>
+			<php>else:</php>
+			<a href="{:U('company/Index/delcollection',array('id'=>$id))}" class="s-btn s-btn12"><em class="st1"></em><span>取消收藏</span></a>
+			<php>endif;</php>
+		</div>
+	</div>
+	<div class="comp-view-main fr">
+		<div class="game-view-info bg-fff oh mb10">
+			<div class="gvi-title">
+				<h2>{$name}</h2>
+				<php>if($is_top==1):</php>
+				<span class="s-btn s-btn5">置顶</span>
+				<php>endif;</php>
+				<php>if($is_verify==3):</php>
+				<span class="ico-btn ico-btn1">审核</span>
+				<php>endif;</php>
+				<php>if($is_auth==3):</php>
+				<a class="vip-btn"><em class="st2"></em><span>认证</span></a>
+				<php>endif;</php>
+			</div>
+			
+			<div class="gvi-list">
+				<span class="gvi-sp">公司类型：</span>
+				<p>{$channel_type[$type]}</p>
+			</div>	
+			<div class="gvi-list">
+				<span class="gvi-sp">公司规模：</span>
+				<p>{$company_size[$teams]}</p>
+			</div>
+			<div class="gvi-list">
+				<span class="gvi-sp">网址</span>
+				<p><a class="c-fcb" href="{$site}">{$site}</a></p>
+			</div>
+			<div class="gvi-list">
+				<span class="gvi-sp">城市</span>
+				<p>{$city}</p>
+			</div>
+			<div class="gvi-list">
+				<span class="gvi-sp">联系人：</span>
+				<p>{$linkman}</p>
+			</div>
+			<div class="gvi-list">
+				<span class="gvi-sp">邮箱：</span>
+				<p>{$email}</p>
+			</div>
+			
+			<div class="gvi-list">
+				<span class="gvi-sp">QQ：</span>
+				<p>{$qq}</p>
+			</div>
+			
+			<php>if($type==5):</php>
+			<div class="gvi-list">
+				<span class="gvi-sp">标签：</span>
+				<p>卡牌、三国</p>
+			</div>	
+			<php>endif;</php>	
+		</div>
+		
+		<php>if($type==5):</php>
+		<ul class="active-v-tabt-box">
+			<li class="current"><a href="javascript:;">旗下游戏</a></li>
+		</ul>
+		
+		<div  class="comp-game-box oh bg-fff">
+			<ul class="oh mt20 cgb-ul">
+				<volist name="games" id="vo">
+				<li>
+					<a href="{:U('game/Index/show',array('id'=>$vo['id']))}"><img src="{:getCover($vo['logo'])}" alt="{$vo.name}" /></a>
+					<p><a href="{:U('game/Index/show',array('id'=>$vo['id']))}">{$vo.name|getShort=5}</a></p>
+				</li>
+				</volist>
+			</ul>
+		<php>endif;</php>	
+		
+		<php>if($type==7):</php>
+		<div  class="comp-game-box oh bg-fff">	
+			<table border="0" cellpadding="0" cellspacing="0" class="acv-table acv-tables ">
+				<tr>
+					<td align="center">渠道类型</td>
+					<td>{$other['types']|changeNumToWords=$channel_type}</td>
+				</tr>
+				<tr>
+					<td  align="center">合作游戏平台要求</td>
+					<td>{$other['require']|changeNumToWords=$platform}</td>
+				</tr>
+				<tr>
+					<td  align="center">定价模式</td>
+					<td>{$other['models']|changeNumToWords=$pricing_model}</td>
+				</tr>
+				<tr>
+					<td  align="center">合作区域</td>
+					<td>{$other['areas']|changeNumToWords=$cooperation_area}</td>
+				</tr>
+			</table>
+		<php>endif;</php>	
+		
+		
+		<php>if($type==9):</php>
+		<div  class="comp-game-box oh bg-fff">
+			<table border="0" cellpadding="0" cellspacing="0" class="acv-table acv-tables ">
+				<tr>
+					<td align="center">合作区域</td>
+					<td>{$other['areas']|changeNumToWords=$cooperation_area}</td>
+				</tr>
+				<tr>
+					<td  align="center">合作游戏平台要求</td>
+					<td>{$other['platform_require']|changeNumToWords=$platform}</td>
+				</tr>
+				<tr>
+					<td  align="center">合作游戏联网要求</td>
+					<td>{$other['network_require']|changeNumToWords=$networking}</td>
+				</tr>
+				<tr>
+					<td  align="center">合作游戏阶段要求</td>
+					<td>{$other['stage_require']|changeNumToWords=$game_phase}</td>
+				</tr>
+				<tr>
+					<td  align="center">合作团队要求</td>
+					<td>{$other['team_require']}</td>
+				</tr>
+			</table>
+		</div>
+		<ul class="active-v-tabt-box mt10">
+			<li class="current"><a href="javascript:;">发行过的游戏</a></li>
+		</ul>
+		
+		
+		<div  class="comp-game-box oh bg-fff">
+			
+			<ul class="oh mt15  cgb-ul2">
+				<volist name="games" id="vo">
+				<li>
+					<a href="{:U('game/Index/show',array('id'=>$vo['id']))}"><img src="{:getCover($vo['logo'])}" alt="{$vo.name}" /></a>
+					<div class="l2-info">
+						<h2>{$vo.name|getShort=5}</h2>
+						<p>代理费：50万</p>
+						<p>合作区域：美国</p>
+						<p>平台：IOS</p>
+					</div>
+				</li>
+				</volist>
+			</ul>
+		<php>endif;</php>	
+		
+		<php>if($type==10):</php>
+		<div  class="comp-game-box oh bg-fff">
+			<table border="0" cellpadding="0" cellspacing="0" class="acv-table acv-tables ">
+				<tr>
+					<td align="center">产品整包</td>
+					<td>{$other['wholes']|changeNumToWords=$product_outsourcing}</td>
+				</tr>
+				<tr>
+					<td  align="center">美术外包</td>
+					<td>{$other['arts']|changeNumToWords=$arts_outsourcing}</td>
+				</tr>
+				<tr>
+					<td  align="center">音乐外包</td>
+					<td>{$other['musics']|changeNumToWords=$music_outsourcing}</td>
+				</tr>
+				<tr>
+					<td  align="center">测试外包</td>
+					<td>{$other['tests']|changeNumToWords=$test_outsourcing}</td>
+				</tr>
+				<tr>
+					<td  align="center">程序外包</td>
+					<td>{$other['programs']|changeNumToWords=$program_outsourcing}</td>
+				</tr>
+				<tr>
+					<td  align="center">企划外包</td>
+					<td>{$other['plans']|changeNumToWords=$plan_outsourcing}</td>
+				</tr>
+			</table>
+		<php>endif;</php>	
+		
+		<php>if($type==12):</php>
+		<div  class="comp-game-box oh bg-fff">		
+			<table border="0" cellpadding="0" cellspacing="0" class="acv-table acv-tables ">
+				<tr>
+					<td align="center">主投游戏阶段</td>
+					<td>{$other['stage']|changeNumToWords=$investment_phase}</td>
+				</tr>
+				<tr>
+					<td  align="center">对团队游戏要求</td>
+					<td>{$other['require']}</td>
+				</tr>
+				<tr>
+					<td  align="center">有无投资经验</td>
+					<td><php>if($other['is_experience']==1):</php>有<php>else:</php>无<php>endif;</php></td>
+				</tr>
+				<tr>
+					<td  align="center">曾投资游戏数</td>
+					<td>{$other['games']|changeNumToWords=$has_game_num}</td>
+				</tr>
+				<tr>
+					<td  align="center">曾投资总额</td>
+					<td>{$other['price']|changeNumToWords=$has_cost}</td>
+				</tr>
+			</table>
+		<php>endif;</php>
+		
+		<php>if($type==11):</php>
+		<div  class="comp-game-box oh bg-fff">		
+			<table border="0" cellpadding="0" cellspacing="0" class="acv-table acv-tables ">
+				<tr>
+					<td align="center">服务类型</td>
+					<td>{$other['types']|changeNumToWords=$service_type}</td>
+				</tr>
+			</table>
+		<php>endif;</php>	
+		
+		
+			<php>if($uid == $mid):</php>
+			<div class="ac-t-list oh ml15">
+				<p class="ac-tmsg"><span>创建者:</span>{$uid|getUserName} <a href="#" class="s-btn s-btn8">发通知</a></p>
+				<p class="ac-tmsg"><span>创建时间 :</span><php>echo date('Y-m-d H:i:s',$ctime);</php></p>
+				<div class="clear"></div>
+				<table style="width:660px; margin:10px 0;" border="0" cellpadding="0" cellspacing="0" class="acv-table">
+					<tbody><tr>
+						<td align="center">申请时间</td>
+						<td align="center">状态</td>
+						<td align="center">操作</td>
+					</tr>
+					<tr>
+						<td align="center"><php>echo date('Y-m-d',$ctime);</php></td>
+						<td align="center">
+							<php>if($is_verify == 0):</php>
+								<span class="ico-btn ico-btn3">未审核</span>
+							<php>elseif($is_verify == 1):</php>
+								<span class="ico-btn ico-btn3">未审核</span>
+							<php>elseif($is_verify == 2):</php>
+								<span class="ico-btn ico-btn3">审核通过</span>
+							<php>else:</php>
+								<span class="ico-btn ico-btn3">已审核</span>
+							<php>endif;</php>
+						</td>
+						<td align="center">
+							<div class="act-oper">
+								<php>if($is_auth != 3):</php>
+								<a href="#">申请认证</a>
+								<php>endif;</php>
+								<a href="{:U('company/Index/edit',array('id'=>$id))}">编辑</a>
+								<a href="{:U('company/Index/del',array('id'=>$id))}">删除公司</a>
+							</div>
+						</td>
+					</tr>
+				</tbody></table>
+				<!-- 
+				<p class="ac-tmsg"><span>真实姓名:</span>李林</p>
+				<p class="ac-tmsg"><span>公司:</span>成都鑫海网络游戏公司</p>
+				<p class="ac-tmsg"><span>职位:</span>戏运营</p>
+				<p class="ac-tmsg"><span>手机:</span>15465151</p>
+				<p class="ac-tmsg"><span>邮箱:</span>戏运营</p>
+				<p class="ac-tmsg"><span> QQ:</span>发送到广发改</p>
+				 -->
+			</div>
+			<php>endif;</php>
+			
+			<div class="ac-t-list oh mt15 ml15">
+				<div class="sub-tit-box mb10">
+					<h2>公司介绍</h2>
+				</div>
+				<p class="oh mb20 pr10">
+					{$introduce}
+				</p>
+			</div>
+			
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		<div class="new-addgame-box oh bg-fff mt15">
+			<div class="pub-tit-box pub-tit-box3">
+				<h2>新加入公司</h2>
+				<div class="pt-r ml5"> <a href="javascript:;" id="js_prev" class="prev-btn p-btn">&lt;</a> <a href="javascript:;" id="js_next" class="next-btn p-btn">&gt;</a>  </div>
+				<a href="{:U('company/Index/index')}" class="p-more" >更多+</a>
+			</div>
+			<div class="nab-list oh pr">
+				<ul class="nab-ul" id="js_scroll_ul">
+					<volist name='newCompany' id='vo'>
+					<li>
+						<a href="{:U('company/Index/show',array('id'=>$vo['id']))}"><img src="{:getCover($vo['logo'])}" alt="{$vo.name}" /></a>
+						<h2><a href="{:U('company/Index/show',array('id'=>$vo['id']))}">{$vo.name|getShort=8}</a></h2>
+					</li>
+					</volist>
+				</ul>
+			</div>
+		</div>
+		<style>
+		.rep-fm .rep-fm-info{ width:670px; overflow:hidden;}
+		.rep-fm .rep-fm-info .i-ipt{ width:520px;}
+		</style>
+		{:W('Comment',array('tpl'=>'detail', 'table'=>'company', 'row_id'=>$id, 'canrepost'=>'0', 'cancomment'=>1, 'cancomment_old'=>0, 'showlist'=>1, 'limit'=>'20', 'order'=>'DESC'))}
+	</div>
+	
+</div>
+<include file="__THEME__/new_footer" />
+<script type="text/javascript">
+//首页js
+var gameViews = {
+	init:function(){
+		$.scrollpic(); //滚动图片列表
+	}
+};
+$(document).ready(function() {
+	gameViews.init();
+});
+</script>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body>
+<a href="#" class="s-btn s-btn1">测试按钮1</a>
+<a href="#" class="s-btn s-btn2">测试按钮2</a>
+<a href="#" class="s-btn s-btn3">测试按钮3</a>
+<a href="#" class="s-btn s-btn4">测试按钮4</a>
+
+<a href="#" class="s-btn s-btn5">测试按钮5</a>
+<a href="#" class="s-btn s-btn6">测试按钮6</a>
+<a href="#" class="s-btn s-btn7">测试按钮7</a>
+<a href="#" class="s-btn s-btn8">测试按钮8</a>
+<a href="#" class="s-btn s-btn9">测试按钮9</a>
+<a href="#" class="s-btn s-btn10">测试按钮10</a>
+<a href="#" class="s-btn s-btn11">测试按钮11</a>
+
+<a href="#" class="s-btn s-btn12"><em class="st1"></em><span>测试按钮12</span></a>
+<a href="#" class="s-btn s-btn13"><em class="st2"></em><span>测试按钮13</span></a>
+
+
+<a href="#" class="vip-btn">按钮</a>
+
+<br /><br />
+
+<a href="#" class="l-btn l-btn1"><em></em><span>这是测试文字</span></a>
+<a href="#" class="l-btn l-btn2"><em></em><span>这是测试文字</span></a>
+<div class="ml20">
+	<div class="l-tps l-tps1"><em></em>测试</div>
+	<div class="l-tps l-tps2"><em></em>测试后</div>
+	
+	<a class="r-tps r-tps1">这里测试文字<em></em></a>
+	
+</div>
+<div class="sub-search ml20 mt20">
+	<input type="text"  class="sub-search-ipt" placeholder="请输入关键字" />
+	<input type="submit" value="" class="sub-search-btn" />
+</div>
+
+<!--
+<div id="dialog-bg"></div>
+<div id="dialog-main">
+	<h2 id="dialog-tit" class="dialog-tit">
+		<span id="d-tit">修改密码</span>
+		<a href="javascript:;" id="dialog-close" title="关闭"></a>
+	</h2>
+	<div id="dialog-box">
+		<div class="tc">
+			<p class="dia-msg dia-msg-asc">这里是成功后的提示信息啊...</p>
+			<p class="dia-msg dia-msg-error">有问题的提示哦...</p>
+			<a href="javascript:;" id="js_dia_btn" class="ico-btn ico-btn6">确定</a>
+		</div>
+	</div>
+</div>
+-->
+
+
+<em class="ico ico1"></em>
+<em class="ico ico2"></em>
+<em class="ico ico3"></em>
+<em class="ico ico4"></em>
+<em class="ico ico5"></em>
+<em class="ico ico6"></em>
+<em class="ico ico7"></em>
+<em class="ico ico8"></em>
+<em class="ico ico9"></em>
+<em class="ico ico10"></em>
+<em class="ico ico11"></em>
+
+
+
+
+
+<input type="button"  style="widht:200px; height:40px;" value="弹出错误提示" id="js_error_ars" />
+<input type="button"  style="widht:200px; height:40px;" value="弹出成功提示" id="js_asc_ars" />
+<input type="button"  style="widht:200px; height:40px;" value="确定和取消测试" id="js_conFirm" />
+<input type="button"  style="widht:200px; height:40px;" value="载入网页啊" id="js_load_html" />
+
+
+
+<br />
+<span id="day">00</span>天
+<span id="hour">00</span>小时
+<span id="minute">00</span>分钟
+<span id="second">00</span>秒数
+
+
+
+<script type="text/javascript">
+//倒计时效果调用
+$(function(){
+	$.countDownTime({
+		etime:new Date('2014/01/15 15:00:00'),
+		days:$('#day'),
+		hours:$('#hour'),
+		minutes:$('#minute'),
+		seconds:$('#second')
+	});
+});
+
+</script>
+
+<script>
+//这里演示弹出插件用法
+$('#js_asc_ars').die().live('click',function(){
+	//创建弹窗 (失败提示)
+	dialog._create({
+		width:320,//窗体宽度px
+		title:'我是弹出啊...', //弹窗标题
+		ascMsg:'您的操作完成正确...' //成功的提示效果
+	});
+	
+});
+
+$('#js_error_ars').die().live('click',function(){
+	//创建弹窗 (失败提示)
+	dialog._create({
+		width:320,//窗体宽度px
+		title:'我是弹出啊...', //弹窗标题
+		errorMsg:'操作出问题了...' //成功的提示效果
+	});
+	
+});
+
+
+$('#js_load_html').die().live('click',function(){
+	//创建弹窗(载入网页)
+	dialog._create({
+		width:500,//窗体宽度px
+		top:100, //设置弹窗在页面的固定位置
+		title:'我是弹出啊...', //弹窗标题
+		url:'load_html/txl_view.html',
+		callback:function(){
+			//当页面载入之后。有一定的操作。在该函数执行
+			//alert('我是回调函数...');
+		}
+	});
+});
+
+$('#js_conFirm').die().live('click',function(){
+	//创建弹窗(载入网页)
+	dialog._create({
+		width:300,//窗体宽度px
+		title:'我是弹出啊...', //弹窗标题
+		conFirm:'真的要删除吗？想好没有哦？',
+		fmCallBack:function(obj){
+			if(obj){
+				//点击确定的操作
+			}else{
+				//点击取消的操作
+			}
+		}
+	});
+});
+
+</script>
+
+
+</body>
+
+<script>
+/*dialog._create({
+	width:360,
+	ascMsg:'失败的提示信息啊...',
+	callback:function(){
+		
+	}
+});*/
+</script>
+
+</html>

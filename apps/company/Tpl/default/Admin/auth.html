@@ -1,0 +1,33 @@
+<include file="__THEME__/admin_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+
+<div id="container" class="so_main">
+  <div class="page_tit">修改公司</div>
+    <div class="form2">
+  <form method="post" name="form1" action="{:U('company/Admin/doauth',array('company_id'=>$_GET[id]))}" id="form1">
+   
+  
+   <dl class="lineD" id='dl_{$pk}'>
+      <dt>审核：</dt>
+      <dd>
+      	        <label><input type="radio" name="is_auth" value="0" <if condition="$auth[is_auth] eq 0">checked="checked"</if>>否 </label>            		
+      	        <label><input type="radio" name="is_auth" value="1" <if condition="$auth[is_auth] eq 1">checked="checked"</if>>是 </label>            		
+      </dd>
+    </dl>
+   <dl class="lineD" id='dl_{$pk}'>
+      <dt>认证：</dt>
+      <dd>
+      	        <label><input type="radio" name="is_verify" value="0" <if condition="$auth[is_verify] eq 0">checked="checked"</if>>否 </label>            		
+      	        <label><input type="radio" name="is_verify" value="1" <if condition="$auth[is_verify] eq 1">checked="checked"</if>>是 </label>            		
+      </dd>
+    </dl>
+
+    
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" onclick="submitform()" />
+    </div>
+  </form>
+  </div>
+  </div>
+<include file="__THEME__/admin_footer" />

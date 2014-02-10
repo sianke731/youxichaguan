@@ -1,0 +1,249 @@
+             <div class="boxs isbgs oh">
+            	<div class="b-l">合作方式:</div>
+                <div class="b-r oh che-box">
+                <volist name="cooperation_type" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="cooperation_type[]" type="checkbox" value="{$k}" id="cooperation_type_{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>   <php>if(in_array($k,$publish['areas'])){</php> checked="checked"<php>}</php> >
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+                <div class="b-l">合作区域:</div>
+                <div class="b-r oh che-box">
+                <volist name="cooperation_area" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="cooperation_area_7[]" type="checkbox" value="{$k}" id="cooperation_area_{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>   <php>if(in_array($k,$publish['areas'])){</php> checked="checked"<php>}</php> >
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">合作游戏平台要求:</div>
+                <div class="b-r oh che-box">
+                <volist name="platform" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="platform_require" type="radio" value="{$k}" id="platform_{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="$k eq $publish['platform_require']"> checked="checked"</if>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">合作游戏联网要求:</div>
+                <div class="b-r oh che-box">
+                <volist name="networking" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="networking" type="radio" value="{$k}" id="networking{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="$k eq $publish['network_require']"> checked="checked"</if>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">合作游戏阶段要求:</div>
+                <div class="b-r oh che-box">
+                <volist name="game_phase" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="game_phase" type="radio" value="{$k}" id="networking{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="$k eq $publish['stage_require']"> checked="checked"</if>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                </div>
+                <div class="clear"></div>
+                
+                
+                <div class="oh mt10">
+                	<div class="b-l">对团队游戏要求:</div>
+                    <div class="b-r oh che-box">
+                       <textarea  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  name="game_team_require" class="i-txt" style="width:450px;">{$publish['team_require']}</textarea>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                
+<!--                <div class="oh mt10">
+                	<div class="b-l">有无发行经验:</div>
+                    <div class="b-r oh che-box">
+                	<label class="ckd">
+                    	<input name="experience" type="radio" value="1" id="experience_1"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="1 eq $publish['is_experience']"> checked="checked"</if>>
+                        <span>有</span>
+                    </label>
+                	<label class="ckd">
+                    	<input name="experience" type="radio" value="0" id="experience_0"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="0 eq $publish['is_experience']"> checked="checked"</if>>
+                        <span>暂无</span>
+                    </label>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">曾发行游戏数:</div>
+                <div class="b-r oh che-box">
+                
+                    <select name="has_game_num" class="i-sele fl">
+                        <volist name="has_game_num" id="vo" key="k">
+                            <option value="{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="$k eq $publish['games']"> selected="selected"</if>>{$vo}</option>
+                        </volist>
+                    </select>
+                
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">曾代理费用:</div>
+                <div class="b-r oh che-box">
+                    <select name="has_cost" class="i-sele fl">
+                        <volist name="has_cost" id="vo" key="k">
+                            <option value="{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="$k eq $publish['price']"> selected="selected"</if>>{$vo}</option>
+                        </volist>
+                    </select>
+                </div>
+                <div class="clear"></div>-->
+                <div id="game_show">      
+                    <table width="600" border="0" cellspacing="1" cellpadding="1">
+                      <tr>
+                        <td>游戏名称</td>
+                        <td>ICON</td>
+                        <td>代理区域</td>
+                        <td>代理平台</td>
+                        <td>代理费</td>
+                        <td>操作</td>
+                      </tr>
+                      <volist name="has_pub_game" id="vo">
+                      <tr>
+                        <td>{$vo.name}</td>
+                        <td><img src='/data/upload/{$vo.icon.save_path}{$vo.icon.save_name}' width='70' height='70' ></td>
+                        <td>{$vo.area_show}</td>
+                        <td>{$vo.platform_show}</td>
+                        <td>{$has_cost[$vo[cost]]}</td>
+                        <td><a href='javascript:;' class='company_widget_game_del' >删除</a></td>
+                      </tr>
+					  </volist>
+                    </table>
+                </div> 
+                 <a href="javascript:;" id="js_add_game_btn" class="ico-btn ico-btn5 mt10 ml20 mb10">+ 添加已发行手游产品</a> 
+                
+                <div class="oh add-games" style="display:none;" id="js_add_games_box">
+                	<div class="oh">
+                        <div class="b-l">游戏名:</div>
+                        <div class="b-r oh">
+                           <input type="text" name="company_widget_game_name" class="i-ipt" />
+                        </div>
+               		</div>
+                    <div class="oh mt10">
+                        <div class="b-l">ICON:</div>
+                        <div class="b-r oh">
+                        	<div class="oh pr">
+                        	<a href="#" class="ico-btn ico-btn6 fl mr10">上传ICON</a>
+                            <input type="file" name="files" onchange="ajaxFileUpload_company_widget();" style="margin:0;width:94px; height:100%; background:red; position:absolute; z-index:1; left:0; *left:-5px; top:0; opacity:0; filter:alpha(opacity=0);" id="files" />
+                   			<input name="company_widget_game" type="hidden" value="" />
+                            </div>
+                            <img src="../test/test4.png" id="company_widget_game_img" width="70" height="70"  class="fl" />
+                            <script>
+				function ajaxFileUpload_company_widget(){
+					$.ajaxFileUpload
+					(
+						{
+							url:'{:U("event/index/upload_img")}',
+							secureuri:false,
+							fileElementId:'files',
+							dataType: 'json',
+							data:{name:'logan', id:'id'}, //这里是参数。你自己可以修改的
+							success: function (data, status)
+							{
+								//console.log(data);
+									//console.log(data.status);
+									if(!data.status)
+									{
+										alert('上传错误');
+									}else
+									{
+										$('#company_widget_game_img').attr('src',data.data.url);
+										$("input[name=company_widget_game]").val(data.data.attach_id);
+										//console.log(data);
+									}
+							},
+							error: function (data, status, e)
+							{
+								alert(e);
+							}
+						}
+					)	
+					return false;
+				}
+				</script>
+                        </div>
+               		</div>
+                    
+                    <div class="oh mt5">
+                        <div class="b-l">代理区域:</div>
+                        <div class="b-r oh che-box">
+                  	 <volist name="cooperation_area" id="vo" key="k">
+				  		<label class="rds-lb"><input type="checkbox" class="company_widget_game_area" name="company_widget_game_area[]" value="{$k}" /><span>{$vo}</span></label>
+                     </volist>
+                        </div>
+                	</div>
+                    
+                     <div class="oh mt5">
+                        <div class="b-l">代理平台:</div>
+                        <div class="b-r oh che-box">
+                            <volist name="platform" id="vo" key="k">
+                                <label class="ckd" >
+                                    <input type="checkbox" value="{$k}" class="company_widget_game_platform" name="company_widget_game_platform[]">
+                                    <span>{$vo}</span>
+                                </label>
+                            </volist>
+                        </div>
+                	</div>
+                    
+                    <div class="oh mt5">
+                        <div class="b-l" style="line-height:50px;">代理费:</div>
+                        <div class="b-r oh che-box">
+                            <select  name="company_widget_game_cost" class="i-sele fl mr10">
+                            <volist name="has_cost" id="vo" key="k">
+                            <option value="{$k}">{$vo}</option>
+                            </volist>
+                            </select>
+                           <span class="fl" style="line-height:40px; *line-height:22px; display:block;">(人民币)</span>
+                        </div>
+                	</div>
+                    <div class="oh mt5">
+                      <div class="b-l">&nbsp;</div>
+                      <div class="c-r">
+                        <a id="company_widget_sub_add" href="javascript:;" class="ico-btn ico-btn5 fl">确定添加</a>
+                      </div>
+					</div>
+                </div>
+                
+			</div>
+<script>
+
+$(function() {
+	// Handler for .ready() called.
+	$("#js_add_game_btn").click(function(){
+		$("#js_add_games_box").show();
+	});
+	$("#company_widget_sub_add").click(function(){
+		
+		if(($("input[name=company_widget_game_name]").val()=="")||($("input[name=company_widget_game]").val()=="")||($("input.company_widget_game_area:checked").size()==0)||($("input.company_widget_game_platform:checked").size()==0)||($("select[name=company_widget_game_cost]").val()=="")){
+			//alert("代理公司信息未填写完整");
+			return false;
+		}else{
+			temp_area = "";
+			temp_area_input = "";
+			$("input.company_widget_game_area:checked").each(function(){
+				//console.log($(this));
+				temp_area += $(this).parents("label").children("span").text()+" ";
+				temp_area_input += $(this).val()+",";
+			});
+			temp_platform = "";
+			temp_platform_input = "";
+			$("input.company_widget_game_platform:checked").each(function() {
+				temp_platform += $(this).parents("label").children("span").text()+" ";
+				temp_platform_input += $(this).val()+",";
+			});
+			$("#game_show table tr:last").after("<tr><td>"+$("input[name=company_widget_game_name]").val()+"</td><td><img src='"+$('#company_widget_game_img').attr('src')+"' width='70' height='70' ></td><td>"+temp_area+"</td><td>"+temp_platform+"</td><td>"+$("select[name=company_widget_game_cost]").children("option:selected").text()+"<input type='hidden' name='company_widget_game_hidden[]' value='"+$("input[name=company_widget_game_name]").val()+"-"+$("input[name=company_widget_game]").val()+"-"+temp_area_input+"-"+temp_platform_input+"-"+$("select[name=company_widget_game_cost]").val()+"'></td><td><a href='javascript:;' class='company_widget_game_del' >删除</a></td></tr>");
+		}
+	});
+	$(".company_widget_game_del").live("click",function(){
+	//console.log($(this));
+		$(this).parents("tr").remove();
+	});
+});
+</script>

@@ -1,0 +1,125 @@
+<include file="__THEME__/new_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+
+
+<div  class="wrap oh  mt15">
+	<div class="sub-side">
+		<div class="com-side-box pt10 pb20 mb10 oh bg-fff">
+			<h2>地域</h2>
+			<ul class="com-side-ul1">
+				<li class="current"><a href="{:U('member/Index/index')}">不限</a></li>
+				<li><a href="{:U('member/Index/index',array('city'=>'510100'))}">成都</a></li>
+				<li><a href="{:U('member/Index/index',array('city'=>'310000'))}">上海</a></li>
+				<li><a href="{:U('member/Index/index',array('city'=>'110100'))}">北京</a></li>
+				<li><a href="{:U('member/Index/index',array('city'=>'440100'))}">广州</a></li>
+			</ul>
+			<h2>公司类别</h2>
+			<ul class="com-side-ul2">
+				<li class="current"><a href="{:U('member/Index/index')}">不限</a></li>
+                <volist name="company_type" id="vo">
+                    <li><a href="{:U('member/Index/index',array('company_type'=>$vo[id]))}">{$vo.title}</a></li>
+                </volist>
+			</ul>
+			<h2>职位类型</h2>
+			<ul class="com-side-ul2">
+				<li class="current"><a href="{:U('member/Index/index')}">不限</a></li>
+                <volist name="position_type" id="vo">
+                    <li><a href="{:U('member/Index/index',array('position_type'=>$vo[id]))}">{$vo.title}</a></li>
+                </volist>
+			</ul>
+		</div>
+	</div>
+	<div class="sub-main">
+		<div class="oh bg-fff">
+        	<if condition="$has_member eq 0">
+			<div class="my-bus-top oh m10">
+				<p>目前已有<span>{$total_num}</span>加入通讯录，你还没有加入? 赶紧写名片吧!</p>
+				<a href="{:U('member/Index/edit')}" class="bus-ico bus-ico1">
+					<em></em>
+					<span>发布我的名片</span>
+				</a>
+			</div>
+            <else />
+			<p class="pl10">目前已有<span class="c-e43"> {$total_num} </span>人加入通讯录， 我的名片 
+            <switch name="member.is_auth">
+                <case value="0"><span class="ico-btn ico-btn1">审核中</span></case>
+                <case value="1"><span class="ico-btn ico-btn1">审核通过</span></case>
+                <case value="2"><span class="ico-btn ico-btn1">审核不通过</span></case>
+            </switch>
+            
+            </p>
+			<div class="oh m10">
+				<a href="{:U('member/Index/edit')}" class="bus-ico bus-ico2">
+					<em></em>
+					<span>编辑我的名片</span>
+				</a>
+			</div>
+            </if>
+			<div class="game-order-box">
+				<span>排序</span>
+				<a href="{:U('member/Index/index',array('order'=>'time'))}" class="s-btn <php>if($order != 'verify'):</php>s-btn5<php>else:</php>s-btn6<php>endif;</php>">最新发布</a>
+				<a href="{:U('member/Index/index',array('order'=>'verify'))}" class="s-btn <php>if($order == 'verify'):</php>s-btn5<php>else:</php>s-btn6<php>endif;</php>">认证公司</a>
+				<form action="{:U('member/Index/index')}" name="search" id="search" method="get">
+                <input type="hidden" name="app" value="member" />
+                <input type="hidden" name="mod" value="Index" />
+                <input type="hidden" name="act" value="index" />
+				<div class="sub-search fr">
+					<input type="text" name="keyword" class="sub-search-ipt" placeholder="请输入关键字">
+					<input type="submit" value="" class="sub-search-btn">
+				</div>
+                </form>
+			</div>
+		</div>
+		
+		<ul class="txl-list-ul">
+        <volist name="list" id="vo">
+			<li>
+				<img src="{$vo.avatar_url}" />
+				<div class="txl-info">
+					<h2>{$vo.name}</h2>
+					<p>{$vo.company_name}<br />
+                    {$vo.position}
+					</p>
+					<a data-id="{$vo.id}" href="javascript:;" class="js_look_txl">详情</a>
+				</div>
+			</li>
+        </volist>
+		</ul>
+		
+	</div>
+	
+</div>
+
+<a href="#" id="js_yjfk" title="意见反馈"></a>
+<a href="#" id="js_ly" title="我要留言"></a>
+<a href="javascript:;" id="js_rtop" title="返回顶部"></a>
+<script>
+var txlListMode = {
+	//查看名片详细页面
+	lookTxlView:function(){
+		$('.js_look_txl').die().live('click',function(){
+			id = $(this).data("id");
+			console.log(id);
+			dialog._create({
+				width:620,
+				top:100,
+				title:'详细信息',
+				url:'{:U("member/Index/detail")}&id='+id,
+				callback:function(){
+					//一些逻辑
+				}
+			});
+		});
+	},
+	init:function(){
+		this.lookTxlView();
+	}
+};
+$(document).ready(function() {
+	txlListMode.init();
+});
+
+
+</script> 
+<include file="__THEME__/new_footer" />

@@ -1,0 +1,187 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh  mt15">
+	<div class="sub-side">
+		<div class="oh mb10 bg-fff game-side-btn">
+			<a href="{:U('company/Index/add')}" class="l-btn l-btn1" style="margin-bottom:0;"><em></em><span>发布公司信息</span></a>
+		</div>
+		
+		<div class="com-side-box pt10 pb20 oh bg-fff">
+			<h2>地域</h2>
+			<ul class="com-side-ul1">
+				<li <php>if(!$area){</php> class="current"<php>}</php>><a href="{:U('company/Index/index',changeArray($flags,'area',''))}">不限</a></li>
+				<volist name="areas" id="vo">
+				<li <php>if($area == $vo['title']){</php> class="current"<php>}</php>><a href="{:U('company/Index/index',changeArray($flags,'area',$vo['title']))}">{$vo.title}</a></li>
+				</volist>
+			</ul>
+			<h2>类型</h2>
+			<ul class="com-side-ul2">
+				<li <php>if(!$type){</php> class="current"<php>}</php>><a href="{:U('company/Index/index',changeArray($flags,'type',0))}">不限</a></li>
+				<volist name="types" id="vo">
+				<li <php>if($type == $vo['title']){</php> class="current"<php>}</php>><a href="{:U('company/Index/index',changeArray($flags,'type',$vo['id']))}">{$vo.title}</a></li>
+				</volist>
+			</ul>
+		</div>
+		
+		
+		
+	</div>
+	<div class="sub-main">
+		<php>if($keys):</php>
+		<div class="game-search-box oh bg-fff mb10">
+			<p class="m10">
+				根据关键词“<b class="c-e43 pl5 pr5">{$keys}</b>”共搜索到<b class="c-e43 pl5 pr5">{$count}</b>条数据
+			</p>
+		</div>
+		<php>endif;</php>
+		<div class="game-search-box commpany-search-box oh bg-fff">
+			<php>if($type == 5){</php>
+			<h2>开发商</h2>
+			<p>
+				<a href="{:U('company/Index/index',changeArray($flags,'tag',''))}" <php>if(!$tag){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="game_tags" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'tag',$vo['title']))}" <php>if($tag == $vo['title']){</php> class="s-btn s-btn8"<php>}</php>>{$vo.title}</a>
+				</volist>
+			</p>
+			<php>}</php>
+			<php>if($type == 7){</php>
+			<h2>渠道商</h2>
+			<div class="c-p">
+				<div class="r-tps r-tps1">用户覆盖区域<em></em></div>
+				<a href="{:U('company/Index/index',changeArray($flags,'coop',''))}" <php>if(!$coop){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="cooperation_area" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'coop',$i))}" <php>if($coop == $i){</php> class="s-btn s-btn8"<php>}</php>>{$vo}</a>
+				</volist>
+			</div>
+			<div class="c-p">
+				<div class="r-tps r-tps1">渠道类型<em></em></div>
+				<a href="{:U('company/Index/index',changeArray($flags,'channel',''))}" <php>if(!$channel){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="channel_type" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'channel',$i))}" <php>if($channel == $i){</php> class="s-btn s-btn8"<php>}</php>>{$vo}</a>
+				</volist>
+			</div>
+			<div class="c-p">
+				<div class="r-tps r-tps1">定价模式<em></em></div>
+				<a href="{:U('company/Index/index',changeArray($flags,'pricing',''))}" <php>if(!$pricing){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="pricing_model" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'pricing',$i))}" <php>if($pricing == $i){</php> class="s-btn s-btn8"<php>}</php>>{$vo}</a>
+				</volist>
+			</div>
+			<php>}</php>
+			<php>if($type == 9){</php>
+			<h2>发行商</h2>
+			<div class="c-p">
+				<div class="r-tps r-tps1">合作区域<em></em></div>
+				<a href="{:U('company/Index/index',changeArray($flags,'coop',''))}" <php>if(!$coop){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="cooperation_area" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'coop',$i))}" <php>if($coop == $i){</php> class="s-btn s-btn8"<php>}</php>>{$vo}</a>
+				</volist>
+			</div>
+			<div class="c-p">
+				<div class="r-tps r-tps1">合作平台要求<em></em></div>
+				<a href="{:U('company/Index/index',changeArray($flags,'plat',''))}" <php>if(!$plat){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="platform" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'plat',$i))}" <php>if($plat == $i){</php> class="s-btn s-btn8"<php>}</php>>{$vo}</a>
+				</volist>
+			</div>
+			<div class="c-p">
+				<div class="r-tps r-tps1">游戏阶段要求<em></em></div>
+				<a href="{:U('company/Index/index',changeArray($flags,'phase',''))}" <php>if(!$phase){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="game_phase" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'phase',$i))}" <php>if($phase == $i){</php> class="s-btn s-btn8"<php>}</php>>{$vo}</a>
+				</volist>
+			</div>
+			<php>}</php>
+			
+			<php>if($type == 10){</php>
+			<h2>外包商</h2>
+			<div class="c-p">
+				<div class="r-tps r-tps1">外包类型<em></em></div>
+				<a href="{:U('company/Index/index',changeArray($flags,'out',''))}" <php>if(!$out){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="outsourcing_type" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'out',$i))}" <php>if($out == $i){</php> class="s-btn s-btn8"<php>}</php>>{$vo}</a>
+				</volist>
+			</div>
+			<php>}</php>
+			
+			<php>if($type == 12){</php>
+			<h2>投资商</h2>
+			<div class="c-p">
+				<div class="r-tps r-tps1">投资阶段<em></em></div>
+				<a href="{:U('company/Index/index',changeArray($flags,'phase',''))}" <php>if(!$phase){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="game_phase" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'phase',$i))}" <php>if($phase == $i){</php> class="s-btn s-btn8"<php>}</php>>{$vo}</a>
+				</volist>
+			</div>
+			<php>}</php>
+			
+			<php>if($type == 11){</php>
+			<h2>服务商</h2>
+			<div class="c-p">
+				<div class="r-tps r-tps1">服务类型<em></em></div>
+				<a href="{:U('company/Index/index',changeArray($flags,'service',''))}" <php>if(!$service){</php> class="s-btn s-btn8"<php>}</php>>全部</a>
+				<volist name="service_type" id="vo">
+					<a href="{:U('company/Index/index',changeArray($flags,'service',$i))}" <php>if($service == $i){</php> class="s-btn s-btn8"<php>}</php>>{$vo}</a>
+				</volist>
+			</div>
+			<php>}</php>
+			
+			<div class="game-order-box mt15">
+				<span>排序</span>
+				<a href="{:U('company/Index/index',changeArray($flags,'order','id'))}" class="s-btn s-btn5">最新发布</a>
+				<a href="{:U('company/Index/index',changeArray($flags,'is_auth','id'))}" class="s-btn s-btn6">认证公司</a>
+			</div>
+		</div>
+		
+		<ul class="com-rs-ul oh">
+			<volist name='data' id='vo'>
+			<li class="cru-list">
+				<div class="cr-l">
+					<a href="{:U('company/Index/show',array('id'=>$vo['id']))}"><img src="{:getCover($vo['logo'])}" alt="{$vo.name}" /></a>
+					<div class="cru-tgs">
+						<php>if($vo.is_recommend):</php>
+						<span class="s-btn s-btn7">推荐</span>
+						<php>endif;</php>
+						<php>if($vo.is_top):</php>
+						<span class="s-btn s-btn5">置顶</span>
+						<php>endif;</php>
+						<php>if($vo.is_auth):</php>
+						<span class="vip-btn">认证</span>
+						<php>endif;</php>
+					</div>
+				</div>
+				<div class="cr-r">
+					<h2><a href="{:U('company/Index/show',array('id'=>$vo['id']))}">{$vo.name}</a></h2>
+					<div class="crr-if">
+						<div  class="crr-l">
+							<p><span>类型：</span>{$channel_type[$vo['type']]}</p>
+							<p><span>地区：</span>{$vo['city']|getAreaName}</p>
+							<p><span>公司规模：</span>{$company_size[$vo['teams']]}</p>
+							<p><span>网址：</span><a href="{$vo.site}">{$vo.site}</a></p>
+						</div>
+						<php>if($type == 9):</php>
+						<div class="crr-r">
+							<p><span>发行作品:</span></p>
+							<ul class="c-game-lis">
+								<volist name="vo.game" id="voo">
+								<li>
+									<a href="{:U('game/Index/show',array('id'=>$voo['id']))}">
+										<img src="{:getCover($voo['logo'])}" />
+										<h3>{$voo.name|getShort=4}</h3>
+									</a>
+								</li>
+								</volist>
+							</ul>
+						</div>
+						<php>endif;</php>
+					</div>
+					
+					<h4>{$vo.introduce}</h4>
+				</div>
+			</li>
+			</volist>
+		</ul>
+	</div>
+	
+</div>
+<include file="__THEME__/new_footer" />

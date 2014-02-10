@@ -1,0 +1,8 @@
+    <dl class="lineD">
+      <dt>商店类型：</dt>
+      <dd>
+      	<volist name="shop_type" id="vo" key="k">
+        	<input name="shop_type[]" type="checkbox" value="{$k}" id="shop_type_{$k}" <php>if(in_array($k,$platform)){</php> checked="checked"<php>}</php>><label style="float:none" for="shop_type_{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>

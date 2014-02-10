@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="{:APPS_URL}/admin/_static/admin.css" rel="stylesheet" type="text/css">
+<script>
+/**
+ * 全局变量
+ */
+var SITE_URL  = '<php> echo SITE_URL;</php>';
+var THEME_URL = '__THEME__';
+var APPNAME   = '<php> echo APP_NAME;</php>';
+var UPLOAD_URL ='{:UPLOAD_URL}';
+var MID		  = '<php> echo $mid;</php>';
+var UID		  = '<php> echo $uid;</php>';
+// Js语言变量
+var LANG = new Array();
+</script>
+<script type="text/javascript" src="__THEME__/js/jquery.js"></script>
+<script type="text/javascript" src="__THEME__/js/core.js"></script>
+<script src="__THEME__/js/module.js"></script>
+<script src="__THEME__/js/common.js"></script>
+<script src="__THEME__/js/module.common.js"></script>
+<script src="__THEME__/js/module.weibo.js"></script>
+<script type="text/javascript" src="{:APPS_URL}/admin/_static/admin.js?t=11"></script>
+<script type="text/javascript" src = "__THEME__/js/ui.core.js"></script>
+<script type="text/javascript" src = "__THEME__/js/ui.draggable.js"></script>
+<php>
+/* 非admin应用的后台js脚本统一写在  模板风格对应的app目录下的admin.js中*/
+if(APP_NAME != 'admin' && file_exists(APP_PUBLIC_PATH.'/admin.js')){
+</php>
+<script type="text/javascript" src="{:APP_PUBLIC_URL}/admin.js"></script>
+<php>}</php>
+<php>if(!empty($langJsList)) {</php>
+<volist name="langJsList" id="vo">
+<script src="{$vo}"></script>
+</volist>
+<php>}</php>
+</head>
+<body>
+<div id="container" class="so_main">
+  <div class="page_tit">
+        创建/修改信息 
+  </div>
+  
+   <!-- START TAB框 -->
+   <php>if(!empty($pageTab)):</php>
+  <div class="tit_tab">
+    <ul>
+    <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+    <volist name='pageTab' id='t'>
+    <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+    </volist>
+    </ul>
+  </div>
+  <php>endif;</php>
+    <!-- END TAB框 -->
+  
+  <!-- START CONFIG_FORM -->
+    
+   <form method="POST" action="{:U('game/Admin/setinfo_step2',array('id'=>$id))}"  id='detail_form' name='detail_form'>
+  	<input type="hidden" name='systemdata_list' value="game_Admin"  class="s-txt"/>
+  	<input type="hidden" name='systemdata_key' value="setinfo"  class="s-txt"/>  
+  	<input type="hidden" name='pageTitle' value="创建/修改信息" class="s-txt" />
+  	<div class="form2">
+  		<dl class="lineD" id='dl_name'>
+      <dt>当前已添加代理公司：</dt>
+      <dd>
+      <php>$i = 1;</php>	
+      <php>foreach($agents as $sk=>$sv):</php>
+      <php>
+      $areas = !is_array($sv['area']) ? explode(',',trim($sv['area'],',')) : $sv['area'];	
+      $areas = array_flip($areas);
+      $areas = array_intersect_key($area,$areas);
+      $areas_str = implode(',',$areas);
+      </php>
+      <php>
+      $platforms = !is_array($sv['platform']) ? explode(',',trim($sv['platform'],',')) : $sv['platform'];	
+      $platforms = array_flip($platforms);
+      $platforms = array_intersect_key($platform,$platforms);
+      $platforms_str = implode(',',$platforms);
+      </php>
+      	<label>{$i}、<strong>{$sv['name']}</strong> &nbsp;&nbsp;{$areas_str} &nbsp;&nbsp;{$platforms_str} &nbsp;&nbsp;{$price[$sv['price']]}&nbsp;&nbsp;<a href="{:U('game/Admin/delAgent',array('id'=>$sv['id'],'game_id'=>$id))}">删除</a></label><br>
+      	<php>$i++;</php>
+      	<php>endforeach;</php>
+    </dd>
+    </dl>
+  	  	    <dl class="lineD" id='dl_name'>
+      <dt><font color="red"> * </font>代理商公司名称：</dt>
+      <dd>
+      
+      	      	<input name="name" id="form_name" type="text" value=""  class="s-txt" style='width:200px'>
+    </dd>
+    </dl>
+        <dl class="lineD" id='dl_area'>
+      <dt><font color="red"> * </font>代理区域：</dt>
+      <dd>
+      	<php>foreach($area as $sk=>$sv):</php>	
+      	<label><input type="checkbox" name="area[]" value='{$sk}'>{$sv} </label>
+      	<php>endforeach;</php>
+    </dd>
+    </dl>
+        <dl class="lineD" id='dl_platform'>
+      <dt><font color="red"> * </font>代理平台：</dt>
+      <dd>	
+      	<php>foreach($platform as $sk=>$sv):</php>	
+      	<label><input type="checkbox" name="platform[]" value='{$sk}'>{$sv} </label>
+      	<php>endforeach;</php>
+    </dd>
+    </dl>
+    <dl id="dl_price" class="lineD">
+      <dt><font color="red"> * </font>代理费：</dt>
+      <dd>	
+      	<select id="form_price" name="price">
+      		<php>foreach($price as $sk=>$sv):</php>
+      			<option value="{$sk}">{$sv}</option>
+      		<php> endforeach;</php>
+      	</select>   
+     
+    </dd>
+    </dl>
+    <div class="page_btm" >
+    <input type='text' style="display:none">
+      <input type="button" class="btn_b" value="保存" id='form_submit' onclick = "submitform()"/>
+      
+    </div>
+  	</div>
+  	</form>
+  	
+      <!-- END CONFIG_FORM -->
+</div>
+<script>
+function submitform(){
+	$('#detail_form').submit();
+}
+</script>
+<script type="text/javascript">
+/**
+ * 初始化对象
+ */
+//表格样式
+$(document).ready(function(){
+    admin.bindTrOn();});
+</script>
+
+
+</body>
+</html>

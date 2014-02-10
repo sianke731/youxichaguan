@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><neq name= '_title' value=''>{$_title} - {$site.site_name}<else />{$site.site_name} - {$site.site_slogan}</neq></title>
+<meta content="<neq name= '_keywords' value=''>{$_keywords}<else />{$site.site_header_keywords}</neq>" name="keywords">
+<meta content="<neq name= '_description' value=''>{$_description}<else />{$site.site_header_description}</neq>" name="description">
+{:Addons::hook('public_meta')}
+<link href="__ROOT__/html/css/base.css" rel="stylesheet" type="text/css">
+<link href="__ROOT__/html/css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__ROOT__/html/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__ROOT__/html/js/common.js"></script>
+<script type="text/javascript" src="__ROOT__/html/js/Validform_v5.3.2_min.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+<!--登录顶部 s-->
+<div id="login-hader" class="wrap">
+	<img src="__ROOT__/html/images/logo.png" width="145" height="85" />
+	<div class="login-wb-box oh">
+		<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+	</div>
+</div>
+<!--登录顶部  e--> 

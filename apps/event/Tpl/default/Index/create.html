@@ -1,0 +1,83 @@
+<include file="__THEME__/new_header" />
+<div  class="wrap oh user-main mt15">
+<include file="__THEME__/new_left" />
+
+
+
+  
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的活动</h1>
+			</div>
+            
+            <div class="my-ac-switit fs16">
+            	<a href="{:U('event/Index/myactive',array('ac'=>'join'))}">我参加的活动</a>
+                <a class="current" href="{:U('event/Index/myactive',array('ac'=>'create'))}">我创建的活动</a>
+            </div>
+            
+            <div class="oh">
+            	<a href="create_active.html" class="ico-btn ico-btn5 mt15">创建活动</a>
+            </div>
+            
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="i-table ac2-table">
+				<tr class="i-tab-hader">
+					<td class="s-td1"><span class="t1">序号</span></td>
+					<td class="s-td2"><span>活动名</span></td>
+					<td class="s-td3"><span>创建日期</span></td>
+                    <td class="s-td4"><span>状态</span></td>
+					<td class="s-td5"><span>待审人数</span></td>
+                    <td class="s-td6"><span>通过人数</span></td>
+					<td class="s-td7"><span>操作</span></td>
+				</tr>
+                <volist name="list.data" id="vo">
+                <tr class="i-tab-list">
+					<td class="s-td1"><span class="t1">{$vo.id}</span></td>
+					<td class="s-td2"><a href="{:U('event/Index/eventDetail',array('id'=>$vo['id'],'uid'=>$mid))}">{$vo.title}</a></td>
+					<td class="s-td3">{$vo.cTime|date="y-m-d",###}</td>
+                    <td class="s-td4"><span class="ico-btn ico-btn1">审核中</span></td>
+					<td class="s-td5">{$vo.verifyCount|default=0}人</td>
+                    <td class="s-td6">{$vo.joinCount|default=0}人</td>
+					<td class="s-td7">
+                    	<div class="ma-oper">
+                        	<a href="{:U('event/Index/member',array('id'=>$vo['id']))}" class="oper-ico1 oper-ico">审核</a>
+                            <a href="{:U('event/Index/edit',array('id'=>$vo['id']))}" class="oper-ico2 oper-ico">编辑</a>
+                            <a href="{:U('event/Index/xls_out',array('id'=>$vo['id']))}" class="oper-ico3 oper-ico">导出</a>
+                            <if condition="$vo[eTime] lt time()"><a href="{:U('event/Index/eventDetail',array('id'=>$vo['id'],'uid'=>$mid))}" class="oper-ico4 oper-ico">活动回顾</a></if>
+                            <a data-id="{$vo.id}" href="#" class="oper-ico5 oper-ico cancel_event">取消活动</a>
+                            <a href="#" class="oper-ico6 oper-ico">关闭报名</a>
+                        </div>
+                    </td>
+				</tr>
+                </volist>
+			</table>
+            
+            <!--<div class="pager-box"> <span class="current">1</span> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">下一页</a> <a href="#">末页</a> </div>-->
+            			
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+
+  
+</div>
+<script>
+$(function() {
+     // Handler for .ready() called.
+	$(".cancel_event").click(function(){
+		var id = $(this).data("id");
+		$.post("{:U('event/Index/doEndAction')}",{id:id},function(data){
+			if(data){
+				alert("成功");
+			}else{
+				alert("失败");
+			}
+		});
+	});
+});
+</script>
+<include file="__THEME__/new_footer" />

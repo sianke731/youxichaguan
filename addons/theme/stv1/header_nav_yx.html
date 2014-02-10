@@ -1,0 +1,40 @@
+<!--nav s-->
+<php>
+$app_name = $ts["_define"]["APP_NAME"];
+//dump($app_name);die;
+</php>
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li><a href="#">首页</a></li>
+			<li <if condition="$app_name eq game"> class="nav-curr"</if>><a href="{:U('game/index/index')}">产品</a></li>
+			<li <if condition="$app_name eq company"> class="nav-curr"</if>><a href="{:U('company/index/index')}">公司</a></li>
+			<li <if condition="$app_name eq member"> class="nav-curr"</if>><a href="{:U('member/index/index')}">通讯录</a></li>
+			<li><a href="{:U('event/index/index')}">活动</a></li>
+			<li><a href="#">新闻</a></li>
+            <!--<volist name='site_top_nav' id='st'>
+              <li <php> if(APP_NAME == $st['app_name'] || $_GET['page'] == $st['app_name']):</php> class="current" <php>endif;</php> ><a href="{$st.url}" target="{$st.target}" class="app">{$st.navi_name}</a>
+              </li>                           
+            </volist>-->
+            
+            
+            
+            
+		</ul>
+		<div class="search-box fr pr">
+			<form action="" method="post" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">文章</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="1">文章</li>
+						<li data-id="2">帖子</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="search..." class="search-ipt" />
+				<input type="button" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->

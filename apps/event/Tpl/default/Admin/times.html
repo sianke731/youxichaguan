@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="{:APPS_URL}/admin/_static/admin.css" rel="stylesheet" type="text/css">
+<script>
+/**
+ * 全局变量
+ */
+var SITE_URL  = '<php> echo SITE_URL;</php>';
+var THEME_URL = '__THEME__';
+var APPNAME   = '<php> echo APP_NAME;</php>';
+var UPLOAD_URL ='{:UPLOAD_URL}';
+var MID		  = '<php> echo $mid;</php>';
+var UID		  = '<php> echo $uid;</php>';
+// Js语言变量
+var LANG = new Array();
+</script>
+<script type="text/javascript" src="__THEME__/js/jquery.js"></script>
+<script type="text/javascript" src="__THEME__/js/core.js"></script>
+<script src="__THEME__/js/module.js"></script>
+<script src="__THEME__/js/common.js"></script>
+<script src="__THEME__/js/module.common.js"></script>
+<script src="__THEME__/js/module.weibo.js"></script>
+<script type="text/javascript" src="{:APPS_URL}/admin/_static/admin.js?t=11"></script>
+<script type="text/javascript" src = "__THEME__/js/ui.core.js"></script>
+<script type="text/javascript" src = "__THEME__/js/ui.draggable.js"></script>
+<php>
+/* 非admin应用的后台js脚本统一写在  模板风格对应的app目录下的admin.js中*/
+if(APP_NAME != 'admin' && file_exists(APP_PUBLIC_PATH.'/admin.js')){
+</php>
+<script type="text/javascript" src="{:APP_PUBLIC_URL}/admin.js"></script>
+<php>}</php>
+<php>if(!empty($langJsList)) {</php>
+<volist name="langJsList" id="vo">
+<script src="{$vo}"></script>
+</volist>
+<php>}</php>
+</head>
+<body>
+<div id="container" class="so_main">
+  <div class="page_tit">
+        创建/修改信息 
+  </div>
+  
+   <!-- START TAB框 -->
+   <php>if(!empty($pageTab)):</php>
+  <div class="tit_tab">
+    <ul>
+    <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+    <volist name='pageTab' id='t'>
+    <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+    </volist>
+    </ul>
+  </div>
+  <php>endif;</php>
+    <!-- END TAB框 -->
+  
+  <!-- START CONFIG_FORM -->
+    
+   <form method="POST" action="{:U('event/Admin/times',array('id'=>$id))}"  id='detail_form' name='detail_form' enctype="multipart/form-data">
+  	<input type="hidden" name='systemdata_list' value="game_Admin"  class="s-txt"/>
+  	<input type="hidden" name='systemdata_key' value="setinfo"  class="s-txt"/>  
+  	<input type="hidden" name='pageTitle' value="创建/修改信息" class="s-txt" />
+  	<div class="form2">
+  		<dl class="lineD" id='dl_name'>
+      <dt>当前已添加议程：</dt>
+      <dd>
+      <php>$i = 1;</php>	
+      <php>foreach($times as $sk=>$sv):</php>
+      	<dl><label>{$i}、<strong>{$sv['sTime']} ~ {$sv['eTime']}</strong>&nbsp;&nbsp;{$sv['description']}&nbsp;&nbsp;<a href="{:U('event/Admin/delTimes',array('id'=>$sv['id'],'event_id'=>$id))}">删除</a></label></dl>
+      	<php>$i++;</php>
+      	<php>endforeach;</php>
+    </dd>
+    </dl>
+  	  	    <dl class="lineD" id='dl_name'>
+      <dt><font color="red"> * </font>开始时间：</dt>
+      <dd>
+      
+      	      	<input type="text" style="width:200px;" readonly="readonly" onfocus="core.rcalendar(this,'full');" value="" id="form_sTime" class="text" name="sTime">
+    </dd>
+  	  	    <dl class="lineD" id='dl_name'>
+      <dt><font color="red"> * </font>结束时间：</dt>
+      <dd>
+      
+      	      	<input type="text" style="width:200px;" readonly="readonly" onfocus="core.rcalendar(this,'full');" value="" id="form_eTime" class="text" name="eTime">
+    </dd>
+  	  	    <dl class="lineD" id='dl_name'>
+      <dt><font color="red"> * </font>说明：</dt>
+      <dd>
+      		<input name="description" id="form_description" type="text" value=""  class="s-txt" style='width:200px'>
+    </dd>
+    <div class="page_btm" >
+    <input type='text' style="display:none">
+      <input type="button" class="btn_b" value="保存" id='form_submit' onclick = "submitform()"/>
+      
+    </div>
+  	</div>
+  	</form>
+  	
+      <!-- END CONFIG_FORM -->
+</div>
+<script>
+function submitform(){
+	$('#detail_form').submit();
+}
+</script>
+<script type="text/javascript">
+/**
+ * 初始化对象
+ */
+//表格样式
+$(document).ready(function(){
+    admin.bindTrOn();});
+</script>
+
+
+</body>
+</html>

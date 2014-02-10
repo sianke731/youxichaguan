@@ -1,0 +1,166 @@
+
+
+            <div class="boxs isbgs oh">
+            	<div class="b-l">公司标签:</div>
+                <div class="b-r oh box-tags">
+                	<div class="oh w450" id="js_tab_box1">
+                        <volist name="tj_tags" id="v">
+                            <php>if(!in_array($v['id'], $selectedIds)) {</php>
+                            <a id="user_category_{$v['id']}" href="javascript:;"  class="t-list" onclick="return tagsTs.add(\'{$v['title']}\');" class="btn-cancel"><span>{$v.title}</span></a>
+                            <php>}</php>
+                        </volist>
+                    	<a class="t-list" href="javascript:;">卡牌</a>
+                        <a class="t-list" href="javascript:;">3D</a>
+                        <a class="t-list" href="javascript:;">教育</a>
+                        <a class="t-list" href="javascript:;">家庭</a>
+                        <a class="t-list" href="javascript:;">儿童</a>
+                        <a class="t-list" href="javascript:;">社交</a>
+                    </div>
+                    <div class="oh mt10 mb10">
+                    	<input type="text" id="js_tag_ipt" class="i-ipt fl mr5" />
+                        <a  href="javascript:;" id="js_tag_btn" class="ico-btn ico-btn5 fl">自定义添加</a>
+                    </div>
+                </div>
+                <div class="clear"></div>	
+                <div class="boxs" style="padding:0;">
+                    <div class="b-l">已添加的标签:</div>
+                    <div class="b-r w450" id="js_res_tas_box">
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="tags" id="ts_tag_search_value" value="{$tags_my}" />
+            
+            <div class="clear"></div>
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+.post-tag-input {border: 0 none; margin: 0; outline: medium none; padding: 0;color:#777;}
+.ico-close1 {
+    background: url("{:ADDON_URL}/theme/stv1/_static/image/del.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background-position: 0 -26px;
+    cursor: pointer;
+    height: 8px;
+    margin: 0 0 0 8px;
+    width: 9px;
+}
+.profession-title{
+	margin-left:170px;
+	line-height:28px;
+}
+</style>
+<div class="profession-title">请选择或手动输入公司标签，最多可拥有<em>{$tag_num}</em>个标签，已选择<em id="selected_nums">{$nums}</em>个</div>
+<input type="hidden" name="tag_num" id="tag_num" value="{$tag_num}">
+<div class="profession-type clarfix">
+	<dl>
+		<dt>推荐标签：</dt>
+		<dd>
+		<volist name="tj_tags" id="v">
+			<php>if(!in_array($v['id'], $selectedIds)) {</php>
+			<a id="user_category_{$v['id']}" href="javascript:;" onclick="return tagsTs.add(\'{$v['title']}\');" class="btn-cancel"><span>{$v.title}</span></a>
+			<php>}</php>
+		</volist>
+		</dd>
+	</dl>
+</div>
+<div class="profession-type clearfix">
+	<dl class="lineD">
+		<dt>公司标签：</dt>
+        <dd><div id="post-tag" class="tag-lists" style="width:{$width}">
+	<div class="Tag_list02">
+		<div class="tag-lists">
+		<ul id="post_tag_list" class="taglist">
+			<volist name="tags" id="vo">
+			<li rel="{$key}"><a class="tag btn-cancel" href="javascript:;" style="float:left;"><span>{$vo.title}<i class="ico-close1" title="删除" onclick="return tagsTs.deleteTag({$key})" href="#">x</i></span></a></li>
+			</volist>
+		</ul>
+		</div>
+		<div id="post-tag-input-holder" class="add-tag">
+			<input class="post-tag-input" style="width:{$width}" id="post_tag_input" type="text" value="{:L('PUBLIC_TAG_TIPS')}" onfocus="if(this.value == '{:L('PUBLIC_TAG_TIPS')}')this.value='';" onblur="if(this.value == '') this.value='{:L('PUBLIC_TAG_TIPS')}';" />
+		</div>
+	</div>
+        </div></dd>
+    </dl>
+</div>
+
+<script type="text/javascript"> 
+// 资源ID
+var row_id = '{$row_id|intval}';
+// 应用名称
+var appname = '{$appname}';
+// 资源表名
+var apptable = '{$apptable}';
+
+/**
+ * 标签操作Js类
+ * @type {object}
+ */
+var tagsTs = {};
+
+$('#js_tag_btn').add("#js_tab_box1 a").bind('click',function(){
+	if($(this).html().length>0){
+		var str = $(this).html();
+	}else{
+		var str = $('#js_tag_ipt').val();
+	}
+	//console.log(str);
+	if(str == ''){
+		alert('请输入标签名称');
+		$('#js_tag_ipt').focus();
+		arr2 = [];
+		return false;
+	}else{
+		
+		var tagLimit = 10;
+		if(getLength(str) > tagLimit) {
+			alert('标签长度不能超过'+tagLimit+'个汉字');
+			return false;
+		}
+		
+		
+		var list = $('#js_res_tas_box .sel-lis');
+		var arr2 = [];
+		
+		$.post("{:U('company/Admin/getTagId')}", {'appname':appname, 'apptable':apptable, 'name':str}, function(res) {
+			if(res.status == 1) {
+				var tagId = parseInt(res.data);
+				// 验证是否重复加入标签
+				var tagArr = $('#ts_tag_search_value').val().split(',');
+				for(var i in tagArr) {
+					if(tagArr[i] == tagId) {
+						alert('标签已存在');
+						return false;
+					}
+				}
+				var ts = '<a href="javascript:;" class="sel-lis" data-id="'+tagId+'"><em></em><b>'+str+'</b></a>';
+				$('#js_res_tas_box').append(ts);
+			} else {
+				alert(res.info);
+				return false;
+			}
+			var value = [];
+			$('#js_res_tas_box a').each(function(i, n) {
+				value.push($(n).data('id'));
+			});
+			$('#ts_tag_search_value').val(value.join(','));
+			$("#js_tag_ipt").val("");
+		}, 'json');
+		
+	}
+});
+$("#js_res_tas_box").find("em").live("click",function(){
+	$(this).parents("a").remove();
+	var value = [];
+	$('#js_res_tas_box a').each(function(i, n) {
+		value.push($(n).data('id'));
+	});
+	$('#ts_tag_search_value').val(value.join(','));
+});
+</script>
+

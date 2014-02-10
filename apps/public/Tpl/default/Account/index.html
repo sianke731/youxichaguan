@@ -1,0 +1,74 @@
+<include file="__THEME__/new_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+<div  class="wrap oh user-main mt15">
+<include file="__THEME__/new_left" />
+
+
+
+  
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+          <form action="{:U('public/Account/doSaveProfile')}" method="post" model-node='account_save'>
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">基本信息</h1>
+			</div>
+			
+			<div class="my-account-box oh">
+				<div class="mc-list">
+					<span>账号：</span>
+					<p>{$user_info['email']}</p>
+				</div>
+				<div class="mc-list">
+					<span>游戏币：</span>
+					<p><span class="c-e43">44545</span></p>
+				</div>
+				<div class="mc-list">
+					<span>昵称：</span>
+                    <input  class="i-ipt" event-node="uname" event-args="old_name={$user_info['uname']}" name="uname" checkurl="{:U('public/Register/isUnameAvailable')}" autocomplete="off" type="text" value="{$user_info['uname']}" />
+                    <input type="hidden" name="old_name" value="{$user_info['uname']}" />
+
+				</div>
+				<div class="mc-list">
+					<span>头像：</span>
+					<input type="button" value="上传头像"  class="ico-btn ico-btn5" />
+					<p class="c-ccc ml20">添加一张头像，让您更吸引人</p>
+				</div>
+				<div class="mc-list">
+					<span>&nbsp;</span>
+					<img src="../test/test4.png" />
+				</div>
+                
+				<div class="mc-list">
+					<span>当前密码：</span>
+                    <input event-node="password" name="oldpassword" type="password" class="i-ipt" autocomplete = 'off'/>
+				</div>
+				<div class="mc-list">
+					<span>新密码：</span>
+                    <input event-node="password" name="password" type="password" class="i-ipt" />
+				</div>
+				<div class="mc-list">
+					<span>重复密码：</span>
+                    <input event-node="password" name="repassword" type="password" class="i-ipt" />
+				</div>
+				<div class="mc-list">
+					<span>&nbsp;</span>
+					<input type="submit" class="ico-btn ico-btn5" value="保存" />
+				</div>
+				
+			</div>
+		
+			
+		</div>
+        </form>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+
+  
+</div>
+<include file="__THEME__/new_footer" />

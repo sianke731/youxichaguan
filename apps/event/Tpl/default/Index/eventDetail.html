@@ -1,0 +1,273 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh  mt15">
+	<include file="../Public/_eventLeft" />
+	<div class="sub-main">
+		<div class="active-view-top oh mb15">
+			<img src="{$cover}" class="acv-pic" alt="{$title}" />
+			<div class="act-r fl oh">
+				<h2>{$title}[成都]<span class="ico-btn ico-btn1">审核中</span></h2>
+				<div class="a-ls">
+					<span>主办方:</span>
+					<p>{$sponsor}</p>
+					<span class="pl20 ml10" style="width:60px;">协办方:</span>
+					<p>{$organizer}</p>
+				</div>
+				<div class="a-ls">
+					<span>活动地点:</span>
+					<p>{$address}</p>
+				</div>
+				<div class="a-ls">
+					<span>活动时间:</span>
+					<p><php>echo date('Y-m-d H:i',$sTime);</php> - <php>echo date('Y-m-d H:i',$eTime);</php></p>
+				</div>
+				<div class="a-ls">
+					<span>活动人数:</span>
+					<p>{$lc}</p>
+				</div>
+				<div class="a-ls">
+					<span>活动费用:</span>
+					<p><span class="c-e43">{$cost}</span></p>
+				</div>
+				<div class="a-ls">
+					<span>活动类型:</span>
+					<p>{$type}</p>
+				</div>
+				
+				<div class="ac-fm-box oh bg-fff p5">
+					<p class="a-fdg"><em class="ico ico10"></em><span class="c-e43">{$joinCount}</span>人已报名参加</p>
+					<div class="clear"></div>
+					<p class="fl oupo-d">
+						<em class="ico ico11"></em>
+						<span>倒计时</span>										
+					</p>
+					<div class="fl">
+						<div class="aod-box aod-box-s">
+							<div id="day">00</div>
+							<div id="hour">00</div>
+							<div id="mini">00</div>
+							<div id="sec">0</div>
+						</div>
+						<div class="clear"></div>
+						<div class="aod-fos aod-fos-s">
+							<span>天</span>
+							<span>小时</span>
+							<span>分钟</span>
+							<span>秒</span>
+						</div>
+					</div>
+					<a href="#" class="s-btn s-btn1 fr mr20">立即报名</a>
+				</div>
+				
+			</div>
+		</div>
+		
+		<ul class="active-v-tabt-box" id="js_actab_title">
+			<li><a href="javascript:;">发起者信息</a></li>
+			<li><a href="javascript:;">活动介绍</a></li>
+			<li><a href="javascript:;">活动嘉宾</a></li>
+			<li><a href="javascript:;">活动议程</a></li>
+		</ul>
+		
+		<div class="activ-tbox oh bg-fff" id="js_actab_conent">
+			
+			<div class="ac-t-list">
+				<div class="sub-tit-box">
+					<h2>发起者信息</h2>
+				</div>
+				
+				<p class="ac-tmsg"><span>创建者:</span>{$creater_info.uname} <a href="#" class="s-btn s-btn8">发通知</a></p>
+				<p class="ac-tmsg"><span>创建时间 :</span>{$cTime|date='Y-m-d H:i',###}</p>
+				<div class="clear"></div>
+				<table style="width:660px; margin:10px 0;display:none;" border="0" cellpadding="0" cellspacing="0" class="acv-table">
+					<tr>
+						<td align="center">申请时间</td>
+						<td align="center">状态</td>
+						<td align="center">操作</td>
+					</tr>
+					<tr>
+						<td align="center">2013-14-15 10:11:11</td>
+						<td align="center"><span class="ico-btn ico-btn1">审核中</span></td>
+						<td align="center">
+							<div class="act-oper">
+								<a href="#">审核</a>
+								<a href="#">编辑</a>
+								<a href="#">导出</a>
+								<a href="#">活动回顾</a>
+								<a href="#">取消活动</a>
+								<a href="#">关闭活动</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">2013-14-15</td>
+						<td align="center"><span class="ico-btn ico-btn2">已通过</span></td>
+						<td align="center">
+							<div class="act-oper">
+								<a href="#">审核</a>
+								<a href="#">编辑</a>
+								<a href="#">导出</a>
+								<a href="#">活动回顾</a>
+								<a href="#">取消活动</a>
+								<a href="#">关闭活动</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">2013-14-15</td>
+						<td align="center"><span class="ico-btn ico-btn3">未通过</span></td>
+						<td align="center">
+							<div class="act-oper">
+								<a href="#">审核</a>
+								<a href="#">编辑</a>
+								<a href="#">导出</a>
+								<a href="#">活动回顾</a>
+								<a href="#">取消活动</a>
+								<a href="#">关闭活动</a>
+							</div>
+						</td>
+					</tr>
+				</table>
+				
+				<p class="ac-tmsg"><span>真实姓名:</span>{$creater.name}</p>
+				<p class="ac-tmsg"><span>公司:</span>{$creater.company_name}</p>
+				<p class="ac-tmsg"><span>职位:</span>{$creater.position}</p>
+				<p class="ac-tmsg"><span>手机:</span>{$creater.phone}</p>
+				<p class="ac-tmsg"><span>邮箱:</span>{$creater.email}</p>
+				<p class="ac-tmsg"><span> QQ:</span>{$creater.qq}</p>
+			</div>
+			<div class="clear"></div>
+			
+			
+			<div class="ac-t-list oh">
+				<div class="sub-tit-box mb10">
+					<h2>活动介绍</h2>
+				</div>
+				<p class="oh mb20">{$explain}</p>
+			</div>
+			
+			
+			<div class="ac-t-list oh">
+				<div class="sub-tit-box mb10">
+					<h2>活动嘉宾</h2>
+				</div>
+				
+				<table border="0" cellpadding="0" cellspacing="0" class="acv-table acv-tables">
+					<volist name="guests" id="vo">
+					<tr>
+						<td><span class="c-e43">{$vo.position}</span></td>
+						<td>{$vo.name}</td>
+						<td>{$vo.description}</td>
+					</tr>
+					</volist>
+				</table>
+				
+			</div>
+			
+			
+			<div class="ac-t-list oh">
+				<div class="sub-tit-box mb10">
+					<h2>活动议程</h2>
+				</div>
+				
+				<table border="0" cellpadding="0" cellspacing="0" class="acv-table acv-tables">
+					<volist name="times" id="vo">
+					<tr>
+						<td><php>echo date('H:i',$vo['sTime'])</php>-<php>echo date('H:i',$vo['eTime'])</php></td>
+						<td>{$vo.description}</td>
+					</tr>
+					</volist>
+				</table>
+				<div class="clear"></div>
+					
+				<div class="oh fl slt slt1">
+					<h2>已经通过<span>({$joinMember.count}人)</span><a href="#">更多+</a></h2>
+					<p>
+						<span>用户</span>
+						<span class="fr mr10">申请时间</span>
+					</p>
+					
+					<ul>
+						<volist name="joinMember.data" id="vo">
+						<li>
+							<img src="{$vo.uname}" />
+							<a href="#">{$vo.uname}</a>
+							<span>前天11:10</span>
+						</li>
+						</volist>
+					</ul>
+					
+					
+				</div>
+				
+				
+				<div class="oh fl slt slt2">
+					<h2>暂未通过<span>({$verifyMember.count}人)</span><a href="#">更多+</a></h2>
+					<p>
+						<span>用户</span>
+						<span class="fr mr10">申请时间</span>
+					</p>
+					
+					<ul>
+						<volist name="verifyMember.data" id="vo">
+						<li>
+							<img src="{$vo.uname}" />
+							<a href="#">{$vo.uname}</a>
+							<span>前天11:10</span>
+						</li>
+						</volist>
+					</ul>
+					
+					
+					
+					
+				</div>
+				<div class="clear"></div>
+				
+				<a href="#" class="s-btn s-btn2" style="width:auto; padding:0 40px;display:none;">+ 点此添加活动回顾</a>
+			</div>
+		</div>
+		{:W('Comment',array('tpl'=>'detail', 'table'=>'event', 'row_id'=>$id, 'canrepost'=>'0', 'cancomment'=>1, 'cancomment_old'=>0, 'showlist'=>1, 'limit'=>'20', 'order'=>'DESC'))}
+		
+	</div>
+	
+</div>
+
+<include file="__THEME__/new_footer" />
+<script>
+var activeView = {
+	//内容切换
+	csTabs:function(){
+		var t = $('#js_actab_title li');
+		var c = $('#js_actab_conent .ac-t-list');
+		t.eq(0).addClass('current');
+		c.hide().eq(0).show();
+		t.bind('click',function(){
+			var index = $(this).index();
+			$(this).addClass('current').siblings().removeClass('current');
+			c.hide().eq(index).show();
+		});
+	},
+	//倒计时
+	countDown:function(){
+		var date = Date.UTC(2014,1,9,10), //通过php把时间传入
+		obj = function(){
+			return {
+				sec: M.getId("sec"),
+				mini: M.getId("mini"),
+				hour: M.getId("hour")
+			}
+		}
+		fnTimeCountDown(date, obj());
+	},
+	init:function(){
+		this.csTabs();
+		this.countDown();
+	}
+};
+
+
+$(document).ready(function(){
+	activeView.init();
+});
+</script>

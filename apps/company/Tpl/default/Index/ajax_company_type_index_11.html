@@ -1,0 +1,59 @@
+             <div class="boxs isbgs oh">
+            	<div class="b-l">主投游戏阶段:</div>
+                <div class="b-r oh che-box">
+                <volist name="investment_phase" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="investment_phase[]" type="checkbox" value="{$k}" id="investment_phase{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>    <php>if(in_array($k,$investment['stage'])){</php> checked="checked"<php>}</php> >
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+                <div class="oh mt10">
+                	<div class="b-l">对项目要求:</div>
+                    <div class="b-r oh che-box">
+                       <textarea name="project_require" class="i-txt" style="width:450px;">{$investment['require']}</textarea>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                
+                <div class="oh mt10">
+                	<div class="b-l">有无投资经验:</div>
+                    <div class="b-r oh che-box">
+                	<label class="ckd">
+                    	<input name="experience" type="radio" value="1" id="experience_1"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="1 eq $investment['is_experience']"> checked="checked"</if>>
+                        <span>有</span>
+                    </label>
+                	<label class="ckd">
+                    	<input name="experience" type="radio" value="0" id="experience_0"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="1 eq $investment['is_experience']"> checked="checked"</if>>
+                        <span>暂无</span>
+                    </label>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">曾投资游戏数:</div>
+                <div class="b-r oh che-box">
+                
+                    <select name="has_game_num" class="i-sele fl" <if condition="$company[is_verify] eq 1">disabled="disabled"</if>>
+                        <volist name="has_game_num" id="vo" key="k"    >
+                            <option value="{$k}" <if condition="$k eq $investment['games']"> selected="selected"</if>>{$vo}</option>
+                        </volist>
+                    </select>
+                
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">曾投资总额:</div>
+                <div class="b-r oh che-box">
+                    <select name="has_cost" class="i-sele fl"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if> >
+                        <volist name="has_cost" id="vo" key="k">
+                            <option value="{$k}" <if condition="$k eq $investment['price']"> selected="selected"</if>>{$vo}</option>
+                        </volist>
+                    </select>
+                </div>
+                <div class="clear"></div>
+			</div>
+
+
+
+

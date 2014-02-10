@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+<!--登录顶部 s-->
+<div id="login-hader" class="wrap">
+	<img src="images/logo.png" width="145" height="85" />
+	<div class="login-wb-box oh">
+		<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+	</div>
+</div>
+<!--登录顶部  e--> 
+
+<ul id="login-tab-title" class="wrap oh">
+	<li><a href="login.html">游戏茶馆用户登录</a></li>
+	<li class="current"><a href="register.html">游戏茶馆用户注册</a></li>
+</ul>
+
+<div id="login-box" class="wrap oh">
+	<div class="res-side fl">
+		
+	</div>
+	<div class="login-main fr">
+		<div class="oh mb10">
+			<span class="fl">邮箱注册方式</span>
+			<span class="fr">已经有账号，<a href="#" class="c-fcb">马上登陆</a></span>
+		</div>
+		<div class="login-step step1"></div>
+		<form class="res-form" action="">
+            <ul>
+                <li>
+                    <label class="label">登陆邮箱</label>
+                    <input type="text" class="i-ipt" value="" >
+					<span class="Validform_checktip Validform_right">正确提示</span>
+				</li>
+				<li>
+                    <label class="label">用户名</label>
+                    <input type="text"class="i-ipt"   value=""  >
+					<span class="Validform_checktip Validform_wrong">失败提示</span>
+				</li>
+				<li>
+                    <label class="label">设置密码</label>
+                    <input type="password" class="i-ipt"  value="" >
+				</li>
+				<li>
+                    <label class="label">确认密码</label>
+                    <input type="password" class="i-ipt"  value="" >
+				</li>
+				<li>
+                    <label class="label">&nbsp;</label>
+                    <input type="submit" value="下一步" class="s-btn s-btn1 s-resbtn" />
+				</li>
+				
+				<li class="last-action">
+					<label class="label">&nbsp;</label>
+                    <label class="label">快速注册方式</label>
+					<div class="clear"></div>
+                    <div  class="oh mt5">
+						<a href="#" class="reg-btn reg-btn1" style="margin-left:66px;"></a>
+						<a href="#" class="reg-btn reg-btn2"></a>
+					</div>
+				</li>
+				
+				
+            </ul>
+        </form>		
+		
+	</div>
+</div>
+
+
+<!--footer s-->
+<div id="footer">
+	<div class="fot-main oh"> <img src="images/t_50.png" />
+		<div class="fot-info">
+			<p> <a href="#">关于我们</a> | <a href="#">加入游戏茶馆</a> | <a href="#">联系我们</a> | <a href="#">寻求报道</a> | <a href="#">订阅</a> </p>
+			<p class="fs12 c-888">©2008-2013 <span class="c-fcb">游戏茶馆</span> | 蜀ICP备11004573号</p>
+		</div>
+	</div>
+</div>
+<!--footer e--> 
+<script src="js/Validform_v5.3.2_min.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<include file="__THEME__/new_header" />
+<script type="text/javascript" src = "{:APPS_URL}/event/_static/js/ajaxfileupload.js"></script>
+<div  class="wrap oh user-main mt15">
+<include file="__THEME__/new_left" />
+
+
+
+  
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的公司</h1>
+			</div>
+            <form name="form" method="post" action="">
+			{:W('Company', array('tpl'=>'index','company_id'=>$_GET[id]))}
+            <div class="boxs oh"  style="padding:0; margin:0;">
+            	<div class="b-l">&nbsp;</div>
+                <div class="b-r oh che-box">
+                	<div class="oh pr">
+                	<a href="#" class="ico-btn ico-btn6 fl mr10">上传LOGO</a>
+                	<input type="file" name="files" onchange="ajaxFileUpload();" style="margin:0;width:94px; height:100%; background:red; position:absolute; z-index:1; left:0; *left:-5px; top:0; opacity:0; filter:alpha(opacity=0);" id="files" />
+                   	<input name="logo_company" type="hidden" value="{$pic.attach_id}" />
+                   	</div>
+                   	<p class=" c-ccc">添加一张公司LOGO，让公司更吸引人</p>
+                </div>
+            </div>
+            <div class="boxs oh"  style="padding:0; margin:0;">
+            	<div class="b-l">&nbsp;</div>
+                <div class="b-r oh che-box"  id='show_logo_company'>
+                	<img id="js_ac_pic" src="/data/upload/{$pic.save_path}{$pic.save_name}" class="pic-size" style="border:1px solid #ddd;" />
+           			
+           			<script>
+				function ajaxFileUpload(){
+					$.ajaxFileUpload
+					(
+						{
+							url:'{:U("event/index/upload_img")}',
+							secureuri:false,
+							fileElementId:'files',
+							dataType: 'json',
+							data:{name:'logan', id:'id'}, //这里是参数。你自己可以修改的
+							success: function (data, status)
+							{
+								//console.log(data);
+									console.log(data.status);
+									if(!data.status)
+									{
+										alert('上传错误');
+									}else
+									{
+										$('#js_ac_pic').attr('src',data.data.url);
+										$("input[name=logo_company]").val(data.data.attach_id);
+										console.log(data);
+									}
+							},
+							error: function (data, status, e)
+							{
+								alert(e);
+							}
+						}
+					)	
+					return false;
+				}
+				</script>
+                </div>
+            </div>
+            <div class="boxs oh">
+            	<div class="b-l">&nbsp;</div>
+                <div class="b-r oh">
+                	
+                	<input class="ico-btn ico-btn5" type="submit" name="submit" value="发布">
+                </div>
+            </div>
+            </form>
+            
+            
+        </div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+
+  
+</div>
+<include file="__THEME__/new_footer" />

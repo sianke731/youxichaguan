@@ -1,0 +1,54 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh user-main mt15">
+	<include file="__THEME__/new_left" />
+	
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的产品</h1>
+			</div>
+			
+			<a href="#" class="ico-btn ico-btn5 mt15">+ 添加游戏</a>
+			<div class="clear"></div>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="i-table my_goods_table">
+				<tr class="i-tab-hader">
+					<td><span class="t1">序号</span></td>
+					<td><span>游戏名</span></td>
+					<td><span>公司</span></td>
+					<td><span>状态</span></td>
+					<td><span>操作</span></td>
+				</tr>
+				<volist name='data' id='vo'>
+				<tr class="i-tab-list">
+					<td><span class="t1">{$vo.id}</span></td>
+					<td>
+						<div class="tab-wrap">
+							<img src="{:getCover($vo['logo'])}" alt="{$vo.name}" />
+							<p>{$vo.name}</p>
+						</div>
+					</td>
+					<td><span class="ts-info">{$vo.company_name|default='保密'}</span></td>
+					<td><span class="ico-btn ico-btn{$vo.is_verify}">{$verify_list[$vo['is_verify']]}</span></td>
+					<td>
+						<div class="mg-ooper">
+							<a href="#" class="edit-ico">编辑</a>
+							<a href="{:U('game/Index/del',array('id'=>$vo['id']))}" class="remove-ico">删除</a>
+						</div>
+					</td>
+				</tr>
+				</volist>
+			</table>
+			<div class="pager-box">{$html}</div>
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+	
+</div>
+
+<include file="__THEME__/new_footer" />

@@ -1,0 +1,51 @@
+<a href="#" id="js_yjfk" title="QQ"></a>
+<a href="#" id="js_ly" title="意见反馈"></a>
+<a href="javascript:;" id="js_rtop" title="返回顶部"></a>
+<!--footer s-->
+<div id="footer">
+	<div class="fot-main oh"> <img src="__ROOT__/html/images/t_50.png" />
+		<div class="fot-info">
+			<p> <a href="#">关于我们</a> | <a href="#">加入游戏茶馆</a> | <a href="#">联系我们</a> | <a href="#">寻求报道</a> | <a href="#">订阅</a> </p>
+			<p class="fs12 c-888">©2008-2013 <span class="c-fcb">游戏茶馆</span> | 蜀ICP备11004573号</p>
+		</div>
+	</div>
+</div>
+<!--footer e--> 
+
+<script type="text/javascript">
+//首页js
+var gemeIndex = {
+	styleOper:function(){
+		//首页热门文章前三效果
+		var lis = $('#js_hot_news_ul li');
+		lis.eq(0).find('span').css('background','#c1334a');
+		lis.eq(1).find('span').css('background','#ef5052');
+		lis.eq(2).find('span').css('background','#ff7678');
+	},
+	init:function(){
+		this.styleOper();
+		$.slider(); //首页焦点图执行
+		$.scrollpic(); //滚动图片列表
+	}
+};
+$(document).ready(function() {
+	gemeIndex.init();
+	
+	$.ajax({
+		url:'{:U('widget/UserCount/getUnreadCount')}',
+		type:'GET',
+		dataType:'JSON',
+		success:function(msg){
+			if(msg.data.unread_notify>0){
+				$("#unreadcount").html(msg.data.unread_notify);
+				$("#unreadcount").show();
+			}else{
+				$("#unreadcount").hide();
+			}
+		}
+		
+	});
+});
+</script>
+</body>
+</html>

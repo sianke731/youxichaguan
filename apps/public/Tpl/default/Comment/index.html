@@ -1,0 +1,44 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh user-main mt15">
+	<include file="__THEME__/new_left" />
+	
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的评论</h1>
+			</div>
+			
+			<ul class="my_comm_ul">
+			<neq name='list.data' value=''>
+              <volist name='list.data' id='vo'>
+				<li>
+					<p><php>if($vo['is_audit']){</php>
+	                      {$vo.content}
+	                    <php>}else{</php>
+	                      内容正在审核
+	                    <php>}</php></p> <a href="#" class="ico-btn ico-btn4 mcu-1">删除</a> <a href="#" class="ico-btn ico-btn4 mcu-2">修改</a>
+					<div>
+						{$vo.sourceInfo.source_body|format=true}
+                    	<span>{$vo.ctime|friendlyDate}</span>
+					</div>
+				</li>
+              </volist>
+              <else />
+              <div class="note">{:L('PUBLIC_COMMENTS_ISNOT')}</div>
+              </neq>
+			</ul>
+			
+			<div class="pager-box">{$list.html}</div>
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+	
+</div>
+
+<include file="__THEME__/new_footer" />

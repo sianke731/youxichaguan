@@ -1,0 +1,97 @@
+<include file="__THEME__/admin_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+
+<div id="container" class="so_main">
+  <div class="page_tit">修改公司</div>
+    <div class="form2">
+  <form method="post" name="form1" action="{:U('company/Admin/doedit',array('company_id'=>$_GET[id]))}" id="form1">
+    {:W('Company', array('tpl'=>'company_name','company_id'=>$_GET[id]))}
+  
+   <dl class="lineD" id='dl_{$pk}'>
+      <dt>上传公司LOGO：</dt>
+      <dd>    
+      	<div>
+			<div id="divup_{$upkey}" type="file" rel="{$upkey}">
+			<input type="file" name="attach" rel="{$upkey}" onchange="admin.upload('logo_company',this)" urlquery='attach_type=feed_image&upload_type=image&thumb=1'></div>
+           <div id='show_logo_company'>
+              <img src="/data/upload/{$pic.save_path}{$pic.save_name}" class="pic-size">
+          </div>
+           <input name="logo_company" id="form_logo_company" type="hidden" value="{$pic.attach_id}" class="s-txt" style="width:200px;"/>
+		   <!-- </FORM> -->
+    		</div>    
+    </dd>
+    </dl>
+
+    
+    <div class="page_btm">
+      <input type="button" class="btn_b" value="确定" onclick="submitform()" />
+    </div>
+  </form>
+  </div>
+<script type="text/javascript">
+$("#province").change(function(){
+	var province_id = $("#province").val();
+	$.post("index.php?app=company&mod=Admin&act=get_city&province_id="+province_id,function(data){
+		eval("var temp="+data);
+		$("#city").html("");
+		for(i=0;i < temp.length;i++){
+			$("#city").append("<option value="+temp[i].area_id+">"+temp[i].title+"</option>");
+		}
+	});
+});
+$("#company_name").autocomplete({source:"test.php?a="+$("#company_name").val()});
+$("#company_type").change(function(){
+	var company_type = $("#company_type").val();
+	$.post("index.php?app=company&mod=Admin&act=add_company_ajax&company_type="+company_type,function(data){
+			//console.log($(this).parents("dl"));
+			
+			$("#ajax_area").html(data);
+   });
+	//$(this).parents("dl").first().after("<dl class='lineD'><dt>渠道类型:</dt><dd>123123</dd></dl>");
+});
+var company_type = $("#company_type").val();
+$.post("index.php?app=company&mod=Admin&act=edit_company_ajax&company_type="+company_type+"&company_id={$_GET['id']}",function(data){
+		$("#ajax_area").html(data);
+});
+
+function submitform(){
+	//todo做验证
+	if($("#company_name").val()==""){
+		alert("公司/团队名称不能为空！");
+		return false;
+	}
+	if($("#company_type").val()==""){
+		alert("公司类型不能为空！");
+		return false;
+	}
+	if($("#company_size").val()==""){
+		alert("公司/团队规模不能为空！");
+		return false;
+	}
+	if($("#company_introduce").val()==""){
+		alert("公司/团队实力介绍不能为空！");
+		return false;
+	}
+	if($("#province").val()==""||$("#city").val()==""){
+		alert("公司/团队城市不能为空！");
+		return false;
+	}
+	if($("#person").val()==""){
+		alert("联系人不能为空！");
+		return false;
+	}
+	if($("#email").val()==""){
+		alert("联系邮箱不能为空！");
+		return false;
+	}
+	if($("#qq").val()==""){
+		alert("联系qq不能为空！");
+		return false;
+	}
+	$("#form1").submit();
+}
+</script>
+  
+</div>
+<include file="__THEME__/admin_footer" />

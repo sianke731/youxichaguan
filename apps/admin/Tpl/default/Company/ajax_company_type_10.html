@@ -1,0 +1,48 @@
+    <dl class="lineD">
+      <dt>产品整包：</dt>
+      <dd>
+      	<volist name="product_outsourcing" id="vo" key="k">
+        	<input name="product_outsourcing[]" type="checkbox" value="{$k}" id="product_outsourcing{$k}" <php>if(in_array($k,$outer['wholes'])){</php> checked="checked"<php>}</php>><label style="float:none" for="product_outsourcing{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>美术外包：</dt>
+      <dd>
+      	<volist name="arts_outsourcing" id="vo" key="k">
+        	<input name="arts_outsourcing[]" type="checkbox" value="{$k}" id="arts_outsourcing{$k}" <php>if(in_array($k,$outer['arts'])){</php> checked="checked"<php>}</php>><label style="float:none" for="arts_outsourcing{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>音乐外包：</dt>
+      <dd>
+      	<volist name="music_outsourcing" id="vo" key="k">
+        	<input name="music_outsourcing[]" type="checkbox" value="{$k}" id="music_outsourcing{$k}" <php>if(in_array($k,$outer['musics'])){</php> checked="checked"<php>}</php>><label style="float:none" for="music_outsourcing{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>测试外包：</dt>
+      <dd>
+      	<volist name="test_outsourcing" id="vo" key="k">
+        	<input name="test_outsourcing[]" type="checkbox" value="{$k}" id="test_outsourcing{$k}" <php>if(in_array($k,$outer['tests'])){</php> checked="checked"<php>}</php>><label style="float:none" for="test_outsourcing{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>程序外包：</dt>
+      <dd>
+      	<volist name="program_outsourcing" id="vo" key="k">
+        	<input name="program_outsourcing[]" type="checkbox" value="{$k}" id="program_outsourcing{$k}" <php>if(in_array($k,$outer['programs'])){</php> checked="checked"<php>}</php>><label style="float:none" for="program_outsourcing{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>企划外包：</dt>
+      <dd>
+      	<volist name="plan_outsourcing" id="vo" key="k">
+        	<input name="plan_outsourcing[]" type="checkbox" value="{$k}" id="plan_outsourcing{$k}" <php>if(in_array($k,$outer['plans'])){</php> checked="checked"<php>}</php>><label style="float:none" for="plan_outsourcing{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>

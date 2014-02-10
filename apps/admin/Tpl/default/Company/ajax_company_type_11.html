@@ -1,0 +1,42 @@
+    <dl class="lineD">
+      <dt>主投游戏阶段：</dt>
+      <dd>
+      	<volist name="investment_phase" id="vo" key="k">
+        	<input name="investment_phase[]" type="checkbox" value="{$k}" id="investment_phase{$k}" <php>if(in_array($k,$investment['stage'])){</php> checked="checked"<php>}</php>><label style="float:none" for="investment_phase{$k}">{$vo}</label>
+        </volist>
+        </dd>
+    </dl>    
+    <dl class="lineD">
+      <dt>对项目要求：</dt>
+      <dd>
+      	<textarea name="project_require">{$investment['require']}</textarea>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>有无投资经验：</dt>
+      <dd>
+        <input name="experience" type="radio" value="1" id="experience_1" <if condition="1 eq $investment['is_experience']"> checked="checked"</if>><label style="float:none" for="experience_1">有</label>
+        <input name="experience" type="radio" value="0" id="experience_0" <if condition="0 eq $investment['is_experience']"> checked="checked"</if>><label style="float:none" for="experience_0">暂无</label>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>曾投资游戏数：</dt>
+      <dd>
+      	<select name="has_game_num">
+        	<volist name="has_game_num" id="vo" key="k">
+            	<option value="{$k}" <if condition="$k eq $investment['games']"> selected="selected"</if>>{$vo}</option>
+            </volist>
+        </select>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>曾投资总额：</dt>
+      <dd>
+      	<select name="has_cost">
+        	<volist name="has_cost" id="vo" key="k">
+            	<option value="{$k}" <if condition="$k eq $investment['cost']"> selected="selected"</if>>{$vo}</option>
+            </volist>
+        </select>
+      </dd>
+    </dl>
+    

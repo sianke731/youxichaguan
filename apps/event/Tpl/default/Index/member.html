@@ -1,0 +1,120 @@
+<include file="__THEME__/new_header" />
+<div  class="wrap oh user-main mt15">
+<include file="__THEME__/new_left" />
+
+
+
+  
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">成员审核</h1>
+			</div>
+            
+            <div class="my-ac-switit fs16">
+            	<a href="{:U('event/Index/myactive',array('ac'=>'join'))}">我参加的活动</a>
+                <a class="current" href="{:U('event/Index/myactive',array('ac'=>'create'))}">我创建的活动</a>
+            </div>
+            
+            <div class="oh">
+            	<a href="create_active.html" class="ico-btn ico-btn5 mt15">创建活动</a>
+            </div>
+            <form method="post" action="{:U('event/Index/doauth',array('id'=>$id))}" id="authform" >
+             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="i-table ac2-table" id="js_ac_tab">
+				<tr class="i-tab-hader">
+					<td class="s-td1"><span class="t1">申请者</span></td>
+					<td class="s-td2"><span>申请时间</span></td>
+                    <td class="s-td4"><span>状态</span></td>
+					<td class="s-td5"><span>真实姓名</span></td>
+                    <td class="s-td6"><span>公司</span></td>
+					<td class="s-td7"><span>职位</span></td>
+                    <td class="s-td7"><span>手机</span></td>
+                    <td class="s-td7"><span>邮箱</span></td>
+                    <td class="s-td7"><span>QQ</span></td>
+				</tr>
+                <volist name="event_user" id="vo">
+                <if condition="$vo[uid] neq $mid">
+                	<tr class="i-tab-list">
+                        <td class="">
+                        <div style="width:150px;">
+							<label class="oh fl">
+								<input type="checkbox" name="uid[]" value="{$vo.uid}" class="fl" style="margin-top:4px;" />
+								<span class="ml5 fl">{$vo.uname}</span>
+							</label>
+							<img src="http://gamejob/data/upload/avatar/c4/ca/42/original_200_200.jpg?v1387678851" style="width:30px; float:left; margin:-5px 0 0 5px; height:30px;" />
+						</div>
+                        </td>
+                        <td class="s-td2"><span>{$vo.apply_time}</span></td>
+                        <td class="s-td4"><span>{$vo.uname}</span></td>
+                        <td class="s-td5"><span>{$vo.name}</span></td>
+                        <td class="s-td6"><span>{$vo.company_name}</span></td>
+                        <td class="s-td7"><span>{$vo.position}</span></td>
+                        <td class="s-td7"><span>{$vo.phone}</span></td>
+                        <td class="s-td7"><span>{$vo.email}</span></td>
+                        <td class="s-td7"><span>{$vo.qq}</span></td>
+					</tr>
+                </if>
+                </volist>
+            </table>
+            <label class="oh">
+				<input type="checkbox" name="msg" id="js_tb_oper" class="fl mt5 mr5">
+				<span class="fl">全选</span>
+			</label>
+            <script>
+			$(document).ready(function() {
+				$('#js_tb_oper').click(function(){
+					var ch = $('#js_ac_tab tr td').find('input[type=checkbox]');
+					if($(this).attr('checked') == 'checked'){
+						$.each(ch,function(i){
+							ch.eq(i).attr('checked','checked');
+						});
+					}else{
+						$.each(ch,function(i){
+							ch.eq(i).removeAttr('checked');
+						});
+					}
+				});
+			});;
+			</script>
+            <div class="clear"></div>
+			<div class="oh mt20">
+				<p class="mb10">附言：</p>
+				<textarea cols="70" name="message" class="i-txt"></textarea>
+				<div class="clear"></div>
+				<a href="#" class="s-btn s-btn9 fl mt10 mr20 auth" data-auth="0" >批准</a>
+				<a href="#" class="s-btn s-btn10 fl mt10 mr20 auth" data-auth="1">拒绝</a>
+				<a href="#" class="s-btn s-btn11 fl mt10 auth" data-auth="2">发通知</a>
+                <input type="submit" name="submit" value="提交" style="display:none" />
+				
+			</div>
+            <!--<div class="pager-box"> <span class="current">1</span> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">下一页</a> <a href="#">末页</a> </div>-->
+            </form>			
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+
+  
+</div>
+<script>
+$(function() {
+	$(".auth").click(function(){
+		var auth = $(this).data("auth");
+		$(this).after("<input type='hidden' name='auth' value='"+auth+"'>");
+		if($("input:checked").size()==0){
+			alert("请至少选择一个成员");
+			return false;
+		}
+		if($("textarea").val()==""){
+			alert("请填写附言");
+			return false;
+		}
+		$("input:submit").click();
+	});
+});
+</script>
+<include file="__THEME__/new_footer" />

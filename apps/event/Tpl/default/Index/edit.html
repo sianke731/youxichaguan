@@ -1,0 +1,332 @@
+<include file="__THEME__/new_header" />
+<script type="text/javascript" src = "{:APPS_URL}/event/_static/calendar/wdatepicker.js"></script>
+<script type="text/javascript" src = "{:APPS_URL}/event/_static/js/ajaxfileupload.js"></script>
+<link href="{:APPS_URL}/event/_static/calendar/skin/WdatePicker.css" rel="stylesheet" type="text/css">
+<div  class="wrap oh user-main mt15">
+<include file="__THEME__/new_left" />
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+        
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的活动</h1>
+			</div>
+            <p class="oh mt5 mb5">创建/编辑活动</p>
+            
+            <form action="{:U('event/index/doaddevent')}" name="form_create_activity" id="form_activity" method="post" enctype="multipart/form-data">
+            <div  class="create-act-top oh">
+            	<div class="cr-ac-left fl">
+                	<div class="ca-tlist">
+                    	<div class="c-l">活动名称：</div>
+                        <div class="c-r">
+                        	<input name="title" type="text" class="i-ipt" value="{$title}" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">活动时间：</div>
+                        <div class="c-r">
+                        	<input name="sTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'});" type="text" class="i-ipt i-ts" value="{$sTime|date="y-m-d H:i:s",###}" />
+                           	<em style="padding:0 3px;">到</em>
+                            <input name="eTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'});" type="text" class="i-ipt i-ts" value="{$eTime|date="y-m-d H:i:s",###}" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">所在城市：</div>
+                        <div class="c-r">
+                        	<select id="active_province" name="active_province" class="i-sele i-se1">
+                                <option value="" selected="selected">省份/直辖市</option>
+                                <volist name="province_arr" id="vo">
+                                <option value="{$vo.area_id}" <if condition="$province_id eq $vo[area_id]"> selected="selected" </if> >{$vo.title}</option>
+                                </volist>
+                            </select>
+                            <select id="active_city" name="active_city" class="i-sele i-se1" style="margin-right:0;">
+                            	<option>城市</option>
+                                <volist name="city_arr" id="vo">
+                                <option value="{$vo.area_id}" <if condition="$city_id eq $vo[area_id]"> selected="selected" </if> >{$vo.title}</option>
+                                </volist>
+                            </select>
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">活动地点：</div>
+                        <div class="c-r">
+                        	<input name="address" type="text" value="{$address}" class="i-ipt" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                     <div class="ca-tlist">
+                    	<div class="c-l">需要人数：</div>
+                        <div class="c-r">
+                        	<input name="limitCount" value="{$limitCount}" type="text" class="i-ipt" />
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">活动类别：</div>
+                        <div class="c-r">
+                        	<select class="i-sele" name="type" style="width:100px;">
+                            	<volist name="types_list" id="vo" key="k">
+                                	<option <if condition="$vo eq $type"> selected="selected" </if> value="{$k}">{$vo}</option>
+                                </volist>
+                            </select>
+                            <span class="c-red">*</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="cr-ac-right fr">
+                
+                	<div class="ca-tlist">
+                    	<div class="c-l">截止时间：</div>
+                        <div class="c-r">
+                        	<input name="deadline" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'});" type="text" class="i-ipt i-ts" value="{$deadline|date="y-m-d H:i:s",###}" />
+                        </div>
+                    </div>
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">报名方式：</div>
+                        <div class="c-r">
+                            <input name="contact" value="{$contact}" type="text" class="i-ipt ac-ipt1" />
+                            <span>活动费用</span>
+                            <input name="cost" value="{$cost}" type="text" class="i-ipt ac-ipt1" />
+                        </div>
+                    </div>
+                    
+                     <div class="ca-tlist">
+                    	<div class="c-l">活动图片：</div>
+                        <div class="c-r">
+                        	<div style="width:70px; height:auto; overflow:hidden; position:relative; z-index:1;">
+								<a href="#" class="ico-btn ico-btn6">上传</a>
+								<input type="file" name="files" onchange="ajaxFileUpload();" style="width:70px; height:100%; background:red; position:absolute; z-index:1; left:0; *left:-5px; top:0; opacity:0; filter:alpha(opacity=0);" id="files" />
+                                <input type="hidden" name="active_img" value="" />
+							</div>
+                            <div class="clear"></div>
+                            <p class="fs12 c-888">添加一张好看的图片，让活动更吸引人</p>
+                            <p class="fs12 c-888">建议大小：300*200px</p>
+                            <img id="js_ac_pic" src="{$cover}" width="300" height="200" class="mt10" />
+                        </div>
+                    </div>
+                	
+                </div>
+				<script>
+				function ajaxFileUpload(){
+					$.ajaxFileUpload
+					(
+						{
+							url:'{:U("event/index/upload_img")}',
+							secureuri:false,
+							fileElementId:'files',
+							dataType: 'json',
+							data:{name:'logan', id:'id'}, //这里是参数。你自己可以修改的
+							success: function (data, status)
+							{
+								//console.log(data);
+									console.log(data.status);
+									if(!data.status)
+									{
+										alert('上传错误');
+									}else
+									{
+										$('#js_ac_pic').attr('src',data.data.url);
+										$("input[name=active_img]").val(data.data.attach_id);
+										console.log(data);
+									}
+							},
+							error: function (data, status, e)
+							{
+								alert(e);
+							}
+						}
+					)	
+					return false;
+				}
+				</script>
+                
+                <div class="clear"></div>
+                <div class="ca-tlist oh">
+                    <div class="c-l">活动介绍：</div>
+                    <div class="c-r">
+                        <textarea name="explain" class="i-txt" style="width:687px;">{$explain}</textarea>
+                    </div>
+                </div>  
+                
+                 <div class="ca-tlist">
+                    <div class="c-l">主办方：</div>
+                    <div class="c-r">
+                       <input type="text" name="sponsor" class="i-ipt" style="width:100px;" value="{$sponsor}"/>
+                       <select class="i-sele" name="organizer_type" style="width:120px; margin-left:30px;">
+                            <volist name="organizer_type_list" id="vo" key="k">
+                                <option <if condition="$k eq $organizer_type"> selected="selected" </if> value="{$k}">{$vo}</option>
+                            </volist>
+                       </select>
+                       <input name="organizer" type="text" style="width:120px; margin-left:-1px;" value="{$organizer}" class="i-ipt">
+                    </div>
+                </div>
+                
+                 <div class="ca-tlist">
+                    <div class="c-l">嘉宾：</div>
+                    <div class="c-r">
+                      <a href="javascript:;" id="js_add_jb" class="ico-btn ico-btn6">+ 添加嘉宾</a>
+                      <div class="clear"></div>
+                      <ul class="t-tits oh">
+                        <li class="ts1">姓名</li>
+                        <li class="ts2">职位</li>
+                        <li class="ts3">说明</li>
+                        <li class="ts4">嘉宾头像</li>
+                      </ul>
+                      <div class="clear"></div>
+                      <div class="jb-box oh" id="js_jb_box">
+                      <volist name="guest_list" id="vo">
+                      	<div class="jb-list">
+                        	<input type="text" value="{$vo.name}" name="guest_name[1]" class="i-ipt jbi1" />
+                            <input type="text" value="{$vo.position}" name="guest_position[1]" class="i-ipt jbi2" />
+                            <input type="text" value="{$vo.description}" name="guest_desc[1]" class="i-ipt jbi3" />
+                         	<!--<a href="#" class="i-fs">上传图片</a>-->
+                            <input type="file" name="guest_img_1" data-in="1" class="i-fs" value="" />
+                            <span class="de-btn">x</span>
+                        </div>
+                        </volist>
+                      </div>
+                      
+                      
+                    </div>
+                </div>
+                
+                
+                <div class="ca-tlist">
+                    <div class="c-l">活动议程：</div>
+                    <div class="c-r">
+                      <a href="javascript:;" id="js_add_yc" class="ico-btn ico-btn6">+ 添加议程</a>
+                      <div class="clear"></div>
+                      
+                      <div class="oh mb5">
+                      	<span>时间段</span>
+                        <span style="padding-left:262px;">活动细节</span>
+                      </div>
+                       <ul class="yc-ul" id="js_yc_box">
+                         <volist name="times_list" id="vo">
+
+                       		<li>
+                            	<input onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'});" value="{$vo.sTime}" name="hdyc_s[]" type="text" class="i-ipt i-ts" />
+                                <span>到</span>
+                                <input onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'});" value="{$vo.eTime}" name="hdyc_e[]" type="text" class="i-ipt i-ts" />
+                                <input type="text" value="{$vo.description}" class="i-ipt i-if"  name="hdyc_d[]" />
+                                <a href="javascript:;" class="de-btn">X</a>
+                            </li>
+                            </volist>
+                       </ul>
+                       
+                        
+                    </div>
+                </div>
+                
+                <div class="ca-tlist">
+                    <div class="c-l">交通路线：</div>
+                    <div class="c-r">
+                    	<input name="traffic" type="text" class="i-ipt" value="{$traffic}" />
+                    </div>
+                </div> 
+                
+                <div class="ca-tlist" style="border-bottom:1px dashed #ccc; padding-bottom:10px; *padding-bottom:15px; ">
+                    <div class="c-l">注意事项：</div>
+                    <div class="c-r">
+                    	<textarea name="notice" class="i-txt" style="width:700px;">{$notice}</textarea>
+                    </div>
+                </div>   
+                 <div class="ca-tlist">
+                    <div class="c-l">&nbsp;</div>
+                    <div class="c-r">
+                    	<a href="#" class="ico-btn ico-btn5 fl mr10">预览</a>
+                        <a href="#" class="ico-btn ico-btn5 fl" id="submit_a">发布</a>
+                    </div>
+                </div>         
+            
+            </div>
+            		</form>	
+		</div>
+        
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+</div>
+<script>
+$("#active_province").change(function(){
+	var province_id = $("#active_province").val();
+	$.post("index.php?app=company&mod=Index&act=get_city&province_id="+province_id,function(data){
+		$("#active_city").html("");
+		//console.log(data);
+		for(i=0;i < data.length;i++){
+			$("#active_city").append("<option value="+data[i].area_id+">"+data[i].title+"</option>");
+		}
+	},"json");
+});
+$("#submit_a").click(function(){
+	$("#form_activity").submit();
+});
+userMode.createActive = {
+	//添加嘉宾
+	addJb:function(){
+		$('#js_add_jb').bind('click',function(){
+			var index = $(".jb-list input:file:last");
+			var jbBox = $('#js_jb_box');
+			var t = '<div class="jb-list">';
+			t+='<input type="text" name="guest_name['+ (index.data("in")+1) +']" class="i-ipt jbi1" />';
+			t+='<input type="text" name="guest_position['+ (index.data("in")+1) +']" class="i-ipt jbi2" />';
+			t+='<input type="text" name="guest_desc['+ (index.data("in")+1) +']" class="i-ipt jbi3" />';
+			t+='<input type="file" name="guest_img_'+ (index.data("in")+1) +'" data-in="'+(index.data("in")+1)+'" class="i-fs" value="" />';
+			t+='<span class="de-btn">x</span>';
+			t+='</div>';
+			jbBox.append(t);
+	});
+//删除当前列
+$('#js_jb_box .de-btn').die().live('click',function(){
+if(window.confirm('您真的要删除?')){
+$(this).parents('.jb-list').remove();
+}else{
+return false;
+}
+});
+},
+//添加议程
+addYc:function(){
+$('#js_add_yc').bind('click',function(){
+var ycBox = $('#js_yc_box');
+var a = "WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'});";
+var t = '<li>';
+t+='<input type="text" onclick="'+a+'"  name="hdyc_s[]" class="i-ipt i-ts">';
+t+='<span>到</span>';
+t+='<input type="text" onclick="'+a+'"  name="hdyc_e[]" class="i-ipt i-ts">';
+t+='<input type="text"  name="hdyc_d[]" class="i-ipt i-if">';
+t+='<a href="javascript:;" class="de-btn">X</a>';
+t+='</li>';
+ycBox.append(t);
+});
+$('#js_yc_box .de-btn').die().live('click',function(){
+if(window.confirm('您真的要删除?')){
+$(this).parents('li').remove();
+}else{
+return false;
+}
+});
+},
+init:function(){
+this.addJb();
+this.addYc();
+}
+};
+$(document).ready(function(){
+userMode.createActive.init();
+}) 
+</script>
+<include file="__THEME__/new_footer" />

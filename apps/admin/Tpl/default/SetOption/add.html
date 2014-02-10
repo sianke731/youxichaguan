@@ -1,0 +1,37 @@
+<include file="__THEME__/admin_header" />
+<div id="container" class="so_main">
+  <div class="page_tit">添加{$operation_name}</div>
+   <!-- START TAB框 -->
+  <php>if(!empty($pageTab)):</php>
+  <div class="tit_tab">
+    <ul>
+    <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+    <volist name='pageTab' id='t'>
+    <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+    </volist>
+    </ul>
+  </div>
+  <php>endif;</php>
+  <!-- END TAB框 -->
+    <div class="form2">
+
+  <form method="post" name="form1" action="{:U('admin/SetOption/doaddOption',array('type_id'=>$type_id))}">
+    <dl class="lineD">
+      <dt>{$operation_name}：</dt>
+      <dd><input name="title" type="text" value="" class="s-txt"> *
+	  <p></p></dd>
+    </dl>
+    <dl class="lineD">
+      <dt>排序：</dt>
+      <dd><input name="sort" type="text" value="" class="s-txt"> *
+	  <p>越小越靠前，1-999</p></dd>
+    </dl>
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+  </form>
+  </div>
+  
+  
+</div>
+<include file="__THEME__/admin_footer" />

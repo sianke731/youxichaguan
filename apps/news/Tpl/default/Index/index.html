@@ -1,0 +1,139 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh mt15">
+	<div class="news-main fl">
+		<php>if($keys):</php>
+		<div class="game-search-box oh bg-fff mb10">
+			<p class="m10">
+				根据关键词“<b class="c-e43 pl5 pr5">{$keys}</b>”共搜索到<b class="c-e43 pl5 pr5">{$newsList.count}</b>条数据
+			</p>
+		</div>
+		<php>endif;</php>
+		
+		<ul class="news-main-top">
+			<volist name="topList" id="vo">
+		 	<li>
+				<a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}"><img src="{$vo.image}" alt="{$vo.news_title}" /></a>
+				<p><a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}">{$vo.title_intro|getShort=18}</a></p>
+			</li>
+			</volist>
+		</ul>
+		
+		<ul class="i-con-cate news-cate oh">
+			<li<php>if($t == 5):</php> class="curr"<php>endif;</php>><a href="{:U('news/Index/index',array('t'=>5))}">海外</a></li>
+			<li<php>if($t == 2):</php> class="curr"<php>endif;</php>><a href="{:U('news/Index/index',array('t'=>2))}">业界</a></li>
+			<li<php>if($t == 1):</php> class="curr"<php>endif;</php>><a href="{:U('news/Index/index',array('t'=>1))}">新游</a></li>
+			<li<php>if($t == 3):</php> class="curr"<php>endif;</php>><a href="{:U('news/Index/index',array('t'=>3))}">运营</a></li>
+			<li<php>if($t == 4):</php> class="curr"<php>endif;</php>><a href="{:U('news/Index/index',array('t'=>4))}">推广</a></li>
+		</ul>
+		
+		<div class="ic-ar-box oh mt10">	
+			<volist name="newsList.data" id="vo">
+			<div class="ic-list">
+				<div class="ic-if-box">
+					<div class="news-list-pic">
+						<a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}"><img src="{$vo.image}" alt="{$vo.news_title}"></a>
+						<div class="news-list-tps">
+							<em class="ico ico1" style="display:none;"></em>
+							<a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}">评论/{$vo.comment_count}人</a>
+						</div>
+					</div>
+					<div class="ic-info">
+						<h2><a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}">{$vo.title_intro}</a></h2>
+						<div class="tgs-box"><!--  <span class="tgs3 tgs">其他</span>  --><a href="#" class="t-user">{$vo.uid|getUserName}</a> <a href="#" class="t-time">{$vo['created']|friendlyDate}</a> <a href="#" class="t-look">{$vo.hits}views</a> </div>
+						<p>{$vo.content_intro|getShort=150}<a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}" class="c-fcb">【查看全文】</a></p>
+					</div>
+				</div>
+			</div>
+			</volist>
+		</div>
+		<!--分页 s-->
+		<div class="pager-box">{$newsList.html}</div>
+		<!--分页 s-->
+	</div>
+	<div class="news-side fr">
+		<div class="sub-search" style="display:none;">
+			<input type="text" class="sub-search-ipt" placeholder="请输入关键字">
+			<input type="submit" value="" class="sub-search-btn">
+		</div>
+		<div class="oh mt0 mb15 c-888">
+			<p class="fl">关注我们：</p>
+			<div class="fl oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		
+		<div class="bg-fff oh mb10">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>热门文章</h2>
+			</div>
+			<ul class="ilnews2-ul ilnews-ul">
+				<volist name="hotList" id="vo">
+				<li> <span>{$i}</span> <a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}">{$vo.news_title|msubstr=0,14}</a> </li>
+				</volist>
+			</ul>
+		</div>
+		
+		<div class="bg-fff oh mb10">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>热门点评</h2>
+			</div>
+			<ul class="news-hot-rep oh">
+				<volist name="hotComment" id="vo">
+				<li>
+					<h2><a href="{:U('news/Index/detail',array('id'=>$vo['row_id']))}">{$vo.content|getShort=14}</a></h2>
+					<p>
+						作者：<span>{$vo.userinfo.uname}</span>
+						{$vo.ctime|friendlyDate}
+					</p>
+				</li>
+				</volist>
+			</ul>
+		</div>
+		
+		<div class="bg-fff oh mb10">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>投稿文章</h2>
+			</div>
+			<volist name="topList" id="vo">
+			<div class="news-hot-rlist">
+				<h2>
+					<span class="nh-1">原文</span>
+					<a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}">{$vo.news_title|msubstr=0,14}</a>
+				</h2>
+				<div class="nhr-box">
+					<p>{$vo.content_intro|msubstr=0,50}</p>
+					<div>
+						<a href="#"><img src="test/5.jpg" /></a>
+						<span>来自:</span>
+						<a href="#">总感觉发给</a>
+					</div>
+				</div>
+			</div>
+			</volist>
+		</div>
+		
+		
+		<div class="yue-tags-box oh mb10" style="display:none;">
+			<h2>标签云</h2>
+			<ul class="yue-tags-ul">
+				<li class="tags1"><a href="#">网页游戏</a></li>
+				<li class="tags2"><a href="#">冒险</a></li>
+				<li class="tags3"><a href="#">游戏</a></li>
+				<li class="tags4"><a href="#">丛林冒险</a></li>
+				<li class="tags3"><a href="#">手机游戏</a></li>
+				<li class="tags4"><a href="#">冒险</a></li>
+				<li class="tags2"><a href="#">游戏</a></li>
+				<li class="tags1"><a href="#">丛林冒险</a></li>
+				<li class="tags3"><a href="#">游戏</a></li>
+				<li class="tags4"><a href="#">丛林冒险</a></li>
+				<li class="tags3"><a href="#">手机游戏</a></li>
+				<li class="tags4"><a href="#">冒险</a></li>
+			</ul>
+		</div>
+		
+		
+	</div>
+</div>
+
+<include file="__THEME__/new_footer" />

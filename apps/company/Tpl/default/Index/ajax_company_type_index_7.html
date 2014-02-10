@@ -1,0 +1,53 @@
+             <div class="boxs isbgs oh">
+            
+               	<div class="oh mt10">
+                	 <div class="b-l">用户覆盖区域:</div>
+                    <div class="b-r oh che-box">
+                    <volist name="user_cover" id="vo" key="k">
+                        <label class="ckd">
+                            <input name="user_cover[]" type="checkbox" value="{$k}" id="user_cover_{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if> <php>if(in_array($k,$channel['user_cover'])){echo('checked="checked"');}</php> >
+                            <span>{$vo}</span>
+                        </label>
+                    </volist>
+                    </div>
+                </div>
+                <div class="clear"></div>
+               	<div class="oh mt10">
+                	 <div class="b-l">渠道类型:</div>
+                    <div class="b-r oh che-box">
+                    <volist name="channel_type" id="vo" key="k">
+                        <label class="ckd">
+                            <input name="channel_type[]" type="checkbox" value="{$k}" id="channel_type_{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="$k eq $channel['types']"> checked="checked"</if> >
+                            <span>{$vo}</span>
+                        </label>
+                    </volist>
+                    </div>
+                </div>
+                <div class="clear"></div>
+              	<div class="oh mt10">
+                	  <div class="b-l">合作游戏平台要求:</div>
+                    <div class="b-r oh che-box">
+                    <volist name="platform" id="vo" key="k">
+                        <label class="ckd">
+                            <input name="platform_require_7" type="radio" value="{$k}" id="platform_{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="$k eq $channel['require']"> checked="checked"</if> >
+                            <span>{$vo}</span>
+                        </label>
+                    </volist>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="oh mt10">
+                	<div class="b-l">定价模式:</div>
+                    <div class="b-r oh che-box">
+                    <volist name="pricing_model" id="vo" key="k">
+                        <label class="ckd">
+                            <input name="pricing_model[]" type="checkbox" value="{$k}" id="pricing_model_{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>  <if condition="$k eq $channel['models']"> checked="checked"</if> >
+                            <span>{$vo}</span>
+                        </label>
+                    </volist>    
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+ 

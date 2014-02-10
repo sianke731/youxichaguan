@@ -1,0 +1,77 @@
+<include file="__THEME__/new_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+<div  class="wrap oh user-main mt15">
+<include file="__THEME__/new_left" />
+
+
+
+  
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的活动</h1>
+			</div>
+            
+            <div class="my-ac-switit fs16">
+            	<a class="current" href="{:U('event/Index/myactive',array('ac'=>'join'))}">我参加的活动</a>
+                <a href="{:U('event/Index/myactive',array('ac'=>'create'))}">我创建的活动</a>
+            </div>
+            
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="i-table ac1-table">
+				<tr class="i-tab-hader">
+					<td><span class="t1">序号</span></td>
+					<td><span>活动名</span></td>
+					<td><span>创建日期</span></td>
+					<td><span>报名人数</span></td>
+                    <td><span>状态</span></td>
+					<td><span>操作</span></td>
+				</tr>
+                <volist name="list" id="vo">
+				<tr class="i-tab-list">
+					<td><span class="t1">{$vo.id}</span></td>
+					<td><a href="#">{$vo.title}</a></td>
+					<td>{$vo.cTime|date="y-m-d",###}</td>
+					<td>{$vo.joinCount}人</td>
+                    <td>
+                        <switch name="vo.status">
+                        <case value="0"><span class="ico-btn ico-btn1">审核中</span></case>
+                        <case value="2"><span class="ico-btn ico-btn3">未通过</span></case>
+                        <case value="1"><span class="ico-btn ico-btn2">已通过</span></case>
+                        </switch>
+                    </td>
+					<td><a href="#" data-id="{$vo.id}" class="ico-btn ico-btn4 cancel_join">取消报名</a></td>
+				</tr>
+                </volist>
+			</table>
+            
+            <!--<div class="pager-box"> <span class="current">1</span> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">下一页</a> <a href="#">末页</a> </div>-->
+            			
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+
+  
+</div>
+<script>
+$(function() {
+     // Handler for .ready() called.
+	$(".cancel_join").click(function(){
+		var id = $(this).data("id");
+		$.post("{:U('event/Index/doDelAction')}",{id:id,action:"joinIn"},function(data){
+			if(data==1){
+				alert("成功");
+				window.location.reload();
+			}else{
+				alert("失败");
+			}
+		});
+	});
+});
+</script>
+<include file="__THEME__/new_footer" />

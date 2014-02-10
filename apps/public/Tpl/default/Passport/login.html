@@ -1,0 +1,94 @@
+<include file="__THEME__/new_header_simple" />
+
+<ul id="login-tab-title" class="wrap oh">
+	<li class="current"><a href="{:U('public/Passport/login')}">游戏茶馆用户登录</a></li>
+	<li><a href="{:U('public/Register')}">游戏茶馆用户注册</a></li>
+</ul>
+
+<div id="login-box" class="wrap oh">
+	<div class="login-side fl">
+		
+	</div>
+	<div class="login-main fr">
+		<form class="res-form" method="POST" action="{:U('public/Passport/doLogin')}">
+            <ul>
+                <li>
+                    <label class="label">电子邮件</label>
+                    <input type="text" class="i-ipt log-user" style="width:253px;" value="" id="account_input" name="login_email" >
+				</li>
+				<li>
+                    <label class="label">密码</label>
+                    <input type="password"class="i-ipt log-pass"  style="width:253px;"  value="" id="pwd_input" name="login_password"  >
+				</li>
+				<li>
+                    <label class="label">&nbsp;</label>
+                    <input type="button" value="登录" id="js_ajax_login" class="s-btn s-btn1 s-resbtn" />
+				</li>
+				<li>
+                    <label class="label">&nbsp;</label>
+					<div class="log-sg oh">
+						<label>
+							<input type="checkbox" name="login_remember" value="1" />
+							<span>记住密码</span>
+						</label>
+						<a href="{:U('public/Passport/findPassword')}">忘记密码？</a>
+					</div>
+				</li>
+				<php>if(Addons::requireHooks('login_input_footer')):</php>
+				<li class="last-action">
+					<p class="oh mt10 mb10">
+						<span style="margin-left:60px; float:left;">使用其他账号快速登陆</span>
+						<span class="fr">还没有账号?，<a href="{:U('public/Register')}" class="c-fcb">马上注册</a></span>
+					</p>
+					{:Addons::hook('login_input_footer')}
+				</li>
+				<php>endif;</php>
+            </ul>
+        </form>		
+	</div>
+</div>
+<script type="text/javascript" src="__ROOT__/html/js/common.js"></script>
+<script>
+//ajax登录函数
+function ajaxLogin(){
+	var email = $('#account_input');
+	var pass = $('#pwd_input');
+	$.ajax({
+		type:'POST',
+		url:"{:U('public/Passport/doLogin')}",
+		data:{login_email:email.val(),login_password:pass.val()},
+		dataType:'json',
+		error:function(){
+			dialog._create({
+				width:320,
+				errorMsg:'请求错误,请刷新重试'
+			});
+			return false;
+		},
+		success:function(data){
+			
+			if(data.status == 'n'){
+				dialog._create({
+					width:320,
+					errorMsg:data.info
+				});
+			}else{
+				$('#js_ajax_login').val('登录成功，页面跳转中...');
+				window.location.href = data.data;
+			}
+		}
+	});
+}
+
+//ajax登录
+(function(){
+	$('#js_ajax_login').on('click',function(){
+		ajaxLogin(); //执行登录
+	});
+})();
+
+
+</script>
+
+
+<include file="__THEME__/new_footer_simple" />

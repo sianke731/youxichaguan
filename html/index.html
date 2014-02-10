@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--顶部 s-->
+<div id="header">
+	<div class="wrap">
+		<div class="logo-box fl"> <a href="index.html"><img src="images/logo.png"/></a>
+			<div class="wb-box oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		<div class="top-ads oh fl">
+			<div class="ta-list"><a href="#"><img src="test/test6.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/test7.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/t_06.png" /></a></div>
+		</div>
+		<!--未登录 s-->
+		<!-- <div class="log-box oh fr">
+			<div class="oh"> <a href="#" class="t-btn">注册</a> <a href="#" class="t-btn">登录</a> </div>
+			<div class="log-fot oh">
+				<p class="c-333">使用社交账户快速登陆:</p>
+				<a href="#" title="QQ登录" class="t-ico qq-ico"></a> <a href="#" title="微博登录" class="t-ico wb-ico"></a> </div>
+		</div> -->
+		<!--未登录 e-->
+		<!--登录之后 s-->
+		<div class="loging-box fr" id="js_login_yes">
+			<div class="loging-top oh">
+				<img src="test/9.jpg" class="user-pic" />
+				<div class="lt-info">
+					<h2><span class="fl">^那伤真痛_</span><em></em></h2>
+					<p><em></em>游戏币：<a href="#">5942</a></p>
+				</div>
+				<ul class="user-oper-list" style="display:none;">
+					<li><a href="#">我的消息</a><a href="#" class="ipts">5</a></li>
+					<li><a href="#">我的收藏</a></li>
+					<li><a href="#">我的账户</a></li>
+					<li><a href="#">我的评论</a></li>
+					<li><a href="#">我的活动</a></li>
+					<li><a href="#">我的名片</a></li>
+					<li><a href="#">我的产品</a></li>
+					<li><a href="#">我的公司</a></li>
+					<li class="log-out"><a href="javascript:;">注销</a></li>
+				</ul>
+				
+				
+			</div>
+		</div>
+		<!--登录之后 e-->
+		
+		
+	</div>
+</div>
+<!--顶部 e--> 
+
+<!--nav s-->
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li class="nav-curr"><a href="#">首页</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">公司</a></li>
+			<li><a href="#">通讯录</a></li>
+			<li><a href="#">活动</a></li>
+			<li><a href="#">新闻</a></li>
+			<li><a href="#">圈子</a></li>
+		</ul>
+		<div class="search-box fr pr">
+			<form action="http://www.qq.com" method="post" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">请选择</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="http://www.baidu.com">百度</li>
+						<li data-id="http://www.sina.com">新闻</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="search..." class="search-ipt" id="js_search_ipt" />
+				<input type="submit" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->
+
+<div  class="wrap oh index-main mt15">
+	<!--首页左边部分 s-->
+	<div class="i-left fl mr20">
+		<!--二级导航 s-->
+		<ul class="i-sub-list oh mb10">
+			<li class="i-s1"><a href="#"></a></li>
+			<li class="i-s2"><a href="#"></a></li>
+			<li class="i-s3"><a href="#"></a></li>
+			<li class="i-s4"><a href="#"></a></li>
+		</ul>
+		<!-- 二级导航 s-->
+		
+		<!--热门文章 s-->
+		<div class="il-news1 bg-fff oh mb15">
+			<div class="pub-tit-box pub-tit-box1">
+				<h2>热门文章</h2>
+			</div>
+			<ul class="ilnews1-ul ilnews-ul" id="js_hot_news_ul">
+				<li> <span>1</span> <a href="#">战役系统玩法规则详解</a> </li>
+				<li> <span>2</span> <a href="#">消费送点券，最高送5万！</a> </li>
+				<li> <span>3</span> <a href="#">双12《女神联盟》重磅开启</a> </li>
+				<li> <span>4</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>5</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>6</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>7</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>8</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>9</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>10</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+			</ul>
+		</div>
+		<!--热门文章 e-->
+		
+		<!--投稿文章 s-->
+		<div class="il-news1 bg-fff oh mb10">
+			<div class="pub-tit-box pub-tit-box1">
+				<h2>投稿文章</h2>
+			</div>
+			<ul class="ilnews2-ul ilnews-ul">
+				<li> <span>1</span> <a href="#">战役系统玩法规则详解</a> </li>
+				<li> <span>2</span> <a href="#">消费送点券，最高送5万！</a> </li>
+				<li> <span>3</span> <a href="#">双12《女神联盟》重磅开启</a> </li>
+				<li> <span>4</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>5</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>6</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>7</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>8</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>9</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>10</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>9</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>10</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>9</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+				<li> <span>10</span> <a href="#">《攻城掠地》临时维护公告</a> </li>
+			</ul>
+		</div>
+		<!--投稿文章 e-->
+		
+		<!--最新评论 s-->
+		<div class="il-news1 bg-fff oh">
+			<div class="pub-tit-box pub-tit-box1">
+				<h2>最新评论</h2>
+			</div>
+			<ul class="i-comment-ul">
+				<li> <a href="#"><img src="test/test4.png" /></a>
+					<div class="i-com-info">
+						<h3><a href="#">江湖和尚</a></h3>
+						<p> <span>评论：</span>很精彩的游戏，界面非常的清晰，任务角色 </p>
+					</div>
+				</li>
+				<li> <a href="#"><img src="test/test4.png" /></a>
+					<div class="i-com-info">
+						<h3><a href="#">江湖和尚</a></h3>
+						<p> <span>评论：</span>很精彩的游戏，界面非常的清晰，任务角色 </p>
+					</div>
+				</li>
+				<li> <a href="#"><img src="test/test4.png" /></a>
+					<div class="i-com-info">
+						<h3><a href="#">江湖和尚</a></h3>
+						<p> <span>评论：</span>很精彩的游戏，界面非常的清晰，任务角色 </p>
+					</div>
+				</li>
+				<li> <a href="#"><img src="test/test4.png" /></a>
+					<div class="i-com-info">
+						<h3><a href="#">江湖和尚</a></h3>
+						<p> <span>评论：</span>很精彩的游戏，界面非常的清晰，任务角色 </p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!--最新评论 s-->
+		
+	</div>
+	<!--首页左边部分 e-->
+	
+	<!--首页中间部分 s-->
+	<div class="i-content fl">
+		<!--焦点图 s-->
+		<div class="i-slider mb10 oh">
+			<ul class="i-slider-pic" id="js_i_slider_pic">
+				<li> <a href="#"><img src="test/test9.png"></a>
+					<div class="slider-msg">
+						<h2>SEGA Sammy卖出Hello Kitty母公司Sanrio股份1</h2>
+						<h3>第二届全球移动游戏开发者大会将于2013年11月23-24日在成都世纪城新国...</h3>
+					</div>
+				</li>
+				<li> <a href="#"><img src="http://statics.enwei.com/uploads/slider1.jpg"></a>
+					<div class="slider-msg">
+						<h2>SEGA Sammy卖出Hello Kitty母公司Sanrio股份2</h2>
+						<h3>第二届全球移动游戏开发者大会将于2013年11月23-24日在成都世纪城新国...</h3>
+					</div>
+				</li>
+				<li> <a href="#"><img src="http://statics.enwei.com/uploads/slider2.jpg"></a>
+					<div class="slider-msg">
+						<h2>SEGA Sammy卖出Hello Kitty母公司Sanrio股份3</h2>
+						<h3>第二届全球移动游戏开发者大会将于2013年11月23-24日在成都世纪城新国...</h3>
+					</div>
+				</li>
+			</ul>
+			<ul class="i-slider-btn" id="js_i_slider_btn">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<!--焦点图 e-->
+		
+		<!--中间新闻 s-->
+		<ul class="i-con-cate oh">
+			<li class="curr"><a href="javascript:;">海外</a></li>
+			<li><a href="javascript:;">业界</a></li>
+			<li><a href="javascript:;">新游</a></li>
+			<li><a href="javascript:;">运营</a></li>
+			<li><a href="javascript:;">推广</a></li>
+		</ul>
+		<div class="ic-ar-box oh mt10">
+			<div class="ic-list">
+				<h2><a href="#">SEGA Sammy卖出Hello Kitty母公司Sanrio股份</a></h2>
+				<div class="ic-if-box"> <a href="#"><img src="test/test1.png" /></a>
+					<div class="ic-info">
+						<div class="tgs-box"> <span class="tgs1 tgs">海外</span> <a href="#" class="t-user">lihua</a> <a href="#" class="t-time">11月10日</a> <a href="#" class="t-look">12views</a> </div>
+						<p>月15日，SEGA SAMMY HOLDINGS宣布卖出手中持有的部分Sanrio股份，主要由于Sanrio增加个人持股的愿望。Sanrio是设计出Hello Kitty的公司，旗下事业也涉及社交游。 此及.<a href="#" class="c-fcb">【查看全文】</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="ic-list">
+				<h2><a href="#">SEGA Sammy卖出Hello Kitty母公司Sanrio股份</a></h2>
+				<div class="ic-if-box"> <a href="#"><img src="test/test1.png" /></a>
+					<div class="ic-info">
+						<div class="tgs-box"> <span class="tgs2 tgs">国内</span> <a href="#" class="t-user">lihua</a> <a href="#" class="t-time">11月10日</a> <a href="#" class="t-look">12views</a> </div>
+						<p>月15日，SEGA SAMMY HOLDINGS宣布卖出手中持有的部分Sanrio股份，主要由于Sanrio增加个人持股的愿望。Sanrio是设计出Hello Kitty的公司，旗下事业也涉及社交游。 此及.<a href="#" class="c-fcb">【查看全文】</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="ic-list">
+				<h2><a href="#">SEGA Sammy卖出Hello Kitty母公司Sanrio股份</a></h2>
+				<div class="ic-if-box"> <a href="#"><img src="test/test1.png" /></a>
+					<div class="ic-info">
+						<div class="tgs-box"> <span class="tgs1 tgs">海外</span> <a href="#" class="t-user">lihua</a> <a href="#" class="t-time">11月10日</a> <a href="#" class="t-look">12views</a> </div>
+						<p>月15日，SEGA SAMMY HOLDINGS宣布卖出手中持有的部分Sanrio股份，主要由于Sanrio增加个人持股的愿望。Sanrio是设计出Hello Kitty的公司，旗下事业也涉及社交游。 此及.<a href="#" class="c-fcb">【查看全文】</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="ic-list">
+				<h2><a href="#">SEGA Sammy卖出Hello Kitty母公司Sanrio股份</a></h2>
+				<div class="ic-if-box"> <a href="#"><img src="test/test1.png" /></a>
+					<div class="ic-info">
+						<div class="tgs-box"> <span class="tgs2 tgs">国内</span> <a href="#" class="t-user">lihua</a> <a href="#" class="t-time">11月10日</a> <a href="#" class="t-look">12views</a> </div>
+						<p>月15日，SEGA SAMMY HOLDINGS宣布卖出手中持有的部分Sanrio股份，主要由于Sanrio增加个人持股的愿望。Sanrio是设计出Hello Kitty的公司，旗下事业也涉及社交游。 此及.<a href="#" class="c-fcb">【查看全文】</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="ic-list">
+				<h2><a href="#">SEGA Sammy卖出Hello Kitty母公司Sanrio股份</a></h2>
+				<div class="ic-if-box"> <a href="#"><img src="test/test1.png" /></a>
+					<div class="ic-info">
+						<div class="tgs-box"> <span class="tgs1 tgs">海外</span> <a href="#" class="t-user">lihua</a> <a href="#" class="t-time">11月10日</a> <a href="#" class="t-look">12views</a> </div>
+						<p>月15日，SEGA SAMMY HOLDINGS宣布卖出手中持有的部分Sanrio股份，主要由于Sanrio增加个人持股的愿望。Sanrio是设计出Hello Kitty的公司，旗下事业也涉及社交游。 此及.<a href="#" class="c-fcb">【查看全文】</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="ic-list">
+				<h2><a href="#">SEGA Sammy卖出Hello Kitty母公司Sanrio股份</a></h2>
+				<div class="ic-if-box"> <a href="#"><img src="test/test1.png" /></a>
+					<div class="ic-info">
+						<div class="tgs-box"> <span class="tgs3 tgs">其他</span> <a href="#" class="t-user">lihua</a> <a href="#" class="t-time">11月10日</a> <a href="#" class="t-look">12views</a> </div>
+						<p>月15日，SEGA SAMMY HOLDINGS宣布卖出手中持有的部分Sanrio股份，主要由于Sanrio增加个人持股的愿望。Sanrio是设计出Hello Kitty的公司，旗下事业也涉及社交游。 此及.<a href="#" class="c-fcb">【查看全文】</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--中间新闻 e-->
+		
+		<!--分页 s-->
+		<div class="pager-box"> <span class="current" >1</span> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">下一页</a> <a href="#">末页</a> </div>
+		<!--分页 s-->
+	</div>
+	<!--首页中间部分 e-->
+	
+	
+	<!--首页右边部分 s-->
+	<div class="i-right fr">
+		
+		<!--用户信息(登录后的状态) s-->
+		<!--<div class="ir-box bg-fff">
+			<div class="ir-user-box oh">
+				<h2>欢迎 <span class="c-e43">youxicha@sina.com</span><a href="#" class="u-login-out">注销</a></h2>
+				<div class="u-msg-box"> <a href="#"><img src="test/test8.png" /></a>
+					<ul class="u-msg-info">
+						<li><a href="#">我的消息</a><a href="#" class="tips">2</a></li>
+						<li><a href="#">我的收藏</a></li>
+						<li><a href="#">我的账户</a></li>
+					</ul>
+				</div>
+				<ul class="u-oper-box oh">
+					<li> <span class="m-1"></span> <a href="#">我的活动</a> </li>
+					<li> <span class="m-2"></span> <a href="#">我的名片</a> </li>
+					<li> <span class="m-3"></span> <a href="#">我的产品</a> </li>
+					<li> <span class="m-1"></span> <a href="#">我的公司</a> </li>
+				</ul>
+				<ul class="ir-game1 oh">
+					<li> <a href="#"><img src="test/test3.png" /></a>
+						<div> <a href="#">创世街霸</a>
+							<p>标签：卡牌</p>
+							<p>平台：Android、IOS</p>
+							<p>寻找：找发行商|出版</p>
+						</div>
+					</li>
+					<li> <a href="#"><img src="test/test3.png" /></a>
+						<div> <a href="#">创世街霸</a>
+							<p>标签：卡牌</p>
+							<p>平台：Android、IOS</p>
+							<p>寻找：找发行商|出版</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>-->
+		<!--用户信息(登录后的状态) e-->
+		
+        <!--未登录的情况 s-->
+        <div class="ir-box bg-fff">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>新加入产品</h2>
+				<div class="pt-r"> <a href="#" class="p-more">更多+</a> </div>
+			</div>
+			<ul class="add-goods-box oh">
+					
+                    <li>
+                    	<a href="#"><img src="test/test9.png" /></a> 
+                    	<h2><a href="#">植物大战僵尸</a></h2>
+                        <p>标签：卡牌</p>
+                        <p>平台：Android、IOS</p>
+                        <p>寻找：找发行商|出版</p>
+                    </li>
+                     <li>
+                    	<a href="#"><img src="test/test1.png" /></a> 
+                    	<h2><a href="#">植物大战僵尸</a></h2>
+                        <p>标签：卡牌</p>
+                        <p>平台：Android、IOS</p>
+                        <p>寻找：找发行商|出版</p>
+                    </li>
+                     <li>
+                    	<a href="#"><img src="test/test4.png"/></a> 
+                    	<h2><a href="#">植物大战僵尸</a></h2>
+                        <p>标签：卡牌</p>
+                        <p>平台：Android、IOS</p>
+                        <p>寻找：找发行商|出版</p>
+                    </li>
+                     <li>
+                    	<a href="#"><img src="test/test11.png" /></a> 
+                    	<h2><a href="#">植物大战僵尸</a></h2>
+                        <p>标签：卡牌</p>
+                        <p>平台：Android、IOS</p>
+                        <p>寻找：找发行商|出版</p>
+                    </li>
+                    
+                    
+				</ul>
+		</div>
+        <!--未登录的情况 e-->
+        
+        
+		<!--新加入公司 s-->
+		<div class="ir-box bg-fff mt15 ir-ad1-box">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>新加入公司</h2>
+				<div class="pt-r"> <a href="#" class="p-more">更多+</a> </div>
+			</div>
+			<div class="ir-scroll-box">
+				<ul class="add-company-box oh">
+					<li> <a href="#"><img src="test/test5.png" /></a> <a href="#">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test5.png" /></a> <a href="#">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test5.png" /></a> <a href="#">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test5.png" /></a> <a href="#">成都鑫海动漫公司</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!--新加入公司 e-->
+		
+		<!--新加入人物 s-->
+		<div class="ir-box bg-fff mt15 ir-ad2-box">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>新加入人物</h2>
+				<div class="pt-r"> <a href="javascripit:;" id="js_prev" class="prev-btn p-btn">&lt;</a> <a href="javascripit:;" id="js_next" class="next-btn p-btn">&gt;</a> <a href="#" class="p-more">更多+</a> </div>
+			</div>
+			<div class="ir-scroll-box2 oh">
+				<ul class="add-pres-box pb10 oh" id="js_scroll_ul">
+					<li> <a href="#"><img src="test/test1.png" /></a> <a href="#" class="s-n">李华啊</a> <a href="#" class="s-t">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test3.png" /></a> <a href="#" class="s-n">李华啊</a> <a href="#" class="s-t">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test3.png" /></a> <a href="#" class="s-n">李华啊</a> <a href="#" class="s-t">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test4.png" /></a> <a href="#" class="s-n">李华啊</a> <a href="#" class="s-t">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test1.png" /></a> <a href="#" class="s-n">李华啊</a> <a href="#" class="s-t">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test3.png" /></a> <a href="#" class="s-n">李华啊</a> <a href="#" class="s-t">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test3.png" /></a> <a href="#" class="s-n">李华啊</a> <a href="#" class="s-t">成都鑫海动漫公司</a> </li>
+					<li> <a href="#"><img src="test/test4.png" /></a> <a href="#" class="s-n">李华啊</a> <a href="#" class="s-t">成都鑫海动漫公司</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!--新加入人物 e-->
+		
+		<!--近期活动 s-->
+		<div class="ir-box bg-fff mt15 ir-active-box">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>近期活动</h2>
+				<div class="pt-r"> <a href="#" class="p-more">更多+</a> </div>
+			</div>
+			<div class="ir-active-top oh"> <a href="#"><img src="test/test11.png" /></a>
+				<div class="ir-av-info">
+					<h2><a href="#">银河之夜——tap4fun 与游戏</a></h2>
+					<p class="c-fff">时间：2013年12月18号</p>
+					<p class="c-fff">地点：成都市电子游戏竞技中心</p>
+				</div>
+			</div>
+			<ul  class="ir-active-list oh">
+				<li> <a href="#"><img src="test/test9.png" /></a>
+					<div class="ial-info">
+						<h2><a href="#">ap4fun • 银河之夜—tap4fun 与游戏</a></h2>
+						<p>时间：2013-12-28</p>
+						<p>地点：电子游戏竞技中心</p>
+					</div>
+				</li>
+				<li> <a href="#"><img src="test/test9.png" /></a>
+					<div class="ial-info">
+						<h2><a href="#">ap4fun • 银河之夜—tap4fun 与游戏</a></h2>
+						<p>时间：2013-12-28</p>
+						<p>地点：电子游戏竞技中心</p>
+					</div>
+				</li>
+				<li> <a href="#"><img src="test/test9.png" /></a>
+					<div class="ial-info">
+						<h2><a href="#">ap4fun • 银河之夜—tap4fun 与游戏</a></h2>
+						<p>时间：2013-12-28</p>
+						<p>地点：电子游戏竞技中心</p>
+					</div>
+				</li>
+				<li> <a href="#"><img src="test/test9.png" /></a>
+					<div class="ial-info">
+						<h2><a href="#">ap4fun • 银河之夜—tap4fun 与游戏</a></h2>
+						<p>时间：2013-12-28</p>
+						<p>地点：电子游戏竞技中心</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!--近期活动 e-->
+	</div>
+	<!--首页右边部分 s-->
+	
+</div>
+
+<a href="#" id="js_yjfk" title="意见反馈"></a>
+<a href="#" id="js_ly" title="我要留言"></a>
+<a href="javascript:;" id="js_rtop" title="返回顶部"></a>
+<!--footer s-->
+<div id="footer">
+	<div class="fot-main oh"> <img src="images/t_50.png" />
+		<div class="fot-info">
+			<p> <a href="#">关于我们</a> | <a href="#">加入游戏茶馆</a> | <a href="#">联系我们</a> | <a href="#">寻求报道</a> | <a href="#">订阅</a> </p>
+			<p class="fs12 c-888">©2008-2013 <span class="c-fcb">游戏茶馆</span> | 蜀ICP备11004573号</p>
+		</div>
+	</div>
+</div>
+<!--footer e--> 
+
+<script type="text/javascript">
+//首页js
+var gemeIndex = {
+	styleOper:function(){
+		//首页热门文章前三效果
+		var lis = $('#js_hot_news_ul li');
+		lis.eq(0).find('span').css('background','#c1334a');
+		lis.eq(1).find('span').css('background','#ef5052');
+		lis.eq(2).find('span').css('background','#ff7678');
+	},
+	init:function(){
+		this.styleOper();
+		$.slider(); //首页焦点图执行
+		$.scrollpic(); //滚动图片列表
+	}
+};
+$(document).ready(function() {
+	gemeIndex.init();
+});
+</script>
+</body>
+</html>

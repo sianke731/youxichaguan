@@ -1,0 +1,101 @@
+<include file="__THEME__/new_header" />
+<link href="__APP__/group.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__APP__/Js/json2select.js"></script> 
+<script type="text/javascript" src="__APP__/Js/group.info.form.js"></script> 
+
+
+<div class="wrap oh bg-fff mt15">
+	<include file="../Public/_mainNav" />
+		  <div class="main no_l"> <!-- 右侧内容 begin  -->
+		  <div class="mainbox"> 
+			  <include file="../Public/_isHotList" />
+			  <div class="mainbox_appC">
+		  <div class=page_title> <!-- page_title begin -->
+		  		<div class="db mt10"></div>
+				<h2><span class="ml15 pl10">
+				<!--<a href="javascript:history.go(-1)">&lt;&lt;返回上一页</a>--></span><em style="font-style:normal; font-size:16px; font-weight:bold;">创建新的群</em></h2>
+		</div><!-- page_title end -->
+		  <!-- 切换标签 end  -->
+		  <div class="groupBox">
+		  <form name="addform" action="{:U('group/Index/doAdd')}" method="post" onsubmit="return group_info.check_form(this);" enctype="multipart/form-data">
+			<ul class="add_group">
+				  <li>
+					<div class="c1"><font color="red">*</font>群名称：</div>
+					<div class="c2">
+					  <input type="text" name="name" value="{$search_key}" class="i-ipt" style="width: 400px;" onblur="group_info.text_length(this,30);"/>
+					  <span id="group_name_tips" class="cRed pr5"></span>
+					</div>
+				  </li>
+				  <li>
+					<div class="c1"><font color="red">*</font>群分类：</div>
+					<div class="c2" id="pid"></div>
+				  </li>
+				  <li>
+					<div class="c1">群头像：</div>
+					<div class="c2"><input type="file" class="i-ipt"  name="logo" />
+					</div>
+				  </li>
+				  <li>
+					<div class="c1">群简介：</div>
+					<div class="c2">
+					  <textarea rows="6" style="padding:0;overflow:auto;width:400px;height:100px" class="i-txt" onblur="group_info.text_length(this,200);" name="intro"></textarea>
+					  <span id="group_intro_tips" class="cRed pr5"></span>
+					</div>
+				  </li>
+				  <li>
+					<div class="c1"><font color="red">*</font>内容权限：</div>
+					<div class="c2">
+						<div class="mb10"><label><input type="radio" style="margin-top: -3px;" name="type" value="open" checked="checked" />公开<span class="cGray2">（群组内容公开，所有用户可见）</span></label></div>
+						<div><label><input type="radio" style="margin-top: -3px;" name="type" value="close" />私密<span class="cGray2">（群组内容私密，仅成员可见）</span></label></div>
+					</div>
+				  </li>
+				  <li>
+					<div class="c1"><font color="red">*</font>验证码：</div>
+					<div class="c2">
+					  <input name="verify" type="text" class="i-ipt" style="width:70px" id="verCode"/>
+					  <img src="__ROOT__/public/captcha.php" id="verifyimg" class="alM" onclick="group_info.change_verify()"/>
+					  <a href="###" onclick="group_info.change_verify()" alt="换一张">看不清楚，换一个</a>
+					</div>
+				  </li>
+				  <li>
+					<div class="c1">&nbsp;</div>
+					<div class="c2">
+					<input type="hidden" name="dosubmit" value="1">
+					<input name="button" type="submit" class="s-btn s-btn9" id="button" value="确定"/>
+		
+					</div>
+				  </li>
+				  </ul>
+			</form>
+		  </div>
+		  <div class="c"></div>
+		
+		
+		</div>
+		<div class="c"></div>
+		</div>
+		</div><!-- 内容 end -->
+
+</div>
+</div>
+
+<script>
+// function code(){
+// 	var verify = $("#verCode").val();
+// 	if(verify != ''){
+// 		$.post("__URL__&act=code",{verify:verify},function(data){
+// 			if(data == 0){
+// 				ui.error("验证码错误，请重新输入");return false;
+// 			}
+// 		})
+// 	}
+// }
+</script>
+ <script type="text/javascript">
+ $(document).ready(function(){
+	 var category_json = {:getCategorySelect(0)};
+	 $("#pid").json2select(category_json,'','cid');
+ });
+</script>
+
+<include file="__THEME__/new_footer" />

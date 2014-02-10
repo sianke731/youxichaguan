@@ -1,0 +1,69 @@
+             <div class="boxs isbgs oh">
+            	<div class="b-l">产品整包:</div>
+                <div class="b-r oh che-box">
+                <volist name="product_outsourcing" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="product_outsourcing[]" type="checkbox" value="{$k}" id="product_outsourcing{$k}" <php>if(in_array($k,$outer['wholes'])){</php> checked="checked"<php>}</php>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">美术外包:</div>
+                <div class="b-r oh che-box">
+                <volist name="arts_outsourcing" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="arts_outsourcing[]" type="checkbox" value="{$k}" id="arts_outsourcing{$k}" <php>if(in_array($k,$outer['arts'])){</php> checked="checked"<php>}</php>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">音乐外包:</div>
+                <div class="b-r oh che-box">
+                <volist name="music_outsourcing" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="music_outsourcing[]" type="checkbox" value="{$k}" id="music_outsourcing{$k}" <php>if(in_array($k,$outer['musics'])){</php> checked="checked"<php>}</php>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">测试外包:</div>
+                <div class="b-r oh che-box">
+                <volist name="test_outsourcing" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="test_outsourcing[]" type="checkbox" value="{$k}" id="test_outsourcing{$k}" <php>if(in_array($k,$outer['tests'])){</php> checked="checked"<php>}</php>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">程序外包:</div>
+                <div class="b-r oh che-box">
+                <volist name="program_outsourcing" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="program_outsourcing[]" type="checkbox" value="{$k}" id="program_outsourcing{$k}" <php>if(in_array($k,$outer['programs'])){</php> checked="checked"<php>}</php>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">企划外包:</div>
+                <div class="b-r oh che-box">
+                <volist name="plan_outsourcing" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="plan_outsourcing[]" type="checkbox" value="{$k}" id="plan_outsourcing{$k}" <php>if(in_array($k,$outer['plans'])){</php> checked="checked"<php>}</php>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+			</div>
+

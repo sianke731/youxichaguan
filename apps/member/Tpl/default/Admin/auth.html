@@ -1,0 +1,81 @@
+<include file="__THEME__/admin_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+<style>
+#zyjl{
+	float:left; background-color:#999;
+	margin-bottom:10px;
+}
+#zyjl td{
+	background-color:#FFF
+}
+</style>
+<div id="container" class="so_main">
+    <div class="page_tit">通讯录详情</div>
+    <div class="form2">
+  		<form action="{:U('member/Admin/doedit',array('id'=>$member[id]))}" method="post" name="form1">
+    <dl class="lineD">
+      <dt>姓名：</dt>
+      <dd>{$member.name}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>审核状态：</dt>
+      <dd><label><input type="radio" value="0" name="is_auth" <if condition="$member[is_auth] eq 0"> checked="checked" </if> />未提交审核</label><label><input type="radio" value="1" name="is_auth" <if condition="$member[is_auth] eq 1"> checked="checked" </if> />提交审核</label><label><input type="radio" value="2" name="is_auth" <if condition="$member[is_auth] eq 2"> checked="checked" </if> />审核未通过</label><label><input type="radio" value="3" name="is_auth" <if condition="$member[is_auth] eq 3"> checked="checked" </if> />审核通过</label></dd>
+    </dl>
+    <dl class="lineD">
+      <dt>认证状态：</dt>
+      <dd><label><input type="radio" value="0" name="is_verify" <if condition="$member[is_verify] eq 0"> checked="checked" </if> />未提交认证</label><label><input type="radio" value="1" name="is_verify" <if condition="$member[is_verify] eq 1"> checked="checked" </if> />提交认证</label><label><input type="radio" value="2" name="is_verify" <if condition="$member[is_verify] eq 2"> checked="checked" </if> />认证未通过</label><label><input type="radio" value="3" name="is_verify" <if condition="$member[is_verify] eq 3"> checked="checked" </if> />认证通过</label></dd>
+    </dl>
+    
+    
+    <div class="page_btm">
+      <input type="button" onclick="submit_from()" id="form_submit" value="确定" class="btn_b">
+      
+    </div>
+    </form>
+</div>
+<script type="text/javascript">
+function add_member_company(){
+$("#zyjl").append("<tr class='listdata'><td><input type='text' name='name_c'></td><td><input type='text' name='position_c'></td><td><input type='text' name='product_c'></td><td><a href='javascript:void(0);' onclick='del_c(this)'>删除</a>|<a href='javascript:void(0);' onclick='save_c(this)'>保存</a></td></tr>");
+}
+function save_c(obj){
+	//console.log($(obj).parents("tr.listdata").find("input[name=name_c]"));
+	var name_input = $(obj).parents("tr.listdata").find("input[name=name_c]");
+	var position_input = $(obj).parents("tr.listdata").find("input[name=position_c]");
+	var product_input = $(obj).parents("tr.listdata").find("input[name=product_c]");
+	if((name_input.val().length <=0 )||(position_input.val().length <=0 )||(product_input.val().length <=0 )){
+		alert("未填写完整职位经历");
+		return false;
+	}
+	var self_tr = $(obj).parents("tr.listdata");
+	$.post("{:U('member/Admin/ajax_qzjl',array('id'=>$member['id']))}",{ name_input: name_input.val(),position_input: position_input.val(),product_input: product_input.val() },function(data){
+		//console.log(data);
+		if(data.status==1){
+			alert(data.msg);
+			if(data.new_id>0){
+				self_tr.html("<td>"+name_input.val()+"</td><td>"+position_input.val()+"</td><td>"+product_input.val()+"</td><td><a href='javascript:void(0);' onclick='del_c(this)'>删除</a></td>");
+				self_tr.data("id",data.new_id);
+			}
+		}
+	},"json");
+}
+function del_c(obj){
+	var id = $(obj).parents("tr.listdata").data("id");
+	if(confirm("确定要删除这条职业经历？")){
+		if(id){
+			$.post("{:U('member/Admin/ajax_qzjl_del')}&id="+id,function(data){
+				if(data.status==1){
+					alert(data.msg);
+					$(obj).parents("tr.listdata").remove();
+				}
+			},"json");
+		}else{
+			$(obj).parents("tr.listdata").remove();
+		}
+	}
+}
+function submit_from(){
+	$("form[name=form1]").submit();
+}
+</script>
+<include file="__THEME__/admin_footer" />

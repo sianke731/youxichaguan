@@ -1,0 +1,84 @@
+<include file="__THEME__/admin_header" />
+<div id="container" class="so_main">
+  <div class="page_tit">添加{$operation_name}</div>
+   <!-- START TAB框 -->
+  <php>if(!empty($pageTab)):</php>
+  <div class="tit_tab">
+    <ul>
+    <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+    <volist name='pageTab' id='t'>
+    <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+    </volist>
+    </ul>
+  </div>
+  <php>endif;</php>
+  <!-- END TAB框 -->
+    <div class="form2">
+
+  <form method="post" name="form1" action="{:U('company/Admin/doadd')}" id="form1">
+    {:W('Company', array('tpl'=>'company_name','company_id'=>$_GET[id]))}
+   <dl class="lineD" id='dl_{$pk}'>
+      <dt>上传公司LOGO：</dt>
+      <dd>    
+      	<div>
+        <php>$upkey=1;</php>
+      	<!-- <FORM style='display:inline;padding:0;margin:0;border:0'>  -->
+			<div id="divup_{$upkey}" type="file" rel="{$upkey}">
+			<input type="file" name="attach" rel="{$upkey}" onchange="admin.upload('logo_company',this)" urlquery='attach_type=feed_image&upload_type=image&thumb=1'></div>
+           <div id='show_logo_company'>
+              <img src="/data/upload/2013/0121/10/logo_company.png" class="pic-size">
+          </div>
+           <input name="logo_company" id="form_logo_company" type="hidden" value="75" class="s-txt" style="width:200px;"/>
+		   <!-- </FORM> -->
+    		</div>    
+		<php>++$upkey;</php>
+    </dd>
+    </dl>
+
+    
+    <div class="page_btm">
+      <input type="button" class="btn_b" value="确定" onclick="submitform()" />
+    </div>
+  </form>
+  </div>
+<script type="text/javascript">
+function submitform(){
+	//todo做验证
+	if($("#company_name").val()==""){
+		alert("公司/团队名称不能为空！");
+		return false;
+	}
+	if($("#company_type").val()==""){
+		alert("公司类型不能为空！");
+		return false;
+	}
+	if($("#company_size").val()==""){
+		alert("公司/团队规模不能为空！");
+		return false;
+	}
+	if($("#company_introduce").val()==""){
+		alert("公司/团队实力介绍不能为空！");
+		return false;
+	}
+	if($("#province").val()==""||$("#city").val()==""){
+		alert("公司/团队城市不能为空！");
+		return false;
+	}
+	if($("#person").val()==""){
+		alert("联系人不能为空！");
+		return false;
+	}
+	if($("#email").val()==""){
+		alert("联系邮箱不能为空！");
+		return false;
+	}
+	if($("#qq").val()==""){
+		alert("联系qq不能为空！");
+		return false;
+	}
+	$("#form1").submit();
+}
+</script>
+  
+</div>
+<include file="__THEME__/admin_footer" />

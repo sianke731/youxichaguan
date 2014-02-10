@@ -1,0 +1,137 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh  mt15">
+	<include file="../Public/_eventLeft" />
+	<div class="sub-main">
+		<php>if($keys):</php>
+		<div class="game-search-box oh bg-fff mb10">
+			<p class="m10">
+				根据关键词“<b class="c-e43 pl5 pr5">{$keys}</b>”共搜索到<b class="c-e43 pl5 pr5">{$count}</b>条数据
+			</p>
+		</div>
+		<php>endif;</php>
+		<ul class="ac-top-list">
+			<volist name="toplist" id="vo">
+			<li>
+				<a href="{:U('event/Index/eventDetail', array('id'=>$vo['id'], 'uid'=>$vo['uid']))}"><img src="{:getCover($vo['coverId'])}" alt="{$vo['title']}" /></a>
+				<h2><a href="{:U('event/Index/eventDetail', array('id'=>$vo['id'], 'uid'=>$vo['uid']))}">{$vo['title']}</a></h2>
+				<p>
+					<span class="c-e43">{$vo.joinCount}报名</span>
+					<span><php>echo date('m月d日H:i', $vo['sTime'])</php></span>
+				</p>
+			</li>
+			</volist>
+		</ul>
+		<div class="oh">
+			<div class="game-order-box mt5">
+				<span>排序</span>
+				<a href="{:U('//',array('order'=>'hot'))}" class="s-btn <php> echo ($_GET['order']=='hot')?'s-btn5':'s-btn6';</php>">即将开始</a>
+				<a href="{:U('//',array('order'=>'new'))}" class="s-btn <php> echo ($_GET['order']=='new')?'s-btn5':'s-btn6';</php>">最新发布</a>
+				<a href="{:U('//',array('order'=>'old'))}" class="s-btn <php> echo ($_GET['order']=='old')?'s-btn5':'s-btn6';</php>">历史活动</a>
+				
+				<div class="sub-search fr">
+				<form name="search_event" id="search_event" method="post" action="{:U('event/Index/index')}">
+					<input type="text" class="sub-search-ipt" placeholder="<php>if(!empty($searchkey)){</php>{$searchkey}<php>}else{</php>请输入关键字<php>}</php>" name="title">
+					<input type="submit" value="" class="sub-search-btn">
+				</form>
+				</div>
+			</div>
+		</div>
+		
+		<ul class="ac-rs-ul oh">
+			<volist name="data" id="vo">
+			<li class="ac-list">
+				<h1><a href="{:U('event/Index/eventDetail', array('id'=>$vo['id'], 'uid'=>$vo['uid']))}">{$vo['title']}【{$vo['city']}】</a><php>if($vo['is_top']==1):</php> <span class="s-btn s-btn8">置顶</span><php>endif;</php></h1>
+				<div class="cr-l">
+					<a href="{:U('event/Index/eventDetail', array('id'=>$vo['id'], 'uid'=>$vo['uid']))}"><img src="{$vo['cover']}" alt="{$vo['title']}" /></a>
+				</div>
+				<div class="cr-r">
+					<p><span>主办方：</span>{$vo['sponsor']}<span class="pl20">承办方：</span>{$vo['organizer']}</p>
+					<p><span>活动地点：</span>{$vo['address']}</p>
+					<p><span>活动时间：</span>{$vo['time']}</p>
+					<p><span>活动费用：</span><span class="c-prs">{$vo['cost']}</span></p>
+					<p><span>活动嘉宾：</span>{$vo['guest']}</p>
+					
+					<div class="ac-r-fos">
+						<div class="ac-avs">
+							<volist name="vo.users" id="voo">
+							<a href="#"><img src="{$voo.uid|getUserFace}" /></a>
+							</volist>
+						</div>
+						<div class="oh">
+							<div class="ac-oper">
+								<div class="ac-oper-nums ac-oper-nums1">
+									<em class="ico ico10"></em>
+									<span><php>echo ($vo['limitCount']=='999999999')?'不限制':('还剩下<b class="fn c-e43">'.$vo['limitCount']-$vo['joinCount'].'</b>个名额');</php></span>
+								</div>
+								
+								<div class="ac-oper-downtime">
+									<p>
+										<em class="ico ico11"></em>
+										<span>倒计时</span>										
+									</p>
+									<php> if( $vo['eTime']<time()): </php>
+									<div class="fl oh ml10 c-888 fs16">活动已经过期...</div>
+									<php>else:</php>
+									<div class="fl">
+										<div class="aod-box">
+											<div id="day{$vo['id']}">00</div>
+											<div id="hour{$vo['id']}">00</div>
+											<div id="minute{$vo['id']}">00</div>
+											<div id="second{$vo['id']}">00</div>
+										</div>
+										<div class="clear"></div>
+										<div class="aod-fos">
+											<span>天</span>
+											<span>小时</span>
+											<span>分钟</span>
+											<span>秒</span>
+										</div>
+									</div>
+									<script>
+										//调用时间插件
+										$(document).ready(function() {
+											$.countDownTime({
+												etime:new Date('<php>echo date('Y/m/d H:i:s', $vo['sTime'])</php>'),
+												days:$('#day{$vo['id']}'),
+												hours:$('#hour{$vo['id']}'),
+												minutes:$('#minute{$vo['id']}'),
+												seconds:$('#second{$vo['id']}')
+											});	
+										});
+									</script>
+									<php>endif;</php>
+								</div>
+								
+								
+							</div>
+							<php> if( $vo['eTime']>time()){ </php>
+							<php> if( $vo['follow'] ){ </php>
+				              <php> if( $vo['canJoin'] ){ </php>
+				                  <php> if( $vo['limitCount'] >0 ){ </php>
+				                    <a href="javascript:EventAction( {$vo['id']},{$vo['opts']['allow']},'joinIn')" class="s-btn s-btn1 fl mt5">立即报名</a>
+				                  <php> }else{ </php>
+				                  <span class="cGreen lh35 pl5">名额已满</span>
+				                <php> } </php>
+				            <php> }else if( false == $vo['admin'] ){ </php>
+				                    <?php if( $vo['opts']['allow'] == 1 && $vo['hasMember'] != 1){ ?>
+				                       <a href="javascript:EventDelAction( {$vo['id']},{$vo['opts']['allow']},'joinIn' )">取消申请</a>
+				                  <?php }else{ ?>
+				                       <a href="javascript:EventDelAction( {$vo['id']},null,'joinIn' )">取消参加</a>
+				                  <?php } ?>
+				              <php> } </php>
+				              <php> } </php>
+				              <php>}</php>
+						</div>
+						
+					</div>
+					
+				</div>
+			</li>
+			</volist>
+		</ul>
+	</div>
+	
+</div>
+
+<include file="__THEME__/new_footer" />

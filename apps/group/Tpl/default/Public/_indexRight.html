@@ -1,0 +1,33 @@
+<div class="st-index-right fr">
+  <div class="right-wrap fr">
+      <div class="mod_create mb10 mt20">
+		  <a href="{:U('group/Index/add')}" style="width:260px; height:46px; font-size:16px; line-height:46px;" class="s-btn s-btn9"><span>创建群组</span></a>
+      </div>
+     <div class="group-type clearfix mb20">
+       <h3>群组分类</h3>
+       <volist name="catelist" id="cate">
+       <dl>
+          <dt><a href="{:U('group/Index/search',array('cid'=>$cate['id']))}">{$cate.title}</a></dt>
+          <dd>
+          <volist name="cate.child" id="catechild">
+          <a href="{:U('group/Index/search',array('cid'=>$catechild['id']))}">{$catechild.title}</a>
+       	  </volist>
+       	  </dd>
+       </dl>
+       </volist>
+     </div>  
+     <div class="group-rank-list right-list">
+       <h3>群组排行榜</h3>
+       <div class="rank-cate">
+       </div>
+       <div>
+          <volist name="hotlist" id="v1">
+                <p class="rank-lists">
+                    <span class="name"><a href="{:U('group/Group/index',array('gid'=>$v1['id']))}" class="face"><img src="{$v1.logo}" width="30" height="30" /></a>
+                    <a href="{:U('group/Group/index',array('gid'=>$v1['id']))}" title="{$v1.name}">{$v1.short_name}</a></span>
+                </p>
+          </volist>
+       </div>
+     </div>  
+</div>
+</div>

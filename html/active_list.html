@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>活动列表</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--顶部 s-->
+<div id="header">
+	<div class="wrap">
+		<div class="logo-box fl"> <a href="index.html"><img src="images/logo.png"/></a>
+			<div class="wb-box oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		<div class="top-ads oh fl">
+			<div class="ta-list"><a href="#"><img src="test/test6.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/test7.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/t_06.png" /></a></div>
+		</div>
+		<div class="log-box oh fr">
+			<div class="oh"> <a href="#" class="t-btn">注册</a> <a href="#" class="t-btn">登录</a> </div>
+			<div class="log-fot oh">
+				<p class="c-333">使用社交账户快速登陆:</p>
+				<a href="#" title="QQ登录" class="t-ico qq-ico"></a> <a href="#" title="微博登录" class="t-ico wb-ico"></a> </div>
+		</div>
+	</div>
+</div>
+<!--顶部 e--> 
+
+<!--nav s-->
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li class="nav-curr"><a href="#">首页</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">公司</a></li>
+			<li><a href="#">通讯录</a></li>
+			<li><a href="#">活动</a></li>
+			<li><a href="#">新闻</a></li>
+		</ul>
+		<div class="search-box fr pr">
+			<form action="" method="post" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">文章</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="1">文章</li>
+						<li data-id="2">帖子</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="search..." class="search-ipt" />
+				<input type="button" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->
+
+<div  class="wrap oh  mt15">
+	<div class="sub-side">
+		<div class="oh mb10 bg-fff game-side-btn">
+			<a href="#" class="l-btn l-btn1" style="margin-bottom:0;"><em></em><span>发布活动信息</span></a>
+		</div>
+		
+		<div class="com-side-box pt10 pb20 mb10 oh bg-fff">
+			<h2>地域</h2>
+			<ul class="com-side-ul1">
+				<li class="current"><a href="#">不限</a></li>
+				<li><a href="#">成都</a></li>
+				<li><a href="#">上海</a></li>
+				<li><a href="#">北京</a></li>
+				<li><a href="#">西安</a></li>
+				<li><a href="#">广州</a></li>
+			</ul>
+			<h2>活动类别</h2>
+			<ul class="com-side-ul2">
+				<li class="current"><a href="#">不限</a></li>
+				<li><a href="#">游戏媒体</a></li>
+				<li><a href="#">云服务商      </a></li>
+				<li><a href="#">发行商</a></li>
+				<li><a href="#">渠道商         </a></li>
+				<li><a href="#">外包提供商</a></li>
+			</ul>
+		</div>
+		
+		<div class="bg-fff oh mb15">
+			<div class="pub-tit-box pub-tit-box1">
+				<h2 style="width:100%;">本月将举行的活动</h2>
+			</div>
+			
+			<div class="db mt10 mb10 ml10">
+				<div class="l-tps l-tps1"><em></em>本周</div>
+			</div>
+			<ul class="av-side-ul">
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+			</ul>
+			<div class="db mt10 mb10 ml10">
+				<div class="l-tps l-tps2"><em></em>下周后</div>
+			</div>
+			
+			<ul class="av-side-ul">
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+			</ul>
+			
+		</div>
+		
+		
+		
+	</div>
+	<div class="sub-main">
+		<ul class="ac-top-list">
+			<li>
+				<a href="#"><img src="test/4.jpg" /></a>
+				<h2><a href="#">攻城掠地</a></h2>
+				<p>
+					<span class="c-e43">战争策略</span>
+					<span>手机类型：IOS</span>
+				</p>
+			</li>
+			<li>
+				<a href="#"><img src="test/4.jpg" /></a>
+				<h2><a href="#">攻城掠地</a></h2>
+				<p>
+					<span class="c-e43">战争策略</span>
+					<span>手机类型：IOS</span>
+				</p>
+			</li>
+			<li>
+				<a href="#"><img src="test/4.jpg" /></a>
+				<h2><a href="#">攻城掠地</a></h2>
+				<p>
+					<span class="c-e43">战争策略</span>
+					<span>手机类型：IOS</span>
+				</p>
+			</li>
+		</ul>
+		<div class="oh">
+			<div class="game-order-box mt5">
+				<span>排序</span>
+				<a href="#" class="s-btn s-btn5">即将开始</a>
+				<a href="#" class="s-btn s-btn6">最新发布</a>
+				<a href="#" class="s-btn s-btn6">历史活动</a>
+				
+				<div class="sub-search fr">
+					<input type="text" class="sub-search-ipt" placeholder="请输入关键字">
+					<input type="submit" value="" class="sub-search-btn">
+				</div>
+			</div>
+		</div>
+		
+		<ul class="ac-rs-ul oh">
+			<li class="ac-list">
+				<h1><a href="#">Facebook游戏平台Game On专场【成都】</a> <span class="s-btn s-btn8">置顶</span></h1>
+				<div class="cr-l">
+					<a href="active_view.html"><img src="test/11.jpg" /></a>
+				</div>
+				<div class="cr-r">
+					<p><span>主办方：</span>91无线 <span class="pl20">承办方：</span>IT茶馆</p>
+					<p><span>活动地点：</span>审核通过之后发送邮件邀请函</p>
+					<p><span>开始时间：</span>2013/10-21   星期三</p>
+					<p><span>活动费用：</span><span class="c-prs">免费活动</span></p>
+					<p><span>活动嘉宾：</span>李华、测试、用户名啊</p>
+					
+					<div class="ac-r-fos">
+						<div class="ac-avs">
+							<a href="#"><img src="test/test4.png" /></a>
+							<a href="#"><img src="test/1.jpg" /></a>
+							<a href="#"><img src="test/test4.png" /></a>
+							<a href="#"><img src="test/1.jpg" /></a>
+							<a href="#"><img src="test/test4.png" /></a>
+							<a href="#"><img src="test/1.jpg" /></a>
+							<a href="#"><img src="test/test4.png" /></a>
+							<a href="#"><img src="test/1.jpg" /></a>
+						</div>
+						<div class="oh">
+							<div class="ac-oper">
+								<div class="ac-oper-nums ac-oper-nums1">
+									<em class="ico ico10"></em>
+									<span>还剩下<b class="fn c-e43">59</b>个名额</span>
+								</div>
+								
+								<div class="ac-oper-downtime">
+									<p>
+										<em class="ico ico11"></em>
+										<span>倒计时</span>										
+									</p>
+									<div class="fl">
+										<div class="aod-box">
+											<div id="day1">00</div>
+											<div id="hour1">00</div>
+											<div id="minute1">00</div>
+											<div id="second1">00</div>
+										</div>
+										<div class="clear"></div>
+										<div class="aod-fos">
+											<span>天</span>
+											<span>小时</span>
+											<span>分钟</span>
+											<span>秒</span>
+										</div>
+									</div>
+									<script>
+										//调用时间插件
+										$(document).ready(function() {
+											$.countDownTime({
+												etime:new Date('2014/01/17 12:00:00'), //这个时间有后端php传过来,已字符串的形式
+												days:$('#day1'),
+												hours:$('#hour1'),
+												minutes:$('#minute1'),
+												seconds:$('#second1')
+											});
+										});
+									</script>
+								</div>
+							</div>
+							<a href="#" class="s-btn s-btn1 fl mt5">立即报名</a>
+						</div>
+						
+					</div>
+					
+				</div>
+			</li>
+			<li class="ac-list">
+				<h1><a href="#">Facebook游戏平台Game On专场【成都】</a> <span class="s-btn s-btn8">置顶</span></h1>
+				<div class="cr-l">
+					<a href="active_view.html"><img src="test/11.jpg" /></a>
+				</div>
+				<div class="cr-r">
+					<p><span>主办方：</span>91无线 <span class="pl20">承办方：</span>IT茶馆</p>
+					<p><span>活动地点：</span>审核通过之后发送邮件邀请函</p>
+					<p><span>开始时间：</span>2013/10-21   星期三</p>
+					<p><span>活动费用：</span><span class="c-prs">免费活动</span></p>
+					<p><span>活动嘉宾：</span>李华、测试、用户名啊</p>
+					
+					<div class="ac-r-fos">
+						<div class="ac-avs">
+							<a href="#"><img src="test/test4.png" /></a>
+							<a href="#"><img src="test/1.jpg" /></a>
+							<a href="#"><img src="test/test4.png" /></a>
+							<a href="#"><img src="test/1.jpg" /></a>
+							<a href="#"><img src="test/test4.png" /></a>
+							<a href="#"><img src="test/1.jpg" /></a>
+							<a href="#"><img src="test/test4.png" /></a>
+							<a href="#"><img src="test/1.jpg" /></a>
+						</div>
+						<div class="oh">
+							<div class="ac-oper">
+								<div class="ac-oper-nums ac-oper-nums1">
+									<em class="ico ico10"></em>
+									<span>还剩下<b class="fn c-e43">59</b>个名额</span>
+								</div>
+								
+								<div class="ac-oper-downtime">
+									<p>
+										<em class="ico ico11"></em>
+										<span>倒计时</span>										
+									</p>
+									<div class="fl">
+										<div class="aod-box">
+											<div id="day2">00</div>
+											<div id="hour2">00</div>
+											<div id="minute2">00</div>
+											<div id="second2">00</div>
+										</div>
+										<div class="clear"></div>
+										<div class="aod-fos">
+											<span>天</span>
+											<span>小时</span>
+											<span>分钟</span>
+											<span>秒</span>
+										</div>
+									</div>
+									<script>
+										//调用时间插件
+										$(document).ready(function() {
+											$.countDownTime({
+												etime:new Date('2014/01/17 08:00:00'),
+												days:$('#day2'),
+												hours:$('#hour2'),
+												minutes:$('#minute2'),
+												seconds:$('#second2')
+											});
+										});
+									</script>
+								</div>
+							</div>
+							<a href="#" class="s-btn s-btn2 fl mt5">进行中</a>
+						</div>
+						
+					</div>
+					
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+</div>
+
+<a href="#" id="js_yjfk" title="意见反馈"></a>
+<a href="#" id="js_ly" title="我要留言"></a>
+<a href="javascript:;" id="js_rtop" title="返回顶部"></a>
+<!--footer s-->
+<div id="footer">
+	<div class="fot-main oh"> <img src="images/t_50.png" />
+		<div class="fot-info">
+			<p> <a href="#">关于我们</a> | <a href="#">加入游戏茶馆</a> | <a href="#">联系我们</a> | <a href="#">寻求报道</a> | <a href="#">订阅</a> </p>
+			<p class="fs12 c-888">©2008-2013 <span class="c-fcb">游戏茶馆</span> | 蜀ICP备11004573号</p>
+		</div>
+	</div>
+</div>
+<!--footer e--> 
+</body>
+</html>

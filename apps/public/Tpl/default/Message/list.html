@@ -1,0 +1,51 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh user-main mt15">
+	<include file="__THEME__/new_left" />
+	
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的消息</h1>
+			</div>
+			
+			<ul class="my-msg-ul">
+				<volist name="data" id="vo">
+				<li>
+					<php> if($vo['last_message']['to_uid'][0] == $mid){</php>
+                      <a href="{$vo['last_message']['user_info']['space_url']}"><img src="{$vo['last_message']['user_info']['avatar_middle']}" width="50" height="50" event-node="face_card" uid="{$vo['last_message']['user_info']['uid']}" class="my-msg-img"></a>
+                    <php>}else{</php>
+                      <a href="{$vo['to_user_info'][$vo['last_message']['to_uid'][0]]['space_url']}"><img src="{$vo['to_user_info'][$vo['last_message']['to_uid'][0]]['avatar_middle']}" width="50" height="50" event-node="face_card" uid="{$vo['to_user_info'][$vo['last_message']['to_uid'][0]]['uid']}" class="my-msg-img"></a>
+                    <php>}</php>
+					<div class="my-msg-info">
+						<h2><php> if($vo['last_message']['user_info']['uid'] == $mid){</php>
+                            <php>
+                            $sendToUserInfo = getSubByKey($vo['to_user_info'], 'space_link');
+                            </php>
+                            {:L('PUBLIC_SENTTO')} {:implode('、', $sendToUserInfo)}：
+                            <php>}else{</php>
+                            {$vo.last_message.user_info.space_link}{:L('PUBLIC_SAY')}：
+                            <php>}</php></h2>
+						<p>{$vo.last_message.content|parse_html}</p>
+					</div>
+					<div class="my-msg-r fr oh">
+						<p>{$vo.list_ctime|friendlyDate}</p>
+						<a href="{:U('public/Message/detail', array('id'=>$vo['list_id'],'type'=>$vo['type']))}" class="ico-btn ico-btn6">回复</a>
+					</div>
+				</li>
+				</volist>
+			</ul>
+			
+			<div class="pager-box">{$html}</div>
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+	
+</div>
+
+<include file="__THEME__/new_footer" />

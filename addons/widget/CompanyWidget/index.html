@@ -1,0 +1,404 @@
+
+
+
+<div id="company_wrap">
+
+			<div class="boxs cc-name">
+            	<div class="b-l">公司/团队名字:</div>
+                <div class="b-r">
+                	<input type="text" id="company_name" class="i-ipt" autocomplete="off" name="company_name" value="{$company.name}" <if condition="$company[is_verify] eq 1">disabled="disabled"</if> />
+                    <span class="is-red">*</span>
+                </div>
+            </div>
+<div id="auto"></div>
+            <div class="boxs oh">
+            	<div class="b-l">公司类型:</div>
+                <div class="b-r oh che-box">
+                      <php>//dump($company['type']);</php>
+                    <volist name="company_type" id="vo" key="k">
+                	<label class="ckd">
+                    	<input class="company_type_widget_company" name="company_type[]" type="checkbox" value="{$vo.id}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if> <php>if(in_array($vo['id'],$company['type'])){echo('checked="checked"');}</php> />
+                        <span>{$vo.title}</span>
+                    </label>
+                    </volist>
+                      
+                      
+                      
+                       <span class="is-red">*</span>
+                </div>
+            </div>
+        	<div id="ajax_area_5"></div>
+            <div id="ajax_area_7"></div>
+            <div id="ajax_area_8"></div>
+            <div id="ajax_area_9"></div>
+            <div id="ajax_area_10"></div>
+            <div id="ajax_area_11"></div>
+            <div id="ajax_area_12"></div>
+
+
+
+            <div class="boxs oh">
+            
+            	<div class="b-l">公司/团队规模:</div>
+                <div class="b-r oh che-box">
+                    <volist name="company_size" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="company_size" type="radio" value="{$k}" <if condition="$company[is_verify] eq 1">disabled="disabled"</if> id="company_size{$k}" <if condition="$k eq $company['teams']"> checked="checked"</if> />
+                        <span>{$vo}</span>
+                    </label>
+                    </volist>
+                </div>
+            </div>
+
+            <div class="boxs oh">
+            
+            	<div class="b-l">公司/团队实力介绍:</div>
+                <div class="b-r oh che-box">
+                	<textarea class="i-txt fl" <if condition="$company[is_verify] eq 1">disabled="disabled"</if> name="company_introduce" id="company_introduce" style="width:450px;">{$company.introduce}</textarea>
+                    <span class="is-red">*</span>
+                </div>
+            </div>
+
+
+            <div class="boxs oh">
+            
+            	<div class="b-l" style=" line-height:50px;">公司/团队城市:</div>
+                <div class="b-r oh che-box">
+                	<select  name="company_province" id="company_province" <if condition="$company[is_verify] eq 1">disabled="disabled"</if> class="i-sele fl mr10">
+                        <option value="" selected="selected">省份/直辖市</option>
+                        <volist name="province_arr" id="vo">
+                        <option value="{$vo.area_id}" <if condition="$company[province] eq $vo[area_id]"> selected="selected" </if> >{$vo.title}</option>
+                        </volist>
+                    </select>
+                    <select name="company_city" id="company_city" <if condition="$company[is_verify] eq 1">disabled="disabled"</if> class="i-sele fl mr10">
+                        <option selected="selected" value="">城市</option>
+                        <volist name="city_arr" id="vo">
+                        <option value="{$vo.area_id}" <if condition="$company[city] eq $vo[area_id]"> selected="selected" </if> >{$vo.title}</option>
+                        </volist>
+                    </select>
+                    <span class="is-red">*</span>
+                </div>
+            </div>
+
+            <div class="boxs oh" style="padding:0; margin:0;">
+            	<div class="b-l" style=" line-height:50px;">公司详细地址:</div>
+                <div class="b-r oh che-box">
+                	<input name="company_address" id="company_address"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if> value="{$company.address}" type="text" class="i-ipt" />
+                    <span class="is-red" style="line-height:50px; *line-height:40px;">*</span>
+                </div>
+            </div>
+            <div class="boxs oh" style="padding:0; margin:0;">
+            	<div class="b-l" style=" line-height:50px;">官网/微博:</div>
+                <div class="b-r oh che-box">
+                	<input type="text" class="i-ipt" name="company_site" id="company_site"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if> value="{$company.site}" />
+                    <span class="is-red" style="line-height:50px; *line-height:40px;">*</span>
+                </div>
+            </div>
+            <div class="boxs oh" style="padding:0; margin:0;">
+            	<div class="b-l" style=" line-height:50px;">公司联系人:</div>
+                <div class="b-r oh che-box">
+                	<input type="text" class="i-ipt" name="company_linkman" id="company_linkman"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if> value="{$company.linkman}" />
+                    <span class="is-red" style="line-height:50px; *line-height:40px;">*</span>
+                </div>
+            </div>
+            <div class="boxs oh" style="padding:0; margin:0;">
+            	<div class="b-l" style=" line-height:50px;">公司联系电话:</div>
+                <div class="b-r oh che-box">
+                	<input type="text" class="i-ipt" name="company_phone" id="company_phone"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if> value="{$company.phone}" />
+                    <span class="is-red" style="line-height:50px; *line-height:40px;">*</span>
+                </div>
+            </div>
+            <div class="boxs oh" style="padding:0; margin:0;">
+            	<div class="b-l" style=" line-height:50px;">公司联系邮箱:</div>
+                <div class="b-r oh che-box">
+                	<input type="text" class="i-ipt" name="company_email" id="company_email"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if> value="{$company.email}" />
+                    <span class="is-red" style="line-height:50px; *line-height:40px;">*</span>
+                </div>
+            </div>
+            <div class="boxs oh" style="padding:0; margin:0;">
+            	<div class="b-l" style=" line-height:50px;">公司联系QQ:</div>
+                <div class="b-r oh che-box">
+                	<input type="text" class="i-ipt" name="company_qq" id="company_qq"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if> value="{$company.qq}" />
+                    <span class="is-red" style="line-height:50px; *line-height:40px;">*</span>
+                </div>
+            </div>
+</div> 
+    
+    
+    
+<script type="text/javascript">
+//公司类型
+//ajax改变内容
+$("input.company_type_widget_company").change(function(){
+	var company_type = $(this).val();
+	$.post("index.php?app=company&mod=Index&act=add_company_ajax&is_index=1&company_type="+company_type,function(data){
+			//console.log($(this).parents("dl"));
+			//console.log($(this).is("input:checked"));
+			if($("#ajax_area_"+company_type).html().length>0){
+				//$(this).attr("checked","");
+				$("#ajax_area_"+company_type).html("");
+			}else{
+				//$(this).attr("checked","checked");
+				$("#ajax_area_"+company_type).html(data);
+			}
+   });
+	//$(this).parents("dl").first().after("<dl class='lineD'><dt>渠道类型:</dt><dd>123123</dd></dl>");
+});
+//公司所在省份
+$("#company_province").change(function(){
+	var province_id = $("#company_province").val();
+	$.post("index.php?app=company&mod=Index&act=get_city&province_id="+province_id,function(data){
+		$("#company_city").html("");
+		//console.log(data);
+		for(i=0;i < data.length;i++){
+			$("#company_city").append("<option value="+data[i].area_id+">"+data[i].title+"</option>");
+		}
+	},"json");
+});
+//定义全局变量
+var highlightindex = -1; 	//表示高亮的节点
+var timeoutId;				//表示延時向服务器发送请的时间
+//锁定input flag为真,则锁定
+function lock_input(id,flag){
+	//alert(flag);
+	$.post("{:U('widget/Company/get_company_info')}",{id:id},function(data){
+		if(data.status==1){
+			$("input.company_type_widget_company").each(function(index, element) {
+					//console.log($(this));
+                if($(this).val()==data.info.type){
+					//console.log($(this));
+					$(this).attr("checked","checked");
+				}
+            });
+			$("#company_province").find("option").each(function(index, element) {
+					//console.log($(this));
+                if($(this).val()==data.info.province){
+					//console.log($(this));
+					$(this).attr("selected","selected");
+				}
+            });
+			$("input[name=company_size]").each(function(index, element) {
+					//console.log($(this));
+                if($(this).val()==data.info.teams){
+					//console.log($(this));
+					$(this).attr("checked","checked").siblings().attr("checked","");
+				}
+            });
+			city_id =data.info.city;
+			$.post("{:U('widget/Company/get_city_arr')}",{id:data.info.province},function(data){
+					if(data.status==1){
+						$("#company_city").html("");
+						for(var i=0;i<data.data.length;i++){
+							if(data.data[i].area_id==city_id){
+								$("#company_city").append("<option value='"+data.data[i].area_id+"' selected='selected' >"+data.data[i].title+"</option>");
+							}else{
+								$("#company_city").append("<option value='"+data.data[i].area_id+"'>"+data.data[i].title+"</option>");
+							}
+						}
+					}
+			},"json");	
+			compnay_type = data.info.type;
+			$.post("index.php?app=company&mod=Index&act=edit_company_ajax&is_index=1&company_type="+data.info.type+"&company_id="+data.info.id,function(data){
+					$("#ajax_area_"+compnay_type).html(data);
+					if(flag){
+						$("#company_wrap input").add("#company_wrap select").add("#company_wrap textarea").not("#company_name").attr("disabled","disabled");
+					}else{
+						$("#company_wrap input").add("#company_wrap select").add("#company_wrap textarea").not("#company_name").removeAttr("disabled");
+					}
+			});
+			//company_introduce
+			$("#company_introduce").html(data.info.introduce);
+			//console.log(data.info.address);
+			
+			$("#company_address").val(data.info.address);
+			$("#company_site").val(data.info.site);
+			$("#company_linkman").val(data.info.linkman);
+			$("#company_email").val(data.info.email);
+			$("#company_phone").val(data.info.phone);
+			$("#company_qq").val(data.info.qq);
+			$("#company_site").val(data.info.site);
+			if(flag){
+				$("#company_wrap input").add("#company_wrap select").add("#company_wrap textarea").not("#company_name").attr("disabled","disabled");
+			}else{
+				$("#company_wrap input").add("#company_wrap select").add("#company_wrap textarea").not("#company_name").attr("disabled","");
+			}
+		}
+	},"json");
+}
+/*Ajax 自动补全*/
+//注册页面装在时执行的方法
+//编辑公司信息,加载则自动ajax相关页面内容
+$(document).ready(function () {
+	//刷新后部分input会保持锁死,清除锁死和已选择的缓存
+	if($("input#company_name").val()==""){
+		$("input").removeAttr("disabled").removeAttr("checked");
+		
+	}
+	
+	$("input.company_type_widget_company:checked").each(function(index, element) {
+		var	company_type = $(this).val();
+		console.log($(this));
+		$.post("index.php?app=company&mod=Index&act=edit_company_ajax&is_index=1&company_type="+company_type+"&company_id={$company['id']}",function(data){
+				$("#ajax_area_"+company_type).html(data);
+		});
+    });
+	
+	$("#province").live("change",function(){
+		id = $("#province").val();
+		$.post("{:U('widget/Company/get_city_arr')}",{id:id},function(data){
+				if(data.status==1){
+					$("#city").html("");
+					for(var i=0;i<data.data.length;i++){
+						$("#city").append("<option value='"+data.data[i].area_id+"'>"+data.data[i].title+"</option>");
+					}
+				}
+		},"json");	
+	});
+	$("#auto ul li").live("mouseover",function(){
+		//console.log($(this).siblings("li"));
+		$(this).siblings("li").removeClass("on");
+		$(this).addClass("on");
+	});	
+	$("#auto ul li").live("click",function(){
+		$("#company_name").val($(this).data("name"));
+		//alert($(this).find("em").size());
+		if($(this).find("em").size()>0){
+			lock_input($(this).data("id"),true);	
+		}else{
+			lock_input($(this).data("id"),false);	
+		}
+		$("#auto").hide();
+	});
+	$("#auto ul li").live("mouseout",function(){
+		$(this).removeClass("on");
+	});	
+		
+	
+	//自动补全框最开始隐藏起来
+	//添加样式必须现价 css("position","absolute")属性
+	
+	//给文本框添加键盘按下并弹起的事件
+	$("#company_name").keyup(function (event) {
+		//console.log($(this));
+		//得到文本框对象
+		var wordInput = $("#company_name");
+		console.log(wordInput);
+		//得到文本框距离屏幕左边距和上边的距离
+		var wordInputposition = wordInput.position();
+		//console.log(wordInputposition);
+		$("#auto").hide().css("position", "absolute").css("top", wordInputposition.top+ wordInput.height() + 2+"px").css("left", wordInputposition.left + "px").width(wordInput.width() + 2);
+		//处理文本框中的键盘事件
+		//得到弹出框对象
+		var autoNode = $("#auto");
+		//得到当前按键的code值
+		var myEvent = event || window.evnet;
+		var keyCode = myEvent.keyCode;
+		//console.log(keyCode);
+		//如果输入的是字母，应该将文本框最新的信息发送给服务器
+		//如果输入的是退格键或删除键，也应该将文本框的信息发送给服务器
+		if ((keyCode >= 65 && keyCode <= 90)|| (keyCode >= 48 && keyCode <= 57)|| keyCode == 8 || keyCode == 46 || keyCode==32) {
+			//alert("in");
+			//1、首先获取文本框的内容
+			var wordText = $("#company_name").val();
+			//文本内容不为空才将文本框内容发给服务器
+			if (wordText != "") {
+				//2、将文本框的内容发给服务器
+				//对上次未执行的延时做清除操作
+				clearTimeout(timeoutId);
+				//对服务器端进行交互延迟500ms,避免快速打字造成的频繁请求
+				timeoutId = setTimeout(function(){
+					$.post("{:U('widget/Company/get_company_name')}", {word:wordText}, function (data) {
+						//console.log(data);
+						if(data.status){
+							//console.log(data.data.length);
+							data_arr = data.data;
+							autoNode.html("<ul class='down-ul down-ul4' style='top:0px;'></ul>");
+							for(var i=0;i<data_arr.length;i++){
+								if(data_arr[i].is_verify){
+									autoNode.find("ul").append("<li data-name='"+data_arr[i].name+"' data-id='"+data_arr[i].id+"'>"+data_arr[i].name+"<em class='ico-btn ico-btn2'>已认证</em></li>");
+									//console.log(data_arr[i]);
+								}else{
+									autoNode.find("ul").append("<li data-name='"+data_arr[i].name+"' data-id='"+data_arr[i].id+"'>"+data_arr[i].name+"</li>");
+								}
+							}
+							//如果服务服务器端有数据,则显示弹出框
+							if (data.data.length > 0) {
+								autoNode.show();
+							} else {
+								autoNode.hide();
+							}
+						}
+				}, "json");
+				},500); 
+				
+				
+			} else {
+				autoNode.hide();
+			}
+		} else if(keyCode == 38 || keyCode == 37) {		//向上键	
+			if(autoNode.find("li").size()>0){
+			autoNode.show();
+			}
+			//得到弹出框的所有子节点
+			var autoNodes = $("#auto ul").children("li");
+			//console.log(autoNodes);
+			//console.log(autoNodes.filter(".on").prev("li"));
+			self_node = autoNodes.filter(".on");
+			if(self_node.size()==0){
+				target_node = autoNodes.last();
+			}else{
+				if(self_node.prev("li").size()==0){
+					target_node = self_node.parent("ul").children("li").last();
+				}else{
+					target_node = self_node.prev("li");
+				}
+				self_node.removeClass("on");
+			}
+			target_node.addClass("on");
+		}else if(keyCode == 40||keyCode==39){ 	//向下键		
+			if(autoNode.find("li").size()>0){
+			autoNode.show();
+			}
+			//得到弹出框的所有子节点
+			var autoNodes = $("#auto ul").children("li");
+			//console.log(autoNodes);
+			//console.log(autoNodes.filter(".on").prev("li"));
+			self_node = autoNodes.filter(".on");
+			if(self_node.size()==0){
+				target_node = autoNodes.first();
+			}else{
+				if(self_node.next("li").size()==0){
+					target_node = self_node.parent("ul").children("li").first();
+				}else{
+					target_node = self_node.next("li");
+				}
+				self_node.removeClass("on");
+			}
+			//console.log(target_node);
+			target_node.addClass("on");
+			//alert(123);
+		}else if (keyCode == 13) {
+			//如果输入的是回车
+			//得到弹出框的所有子节点
+			var autoNodes = $("#auto ul").children("li");
+			if(autoNodes.size()>0){
+				 var on_node = autoNodes.filter(".on");
+				 //console.log(on_node);
+				 if(on_node.size()>0){
+				 	$("#company_name").val(on_node.data("name"));
+					//console.log(on_node.find("span").size());
+					if(on_node.find("span").size()>0){
+						lock_input(on_node.data("id"),true);	
+					}else{
+						lock_input(on_node.data("id"),false);	
+					}
+					$("#auto").hide();
+				 }
+			}
+			return false;
+		}
+	});
+});
+
+
+</script>

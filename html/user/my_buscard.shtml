@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的名片 - 修改名片</title>
+<link href="../css/base.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--顶部 s-->
+<div id="header">
+	<div class="wrap">
+		<div class="logo-box fl"> <a href="../index.html"><img src="../images/logo.png"/></a>
+			<div class="wb-box oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		<div class="top-ads oh fl">
+			<div class="ta-list"><a href="#"><img src="../test/test6.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="../test/test7.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="../test/t_06.png" /></a></div>
+		</div>
+		<div class="log-box oh fr">
+			<div class="oh"> <a href="#" class="t-btn">注册</a> <a href="#" class="t-btn">登录</a> </div>
+			<div class="log-fot oh">
+				<p class="c-333">使用社交账户快速登陆:</p>
+				<a href="#" title="QQ登录" class="t-ico qq-ico"></a> <a href="#" title="微博登录" class="t-ico wb-ico"></a> </div>
+		</div>
+	</div>
+</div>
+<!--顶部 e--> 
+
+<!--nav s-->
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li class="nav-curr"><a href="#">首页</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">公司</a></li>
+			<li><a href="#">通讯录</a></li>
+			<li><a href="#">活动</a></li>
+			<li><a href="#">新闻</a></li>
+		</ul>
+		<div class="search-box fr pr">
+			<form action="" method="post" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">文章</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="1">文章</li>
+						<li data-id="2">帖子</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="search..." class="search-ipt" />
+				<input type="button" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->
+
+<div  class="wrap oh user-main mt15">
+	<!--左边部分 s-->
+	<div class="user-side">
+		
+		<!--用户信息 s-->
+		<h2 class="user-name fs20">路、一直都在</h2>
+		<div class="user-avatar-box" id="js_avatar_box">
+			<img src="../test/test8.png" />
+			<a href="#" class="edit-avatar" id="js_edit_avatar">
+				<em></em>
+				<span>修改头像</span>
+			</a>
+		</div>
+		<p class="user-game-num"><em></em><b  class="fn">游戏币：</b><span>5984</span></p>
+		<div class="show-mnb">
+			<p>显示已绑定账号</p>
+			<label>
+				<span class="u-ico u-ico1"></span>
+				<input type="checkbox" />
+			</label>
+			<label>
+				<span class="u-ico u-ico2"></span>
+				<input type="checkbox" />
+			</label>
+		</div>
+		
+		<ul class="side-nav side-nav1">
+			<li class="sn1">
+				<a href="my_msg.html">
+					<em></em>
+					<span>我的消息</span>
+				</a>
+			</li>
+			<li class="sn2">
+				<a href="my_collect.html">
+					<em></em>
+					<span>我的收藏</span>
+				</a>
+			</li>
+			<li class="sn3 current">
+				<a href="home.html">
+					<em></em>
+					<span>我的账户</span>
+				</a>
+			</li>
+			<li class="sn4">
+				<a href="my_comments.html">
+					<em></em>
+					<span>我的评论</span>
+				</a>
+			</li>
+		</ul>
+		
+		<ul class="side-nav side-nav2">
+			<li class="sn5">
+				<a href="my_active.html">
+					<em></em>
+					<span>我的活动</span>
+				</a>
+			</li>
+			<li class="sn6">
+				<a href="my_buscard.shtml">
+					<em></em>
+					<span>我的名片</span>
+				</a>
+			</li>
+			<li class="sn7">
+				<a href="my_goods.html">
+					<em></em>
+					<span>我的产品</span>
+				</a>
+			</li>
+			<li class="sn8">
+				<a href="my_company.html">
+					<em></em>
+					<span>我的公司</span>
+				</a>
+			</li>
+		</ul>
+		
+		
+	</div>
+	<!--左边部分 e-->
+	
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的名片</h1>
+			</div>
+			
+			<div class="my-bus-top oh m10">
+				<p>目前已有<span>541</span>加入通讯录，你还没有加入? 赶紧写名片吧!</p>
+				<a href="create_card.html" class="bus-ico bus-ico1">
+					<em></em>
+					<span>发布我的名片</span>
+				</a>
+			</div>
+			<p class="pl10">目前已有<span class="c-e43"> 1234 </span>人加入通讯录，<a href="#" class="c-e43">其他人的名片</a></p>
+			<p class="pl10 pt10">我的名片 <span class="ico-btn ico-btn1">审核中</span></p>
+            <div class="my-busc-oper">
+            	<a href="#" class="bus-ico bus-ico2">
+					<em></em>
+					<span>编辑我的名片</span>
+				</a>
+                <a href="#" class="bus-ico bus-ico3">
+					<em></em>
+					<span>申请认证</span>
+				</a>
+                <a href="#" class="bus-ico bus-ico4">
+					<em></em>
+					<span>我的收藏</span>
+				</a>
+            </div>
+            
+            <div class="my-busc-msg-box">
+            	<div class="mb-top oh">
+                	<img src="../test/test4.png" />
+                    <div class="mbs-info">
+                    	<p>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名: <span>李华</span></p>
+                        <p>微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;博: <span>lihuaxxxx</span></p>
+                        <p>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司: <span>成都xxoo网络</span></p>
+                        <p>微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;信: <span>lihuaxxxx</span></p>
+                        <p>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务: <span>打酱油得</span></p>
+                        <p>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址: <span>成都市高新区中和镇</span></p>
+                        <p>联系电话: <span>1584585827</span></p>
+                        <p>网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址: <span>www.baidu.com</span></p>
+                        <p>联系邮箱: <span>www.baidu.com</span></p>
+                        <p>公司地址: <span>成都市高新区中和镇</span></p>
+                        <p>联&nbsp;系&nbsp;QQ: <span>成都市高新区中和镇</span></p>
+                        <p>所在城市: <span>四川成都</span></p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <h2 class="mb-h2 fs16">职业经历</h2>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="my-busc-table1">
+                	<tr class="i-t-haed">
+                    	<td class="i-td1">公司</td>
+                        <td class="i-td2">职位</td>
+                        <td class="i-td3">参与产品</td>
+                    </tr>
+                    <tr class="i-t-lis">
+                    	<td class="i-td1"><a href="#">成都xxoo公司</a></td>
+                        <td class="i-td2">打酱油</td>
+                        <td class="i-td3">杂七杂八产品</td>
+                    </tr>
+                     <tr class="i-t-lis">
+                    	<td class="i-td1"><a href="#">成都xxoo公司</a></td>
+                        <td class="i-td2">打酱油</td>
+                        <td class="i-td3">杂七杂八产品</td>
+                    </tr>
+                     <tr class="i-t-lis">
+                    	<td class="i-td1"><a href="#">成都xxoo公司</a></td>
+                        <td class="i-td2">打酱油</td>
+                        <td class="i-td3">杂七杂八产品</td>
+                    </tr>
+				</table>
+            </div>
+            
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+	
+</div>
+
+<!--footer s-->
+<div id="footer">
+	<div class="fot-main oh"> <img src="../images/t_50.png" />
+		<div class="fot-info">
+			<p> <a href="#">关于我们</a> | <a href="#">加入游戏茶馆</a> | <a href="#">联系我们</a> | <a href="#">寻求报道</a> | <a href="#">订阅</a> </p>
+			<p class="fs12 c-888">©2008-2013 <span class="c-fcb">游戏茶馆</span> | 蜀ICP备11004573号</p>
+		</div>
+	</div>
+</div>
+<!--footer e--> 
+</body>
+</html>

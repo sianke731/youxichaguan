@@ -1,0 +1,24 @@
+		<h2 class="user-name fs20">{$userInfo.uname}</h2>
+		<div class="user-avatar-box" id="js_avatar_box">
+			<img src="{$userInfo.avatar_big}" />
+			<a href="{:U('public/Account/avatar')}" class="edit-avatar" id="js_edit_avatar">
+				<em></em>
+				<span>修改头像</span>
+			</a>
+		</div>
+		<p class="user-game-num"><em></em><b  class="fn">游戏币：</b><span>{$userInfo.score}</span></p>
+		<div class="show-mnb">
+			<p>显示已绑定账号</p>
+			<if condition="$userInfo['bind']['sina'] != ''">
+			<label>
+				<span class="u-ico u-ico1"></span>
+				<input type="checkbox" <if condition="$userInfo['bind']['sina']['is_sync'] == 1">checked="true"</if> name="sync_sina" id="sync_sina" />
+			</label>
+			</if>
+			<if condition="$userInfo.bind.qzone">
+			<label>
+				<span class="u-ico u-ico2"></span>
+				<input type="checkbox" <if condition="$userInfo['bind']['qzone']['is_sync'] == 1">checked="true"</if> name="sync_qzone" id="sync_qzone" />
+			</label>
+			</if>
+		</div>

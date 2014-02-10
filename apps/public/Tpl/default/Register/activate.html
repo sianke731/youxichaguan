@@ -1,0 +1,23 @@
+<include file="__THEME__/new_header_simple" />
+<ul id="login-tab-title" class="wrap oh">
+	<li><a href="{:U('public/Passport/login')}">游戏茶馆用户登录</a></li>
+	<li class="current"><a href="{:U('public/Register')}">游戏茶馆用户注册</a></li>
+</ul>
+
+<div id="login-box" class="wrap oh">
+	<div class="res-side fl">
+		
+	</div>
+	<div class="login-main fr">
+		<div class="oh mb10">
+			<span class="fl">邮箱注册方式</span>
+			<span class="fr">已经有账号，<a href="{:U('public/Passport/login')}" class="c-fcb">马上登陆</a></span>
+		</div>
+		<div class="login-step step3"></div>
+		<div class="mt15"><p style="font-size:16px">{$messages}</p></div>
+            <div class="mt15">
+            	<span style="color:#B8B7B7"><a href="{:U('public/Passport/login')}" class="c-fcb">点击登陆</a></span>
+            </div>
+	</div>
+</div>
+<include file="__THEME__/new_footer_simple" />

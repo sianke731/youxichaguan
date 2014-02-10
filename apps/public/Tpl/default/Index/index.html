@@ -1,0 +1,202 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh index-main mt15">
+	<!--首页左边部分 s-->
+	<div class="i-left fl mr20">
+		<!--二级导航 s-->
+		<ul class="i-sub-list oh mb10">
+			<li class="i-s1"><a href="{:U('company/Index/index',array('type'=>5))}"></a></li>
+			<li class="i-s2"><a href="{:U('company/Index/index',array('type'=>9))}"></a></li>
+			<li class="i-s3"><a href="{:U('company/Index/index',array('type'=>12))}"></a></li>
+			<li class="i-s4"><a href="{:U('company/Index/index',array('type'=>7))}"></a></li>
+		</ul>
+		<!-- 二级导航 s-->
+		
+		<!--热门文章 s-->
+		<div class="il-news1 bg-fff oh mb15">
+			<div class="pub-tit-box pub-tit-box1">
+				<h2>热门文章</h2>
+			</div>
+			<ul class="ilnews1-ul ilnews-ul" id="js_hot_news_ul">
+				<volist name='hotNews' id='vo'>
+				<li> <span>{$i}</span> <a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}">{$vo.news_title|getShort=12}</a> </li>
+				</volist>
+			</ul>
+		</div>
+		<!--热门文章 e-->
+		
+		<!--投稿文章 s-->
+		<div class="il-news1 bg-fff oh mb10">
+			<div class="pub-tit-box pub-tit-box1">
+				<h2>投稿文章</h2>
+			</div>
+			<ul class="ilnews2-ul ilnews-ul">
+				<volist name='contributeNews' id='vo'>
+				<li> <span>{$i}</span> <a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}">{$vo.news_title|getShort=12}</a> </li>
+				</volist>
+			</ul>
+		</div>
+		<!--投稿文章 e-->
+		
+		<!--最新评论 s-->
+		<div class="il-news1 bg-fff oh">
+			<div class="pub-tit-box pub-tit-box1">
+				<h2>最新评论</h2>
+			</div>
+			<ul class="i-comment-ul">
+				<volist name="newComment" id="vo">
+				<li> <a href="#"><img src="{$vo.userinfo.avatar_small}" /></a>
+					<div class="i-com-info">
+						<h3><a href="#">{$vo.userinfo.uname}</a></h3>
+						<p title="{$vo.content}"> <span>评论：</span>{$vo.content|getShort=26}</p>
+					</div>
+				</li>
+				</volist>
+			</ul>
+		</div>
+		<!--最新评论 s-->
+		
+	</div>
+	<!--首页左边部分 e-->
+	
+	<!--首页中间部分 s-->
+	<div class="i-content fl">
+		<!--焦点图 s-->
+		{:Addons::hook('show_ad_space', array('place'=>'home_slider'))}
+		<!--焦点图 e-->
+		
+		<!--中间新闻 s-->
+		<ul class="i-con-cate oh">
+			<li class="curr"><a href="{:U('news/Index/index',array('t'=>5))}">海外</a></li>
+			<li><a href="{:U('news/Index/index',array('t'=>2))}">业界</a></li>
+			<li><a href="{:U('news/Index/index',array('t'=>1))}">新游</a></li>
+			<li><a href="{:U('news/Index/index',array('t'=>3))}">运营</a></li>
+			<li><a href="{:U('news/Index/index',array('t'=>4))}">推广</a></li>
+		</ul>
+		<div class="ic-ar-box oh mt10">
+			<volist name='newsList.data' id='vo'>
+			<div class="ic-list">
+				<h2><a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}">{$vo.news_title|getShort=22}</a></h2>
+				<div class="ic-if-box"> <a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}"><img src="{:getCover($vo['image'])}" alt="{$vo.news_title}" /></a>
+					<div class="ic-info">
+						<div class="tgs-box">
+							<!-- 
+							<if condition="$vo.type_ids">
+							<volist name="vo.type_ids" id="type_id">
+							<php>if(in_array($type_id,array(1,2,3,4,5))){</php>
+							<span class="tgs1 tgs">{$typeNames[$type_id]}</span>
+							<php>}</php>
+							</volist> 
+							</if>
+							 -->
+							<a href="#" class="t-user">{$vo.uid|getUserName}</a> <a href="#" class="t-time">{$vo.date}</a> <a href="#" class="t-look">{$vo.hits}views</a> </div>
+						<p>{$vo.news_content|strip_tags|getShort=80}<a href="{:U('news/Index/detail',array('id'=>$vo['news_id']))}" class="c-fcb">【查看全文】</a></p>
+					</div>
+				</div>
+			</div>
+			</volist>
+		</div>
+		<!--中间新闻 e-->
+		
+		<!--分页 s-->
+		<div class="pager-box">{$newsList.html}</div>
+		<!--分页 s-->
+	</div>
+	<!--首页中间部分 e-->
+	
+	
+	<!--首页右边部分 s-->
+	<div class="i-right fr">
+		
+        <!--未登录的情况 s-->
+        <div class="ir-box bg-fff">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>新加入产品</h2>
+				<div class="pt-r"> <a href="{:U('game/Index/index')}" class="p-more">更多+</a> </div>
+			</div>
+			<ul class="add-goods-box oh">
+					<volist name='newGame' id='vo'>
+                    <li>
+                    	<a href="{:U('game/Index/show',array('id'=>$vo['id']))}"><img src="{:getCover($vo['logo'])}" alt="{$vo.name}" /></a> 
+                    	<h2><a href="{:U('game/Index/show',array('id'=>$vo['id']))}">{$vo.name}</a></h2>
+                        <p>标签：{$vo.tags|getShort=5}</p>
+						<p>平台：{$vo.platform|changePlatform|getShort=5}</p>
+						<p>寻找：{$vo.targets|changeTargets|getShort=5}</p>
+                    </li>
+					</volist>
+				</ul>
+		</div>
+        <!--未登录的情况 e-->
+        
+        
+		<!--新加入公司 s-->
+		<div class="ir-box bg-fff mt15 ir-ad1-box">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>新加入公司</h2>
+				<div class="pt-r"> <a href="{:U('company/Index/index')}" class="p-more">更多+</a> </div>
+			</div>
+			<div class="ir-scroll-box">
+				<ul class="add-company-box oh">
+					<volist name='newCompany' id='vo'>
+                    <li> <a href="{:U('company/Index/show',array('id'=>$vo['id']))}"><img src="{:getCover($vo['logo'])}" alt="{$vo.name}" /></a> <a href="{:U('company/Index/show',array('id'=>$vo['id']))}">{$vo.name|getShort=8}</a> </li>
+					</volist>
+				</ul>
+			</div>
+		</div>
+		<!--新加入公司 e-->
+		
+		<!--新加入人物 s-->
+		<div class="ir-box bg-fff mt15 ir-ad2-box">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>新加入人物</h2>
+				<div class="pt-r"> <a href="javascripit:;" id="js_prev" class="prev-btn p-btn">&lt;</a> <a href="javascripit:;" id="js_next" class="next-btn p-btn">&gt;</a> <a href="{:U('member/Index/index')}" class="p-more">更多+</a> </div>
+			</div>
+			<div class="ir-scroll-box2 oh">
+				<ul class="add-pres-box pb10 oh" id="js_scroll_ul">
+					<volist name='newMember' id='vo'>
+					<li> 
+						<a href="{:U('member/Index/show',array('id'=>$vo['id']))}">
+							<img src="{:getCover($vo['avatar'])}" alt="{$vo.name}" />
+						</a> 
+						<a href="{:U('member/Index/show',array('id'=>$vo['id']))}" class="s-n">{$vo.name|getShort=8}</a> 
+						<a href="{:U('company/Index/show',array('id'=>$vo['company_id']))}" class="s-t">{$vo.company_name|getShort=10}</a> </li>
+					</volist>
+				</ul>
+			</div>
+		</div>
+		<!--新加入人物 e-->
+		
+		<!--近期活动 s-->
+		<div class="ir-box bg-fff mt15 ir-active-box">
+			<div class="pub-tit-box pub-tit-box2">
+				<h2>近期活动</h2>
+				<div class="pt-r"> <a href="{:U('event/Index/index')}" class="p-more">更多+</a> </div>
+			</div>
+			<volist name='newEvent' id='vo' offset="0" length="1">
+			<div class="ir-active-top oh"> <a href="{:U('event/Index/eventDetail',array('id'=>$vo['id'],'uid'=>$vo['uid']))}"><img src="{:getCover($vo['coverId'])}" alt="{$vo.title}" /></a>
+				<div class="ir-av-info">
+					<h2><a href="{:U('event/Index/eventDetail',array('id'=>$vo['id'],'uid'=>$vo['uid']))}">{$vo.title|getShort=15}</a></h2>
+					<p class="c-fff">时间：<php>echo date('Y年m月d号',$vo['sTime']);</php></p>
+					<p class="c-fff">地点：{$vo.address|getShort=18}</p>
+				</div>
+			</div>
+			</volist>
+			<ul  class="ir-active-list oh">
+				<volist name='newEvent' id='vo' offset="1" length="4">
+				<li> <a href="{:U('event/Index/eventDetail',array('id'=>$vo['id'],'uid'=>$vo['uid']))}"><img src="{:getCover($vo['coverId'])}" alt="{$vo.title}"  /></a>
+					<div class="ial-info">
+						<h2><a href="{:U('event/Index/eventDetail',array('id'=>$vo['id'],'uid'=>$vo['uid']))}">{$vo.title|getShort=15}</a></h2>
+						<p>时间：<php>echo date('Y-m-d',$vo['sTime']);</php></p>
+						<p>地点：{$vo.address|getShort=8}</p>
+					</div>
+				</li>
+				</volist>
+			</ul>
+		</div>
+		<!--近期活动 e-->
+	</div>
+	<!--首页右边部分 s-->
+	
+</div>
+
+<include file="__THEME__/new_footer" />

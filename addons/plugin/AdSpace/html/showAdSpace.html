@@ -1,0 +1,30 @@
+<volist name="data" id="vo">
+	<php>if($vo['display_type'] == 3):</php>
+		<php>if(count($vo['content'])>1):</php>
+		<div class="i-slider mb10 oh">
+			<ul class="i-slider-pic" id="js_i_slider_pic">
+				<php>$listr = '';</php>
+				<volist name="vo.content" id="v">
+				<li> <a href="{$v.bannerurl}"><img src="{$v.bannerpic}" alt="{$v.titles}" /></a>
+					<div class="slider-msg">
+						<h2>{$v.titles}</h2>
+						<h3>{$v.descriptions}</h3>
+					</div>
+				</li>
+				<php>$listr .= '<li></li>';</php>
+				</volist>
+			</ul>
+			<ul class="i-slider-btn" id="js_i_slider_btn">
+				{$listr}
+			</ul>
+		</div>
+		<php>else:</php>
+		<volist name="vo.content" id="v">
+			<a href="{$v.bannerurl}"><img src="{$v.bannerpic}" alt="{$v.titles}" /></a>
+		</volist>
+		<php>endif;</php>
+	<php>else:</php>
+	<div style="<neq name="top" value="0">margin-top:{$top}px;</neq><neq name="width" value="0">width:{$width}px;overflow:hidden;</neq>">{$vo['content']}</div>
+	<php>endif;</php>
+</volist>
+

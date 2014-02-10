@@ -1,0 +1,1272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>数据表字段解释</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_game 数据表字段解释（游戏表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>name</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">游戏名称</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>targets</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">需求目标</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>areas</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">合作区域</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>tags</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">游戏标签</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>schedule</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(3)</td>
+    <td bgcolor="#FFFFFF">游戏完成度</td>
+    <td bgcolor="#FFFFFF">0,10,20,30,40,50,60,70,80,90,100(已完成)</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>stage</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">游戏阶段</td>
+    <td bgcolor="#FFFFFF">1demo  2测试 3已上线</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>stage_date</strong></td>
+    <td bgcolor="#FFFFFF">date</td>
+    <td bgcolor="#FFFFFF">阶段日期</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>download</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">下载地址</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>platform</strong></td>
+    <td bgcolor="#FFFFFF">varchar(100)</td>
+    <td bgcolor="#FFFFFF">平台</td>
+    <td bgcolor="#FFFFFF">多选，逗号隔开，IOS/Android/越狱</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_online</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">网络游戏</td>
+    <td bgcolor="#FFFFFF">0否 1是</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>logo</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">游戏LOGO</td>
+    <td bgcolor="#FFFFFF">与附件表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>program</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">程序平台</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>introduce</strong></td>
+    <td bgcolor="#FFFFFF">text</td>
+    <td bgcolor="#FFFFFF">游戏介绍</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>company_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">公司/团队</td>
+    <td bgcolor="#FFFFFF">与公司表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_verify</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">审核</td>
+    <td bgcolor="#FFFFFF">0未提交审核  1提交审核  2审核未通过  3审核通过</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_auth</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">认证</td>
+    <td bgcolor="#FFFFFF">0未提交认证  1提交认证  2认证未通过  3认证通过</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_recommend</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">推荐</td>
+    <td bgcolor="#FFFFFF">0未推荐 1推荐</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_top</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">置顶</td>
+    <td bgcolor="#FFFFFF">0未置顶　1置顶</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>views</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">浏览数</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>collects</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">收藏数</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>uid</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">创建用户</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>ctime</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">创建时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_game_agent 数据表字段解释（游戏代理商表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>game_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">游戏ID</td>
+    <td bgcolor="#FFFFFF">与游戏表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>name</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">代理商公司名称</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>area</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">代理区域</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>platform</strong></td>
+    <td bgcolor="#FFFFFF">varchar(100)</td>
+    <td bgcolor="#FFFFFF">平台</td>
+    <td bgcolor="#FFFFFF">多选，逗号隔开，IOS/Android/越狱</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>price</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">代理费</td>
+    <td bgcolor="#FFFFFF">1(100万以内)2(200-400万)3(400-600万)4(600-800万)5(800-1000万)6(1000-1300万)7(1300-2000万)8(2000万以上)</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_company 数据表字段解释（公司表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>name</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">公司/团队名称</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>type</strong></td>
+    <td bgcolor="#FFFFFF">varchar(100)</td>
+    <td bgcolor="#FFFFFF">公司类型</td>
+    <td bgcolor="#FFFFFF">单选，存储文字，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>teams</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">公司/团队规模</td>
+    <td bgcolor="#FFFFFF">1(10人以内)2(10-20人)3(20-50人)4(50-100人)5(100-200人)6(200人以上)</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>introduce</strong></td>
+    <td bgcolor="#FFFFFF">text</td>
+    <td bgcolor="#FFFFFF">公司/团队实力介绍</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>province</strong></td>
+    <td bgcolor="#FFFFFF">mediumint(6)</td>
+    <td bgcolor="#FFFFFF">公司/团队省</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>city</strong></td>
+    <td bgcolor="#FFFFFF">int(5)</td>
+    <td bgcolor="#FFFFFF">公司/团队城市</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>address</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">地址</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>site</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">官网/微博</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>linkman</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">联系人</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>phone</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">联系电话</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>email</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">联系邮箱</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>qq</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">联系QQ</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>wechat</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">微信</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>logo</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">公司LOGO</td>
+    <td bgcolor="#FFFFFF">与附件表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_verify</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">审核</td>
+    <td bgcolor="#FFFFFF">0未提交审核  1提交审核  2审核未通过  3审核通过</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_auth</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">认证</td>
+    <td bgcolor="#FFFFFF">0未提交认证  1提交认证  2认证未通过  3认证通过</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_recommend</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">推荐</td>
+    <td bgcolor="#FFFFFF">0未推荐 1推荐</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_top</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">置顶</td>
+    <td bgcolor="#FFFFFF">0未置顶　1置顶</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>views</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">浏览数</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>collects</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">收藏数</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>uid</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">创建用户</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>ctime</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">创建时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_company_cp 数据表字段解释（公司CP表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>company_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>tags</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">游戏标签</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_company_channel 数据表字段解释（公司渠道表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>company_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>types</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">渠道类型</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>require</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">合作游戏平台要求</td>
+    <td bgcolor="#FFFFFF">0不限 1IOS正版 2Android 3IOS越狱</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>models</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">定价模式</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>areas</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">合作区域</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_company_platform 数据表字段解释（公司平台表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>company_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>types</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">商店类型</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_company_publish 数据表字段解释（公司发行表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>company_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>areas</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">合作区域</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>platform_require</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">合作游戏平台要求</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>network_require</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">合作游戏联网要求</td>
+    <td bgcolor="#FFFFFF">0不限 1单机 2网游</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>stage_require</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">合作游戏阶段要求</td>
+    <td bgcolor="#FFFFFF">0不限 1demo 2测试 3已上线</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>team_require</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">对团队游戏要求</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_experience</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">有无发行经验</td>
+    <td bgcolor="#FFFFFF">0暂无 1有</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>games</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">曾发行游戏数</td>
+    <td bgcolor="#FFFFFF">1(1-3个) 2(4-6个) 3(7-10个) 4(10-20个) 5(20个以上)</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>price</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">曾代理费用</td>
+    <td bgcolor="#FFFFFF">1(100万以内)2(200-400万)3(400-600万)4(600-800万)5(800-1000万)6(1000-1300万)7(1300-2000万)8(2000万以上)</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_company_outer 数据表字段解释（公司外包表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>company_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>wholes</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">产品整包</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>arts</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">美术外包</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>musics</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">音乐外包</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>tests</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">测试外包</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>programs</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">程序外包</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>plans</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">企划外包</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_company_investment 数据表字段解释（公司投资表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>company_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>stage</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">主投游戏阶段</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>require</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">对团队游戏要求</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_experience</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">有无投资经验</td>
+    <td bgcolor="#FFFFFF">0暂无 1有</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>games</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">曾投资游戏数</td>
+    <td bgcolor="#FFFFFF">1(1-3个) 2(4-6个) 3(7-10个) 4(10-20个) 5(20个以上)</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>price</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">曾投资总额</td>
+    <td bgcolor="#FFFFFF">1(100万以内)2(200-400万)3(400-600万)4(600-800万)5(800-1000万)6(1000-1300万)7(1300-2000万)8(2000万以上)</td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_company_service 数据表字段解释（公司服务表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>company_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>types</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">服务类型</td>
+    <td bgcolor="#FFFFFF">多选，存储文字，逗号分隔，与基础设置表的需求目标关联</td>
+  </tr>
+</table>
+
+
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_member 数据表字段解释（通讯录表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK，自增</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>name</strong></td>
+    <td bgcolor="#FFFFFF">varchar(20)</td>
+    <td bgcolor="#FFFFFF">真实姓名</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>sex</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">性别</td>
+    <td bgcolor="#FFFFFF">0未知 1男 2女</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>company_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">公司ID</td>
+    <td bgcolor="#FFFFFF">与公司表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>position</strong></td>
+    <td bgcolor="#FFFFFF">varchar(100)</td>
+    <td bgcolor="#FFFFFF">职位</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>position_type</strong></td>
+    <td bgcolor="#FFFFFF">smallint(5)</td>
+    <td bgcolor="#FFFFFF">职位类型</td>
+    <td bgcolor="#FFFFFF">单选，与基础设置表的职位类型关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>address</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">地址</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr><tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>phone</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">联系电话</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>email</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">联系邮箱</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>qq</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">联系QQ</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>wechat</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">微信</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>weibo</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">微博</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>avatar</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">头像</td>
+    <td bgcolor="#FFFFFF">与附件表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_verify</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">审核</td>
+    <td bgcolor="#FFFFFF">0未提交审核  1提交审核  2审核未通过  3审核通过</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_auth</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">认证</td>
+    <td bgcolor="#FFFFFF">0未提交认证  1提交认证  2认证未通过  3认证通过</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>uid</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">创建用户</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>ctime</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">创建时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_member_company 数据表字段解释（通讯录经验表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK，自增</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>member_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">通讯录ID</td>
+    <td bgcolor="#FFFFFF">与通讯录表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>name</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">公司</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>position</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">职位</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>product</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">参与产品</td>
+    <td bgcolor="#FFFFFF">以标签的形式，逗号隔开</td>
+  </tr>
+</table>
+
+
+
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_event 数据表字段解释（活动表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK，自增</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>uid</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">用户ID</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>title</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">活动标题</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>explain</strong></td>
+    <td bgcolor="#FFFFFF">text</td>
+    <td bgcolor="#FFFFFF">活动详情</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>contact</strong></td>
+    <td bgcolor="#FFFFFF">varchar(32)</td>
+    <td bgcolor="#FFFFFF">联系人</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>type</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(4)</td>
+    <td bgcolor="#FFFFFF">活动类型</td>
+    <td bgcolor="#FFFFFF">与活动类型表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>sTime</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">开始时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>eTime</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">结束时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>address</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">结束地址</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>cTime</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">创建时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>deadline</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">报名截止时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>joinCount</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">已加入人数</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>attentionCount</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">已关注人数</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>limitCount</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">限制加入人数</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>commentCount</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">评论人数</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>coverId</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">封面图片</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>optsId</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">投票ID</td>
+    <td bgcolor="#FFFFFF">暂时用不到</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>optsId</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">投票ID</td>
+    <td bgcolor="#FFFFFF">暂时用不到</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>feed_id</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">微博ID</td>
+    <td bgcolor="#FFFFFF">暂时用不到</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_verify</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">是否审核</td>
+    <td bgcolor="#FFFFFF">0未提交审核  1提交审核  2审核未通过  3审核通过</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_recommend</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">推荐</td>
+    <td bgcolor="#FFFFFF">0未推荐 1推荐</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>is_top</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">置顶</td>
+    <td bgcolor="#FFFFFF">0未置顶　1置顶</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>traffic</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">交通路线</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>notice</strong></td>
+    <td bgcolor="#FFFFFF">tinytext</td>
+    <td bgcolor="#FFFFFF">注意事项</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>sponsor</strong></td>
+    <td bgcolor="#FFFFFF">varchar(200)</td>
+    <td bgcolor="#FFFFFF">主办方</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>organizer_type</strong></td>
+    <td bgcolor="#FFFFFF">tinyint(1)</td>
+    <td bgcolor="#FFFFFF">承办方类型</td>
+    <td bgcolor="#FFFFFF">1承办方 2协办方 默认为1</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>organizer</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">承办方</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+</table>
+
+
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_event_guest 数据表字段解释（活动嘉宾表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK，自增</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>event_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">活动ID</td>
+    <td bgcolor="#FFFFFF">与活动表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>name</strong></td>
+    <td bgcolor="#FFFFFF">varchar(20)</td>
+    <td bgcolor="#FFFFFF">姓名</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>position</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">职位</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>avatar</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">头像</td>
+    <td bgcolor="#FFFFFF">与附件表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>description</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">说明</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+</table>
+
+
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_event_times 数据表字段解释（活动时间表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK，自增</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>event_id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">活动ID</td>
+    <td bgcolor="#FFFFFF">与活动表关联</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>sTime</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">开始时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>eTime</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">结束时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>description</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">描述</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+</table>
+
+
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_pages 数据表字段解释（单页表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK，自增</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>title</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">标题</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>keywords</strong></td>
+    <td bgcolor="#FFFFFF">varchar(255)</td>
+    <td bgcolor="#FFFFFF">关键词</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>description</strong></td>
+    <td bgcolor="#FFFFFF">varchar(500)</td>
+    <td bgcolor="#FFFFFF">描述</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>content</strong></td>
+    <td bgcolor="#FFFFFF">text</td>
+    <td bgcolor="#FFFFFF">内容</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>uid</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">创建用户</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>ctime</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">创建时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center">
+  <tr> 
+    <td width="100%"><strong><font color="#0000FF">yx_suggest 数据表字段解释（意见反馈表）</font></strong></td>
+  </tr>
+</table>
+<br>
+<table width="800" border="0" cellspacing="1" cellpadding="3" class="tableborder">
+  <tr class="header"> 
+    <td width="20%" height="30">字段名</td>
+    <td width="15%">类型</td>
+    <td width="20%">解释</td>
+    <td width="45%">附加说明</td>
+  </tr>
+  
+  <tr> 
+    <td height="30" bgcolor="#FFFFFF"><strong>id</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">ID</td>
+    <td bgcolor="#FFFFFF">PK，自增</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>uid</strong></td>
+    <td bgcolor="#FFFFFF">int(11)</td>
+    <td bgcolor="#FFFFFF">用户ID</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>name</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">姓名</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>email</strong></td>
+    <td bgcolor="#FFFFFF">varchar(50)</td>
+    <td bgcolor="#FFFFFF">邮箱</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>message</strong></td>
+    <td bgcolor="#FFFFFF">text</td>
+    <td bgcolor="#FFFFFF">内容</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#FFFFFF"><strong>ctime</strong></td>
+    <td bgcolor="#FFFFFF">int(10)</td>
+    <td bgcolor="#FFFFFF">创建时间</td>
+    <td bgcolor="#FFFFFF"></td>
+  </tr>
+</table>
+</body>
+</html>

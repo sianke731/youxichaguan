@@ -1,0 +1,71 @@
+<div class="sub-side">
+		<div class="oh mb10 bg-fff game-side-btn">
+			<a href="{:U('/Index/addEvent')}" class="l-btn l-btn1" style="margin-bottom:0;"><em></em><span>发布活动信息</span></a>
+		</div>
+		
+		<div class="com-side-box pt10 pb20 mb10 oh bg-fff">
+			<h2>地域</h2>
+			<ul class="com-side-ul1">
+				<li class="current"><a href="{:U('event/Index/index',array('city'=>''))}">不限</a></li>
+				<li><a href="{:U('event/Index/index',array('city'=>'510100'))}">成都</a></li>
+				<li><a href="{:U('event/Index/index',array('city'=>'310000'))}">上海</a></li>
+				<li><a href="{:U('event/Index/index',array('city'=>'110100'))}">北京</a></li>
+				<li><a href="{:U('event/Index/index',array('city'=>'440100'))}">广州</a></li>
+			</ul>
+			<h2>活动类别</h2>
+			<ul class="com-side-ul2">
+				<li <php>if( !isset( $_GET['cid'] ) ){echo "class = 'current'";}</php>><a href="{:U('//')}">不限</a></li>
+				<php> foreach($category as $k=>$cate){ </php>
+		        <li <eq name="k" value="$_GET['cid']"> class="current" </eq>><a href="{:U('//', array('cid'=>$k))}">{$cate}</a></li>
+		        <php> } </php>
+			</ul>
+		</div>
+		
+		<div class="bg-fff oh mb15">
+			<div class="pub-tit-box pub-tit-box1">
+				<h2 style="width:100%;">本月将举行的活动</h2>
+			</div>
+			
+			<div class="db mt10 mb10 ml10">
+				<div class="l-tps l-tps1"><em></em>本周</div>
+			</div>
+			<ul class="av-side-ul">
+				<volist name="thisweek" id="vo" empty="暂无活动">
+				<li>
+					<em></em>
+					<div>
+						<a href="{:U('event/Index/eventDetail', array('id'=>$vo['id'], 'uid'=>$vo['uid']))}" class="a-ts">{$vo['title']}</a>
+						<p>
+							<span><php>echo $week_number[date('w', $vo['sTime'])];</php></span>
+							<span><php>echo date('m月d日H:i', $vo['sTime'])</php></span>
+							<span><b class="fn c-e43">{$vo.joinCount}</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				</volist>
+			</ul>
+			<div class="db mt10 mb10 ml10">
+				<div class="l-tps l-tps2"><em></em>下周后</div>
+			</div>
+			
+			<ul class="av-side-ul">
+				<volist name="nextweek" id="vo" empty="暂无活动">
+				<li>
+					<em></em>
+					<div>
+						<a href="{:U('event/Index/eventDetail', array('id'=>$vo['id'], 'uid'=>$vo['uid']))}" class="a-ts">{$vo['title']}</a>
+						<p>
+							<span><php>echo $week_number[date('w', $vo['sTime'])];</php></span>
+							<span><php>echo date('m月d日H:i', $vo['sTime'])</php></span>
+							<span><b class="fn c-e43">{$vo.joinCount}</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				</volist>
+			</ul>
+			
+		</div>
+		
+		
+		
+	</div>

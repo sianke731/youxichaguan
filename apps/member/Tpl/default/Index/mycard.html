@@ -1,0 +1,96 @@
+<include file="__THEME__/new_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+<div  class="wrap oh user-main mt15">
+<include file="__THEME__/new_left" />
+
+
+
+  
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的名片</h1>
+			</div>
+			
+			<div class="my-bus-top oh m10">
+				<p>目前已有<span>541</span>加入通讯录，你还没有加入? 赶紧写名片吧!</p>
+				<a href="{:U('member/index/edit')}" class="bus-ico bus-ico1">
+					<em></em>
+					<span>发布我的名片</span>
+				</a>
+			</div>
+			<p class="pl10">目前已有<span class="c-e43"> 1234 </span>人加入通讯录，<a href="#" class="c-e43">其他人的名片</a></p>
+			<p class="pl10 pt10">我的名片 <span class="ico-btn ico-btn1">审核中</span></p>
+            <div class="my-busc-oper">
+            	<a href="{:U('member/index/edit')}" class="bus-ico bus-ico2">
+					<em></em>
+					<span>编辑我的名片</span>
+				</a>
+                <a href="#" class="bus-ico bus-ico3">
+					<em></em>
+					<span>申请认证</span>
+				</a>
+                <a href="{:U('public/Collection/index')}" class="bus-ico bus-ico4">
+					<em></em>
+					<span>我的收藏</span>
+				</a>
+            </div>
+            
+            <div class="my-busc-msg-box">
+            	<div class="mb-top oh">
+                	<img src="{$member.avatar}" />
+                    <div class="mbs-info">
+                    	<p>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名: <span>{$member.name}</span></p>
+                        <p>微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;博: <span>{$member.weibo}</span></p>
+                        <p>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司: <span>{$member.company_name}</span></p>
+                        <p>微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;信: <span>{$member.wechat}</span></p>
+                        <p>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务: <span>{$member.position}</span></p>
+                        <p>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址: <span>{$member.myadress}</span></p>
+                        <p>联系电话: <span>{$member.phone}</span></p>
+                        <p>网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址: <span>{$member.site}</span></p>
+                        <p>联系邮箱: <span>{$member.email}</span></p>
+                        <p>公司地址: <span>{$member.address}</span></p>
+                        <p>联&nbsp;系&nbsp;QQ: <span>{$member.qq}</span></p>
+                        <p>所在城市: <span>{$province[title]}{$city[title]}</span></p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <h2 class="mb-h2 fs16">职业经历</h2>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="my-busc-table1">
+                	<tr class="i-t-haed">
+                    	<td class="i-td1">公司</td>
+                        <td class="i-td2">职位</td>
+                        <td class="i-td3">参与产品</td>
+                    </tr>
+                    <volist name="member_company" id="vo">
+                    <tr class="i-t-lis">
+                    	<td class="i-td1"><a href="javasctipt:;">{$vo.name}</a></td>
+                        <td class="i-td2">{$vo.position}</td>
+                        <td class="i-td3">{$vo.product}</td>
+                    </tr>
+                    </volist>
+				</table>
+            </div>
+            
+		</div>
+		<!--右边主要区域 e-->
+		
+		
+	</div>
+	<!--右边部分 s-->
+
+  
+</div>
+<script>
+$("#submit_a").click(function(){
+	$("#form_mycard").submit();
+});
+</script>
+<include file="__THEME__/new_footer" />

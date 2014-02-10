@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>活动详情</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--顶部 s-->
+<div id="header">
+	<div class="wrap">
+		<div class="logo-box fl"> <a href="index.html"><img src="images/logo.png"/></a>
+			<div class="wb-box oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		<div class="top-ads oh fl">
+			<div class="ta-list"><a href="#"><img src="test/test6.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/test7.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/t_06.png" /></a></div>
+		</div>
+		<div class="log-box oh fr">
+			<div class="oh"> <a href="#" class="t-btn">注册</a> <a href="#" class="t-btn">登录</a> </div>
+			<div class="log-fot oh">
+				<p class="c-333">使用社交账户快速登陆:</p>
+				<a href="#" title="QQ登录" class="t-ico qq-ico"></a> <a href="#" title="微博登录" class="t-ico wb-ico"></a> </div>
+		</div>
+	</div>
+</div>
+<!--顶部 e--> 
+
+<!--nav s-->
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li class="nav-curr"><a href="#">首页</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">公司</a></li>
+			<li><a href="#">通讯录</a></li>
+			<li><a href="#">活动</a></li>
+			<li><a href="#">新闻</a></li>
+		</ul>
+		<div class="search-box fr pr">
+			<form action="" method="post" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">文章</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="1">文章</li>
+						<li data-id="2">帖子</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="search..." class="search-ipt" />
+				<input type="button" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->
+
+<div  class="wrap oh  mt15">
+	<div class="sub-side">
+		<div class="oh mb10 bg-fff game-side-btn">
+			<a href="#" class="l-btn l-btn1" style="margin-bottom:0;"><em></em><span>发布活动信息</span></a>
+		</div>
+		
+		<div class="com-side-box pt10 pb20 mb10 oh bg-fff">
+			<h2>地域</h2>
+			<ul class="com-side-ul1">
+				<li class="current"><a href="#">不限</a></li>
+				<li><a href="#">成都</a></li>
+				<li><a href="#">上海</a></li>
+				<li><a href="#">北京</a></li>
+				<li><a href="#">西安</a></li>
+				<li><a href="#">广州</a></li>
+			</ul>
+			<h2>活动类别</h2>
+			<ul class="com-side-ul2">
+				<li class="current"><a href="#">不限</a></li>
+				<li><a href="#">游戏媒体</a></li>
+				<li><a href="#">云服务商      </a></li>
+				<li><a href="#">发行商</a></li>
+				<li><a href="#">渠道商         </a></li>
+				<li><a href="#">外包提供商</a></li>
+			</ul>
+		</div>
+		
+		<div class="bg-fff oh mb15">
+			<div class="pub-tit-box pub-tit-box1">
+				<h2 style="width:100%;">本月将举行的活动</h2>
+			</div>
+			
+			<div class="db mt10 mb10 ml10">
+				<div class="l-tps l-tps1"><em></em>本周</div>
+			</div>
+			<ul class="av-side-ul">
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+			</ul>
+			<div class="db mt10 mb10 ml10">
+				<div class="l-tps l-tps2"><em></em>下周后</div>
+			</div>
+			
+			<ul class="av-side-ul">
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<em></em>
+					<div>
+						<a href="#" class="a-ts">Facebook游戏平台Game On </a>
+						<p>
+							<span>周六</span>
+							<span>12月12日13:20</span>
+							<span><b class="fn c-e43">24</b>人报名</span>
+						</p>
+					</div>
+				</li>
+			</ul>
+			
+		</div>
+		
+		
+		
+	</div>
+	<div class="sub-main">
+		<div class="active-view-top oh mb15">
+			<img src="test/11.jpg" class="acv-pic" />
+			<div class="act-r fl oh">
+				<h2>Facebook游戏平台Game On 专场[成都]<span class="ico-btn ico-btn1">审核中</span></h2>
+				<div class="a-ls">
+					<span>主办方:</span>
+					<p>91无线</p>
+					<span class="pl20 ml10" style="width:60px;">协办方:</span>
+					<p>91无线</p>
+				</div>
+				<div class="a-ls">
+					<span>活动地点:</span>
+					<p>91无线</p>
+				</div>
+				<div class="a-ls">
+					<span>开始时间:</span>
+					<p>91无线</p>
+				</div>
+				<div class="a-ls">
+					<span>活动人数:</span>
+					<p>91无线</p>
+				</div>
+				<div class="a-ls">
+					<span>活动费用:</span>
+					<p><span class="c-e43">免费</span></p>
+				</div>
+				<div class="a-ls">
+					<span>活动类型:</span>
+					<p>91无线</p>
+				</div>
+				
+				<div class="ac-fm-box oh bg-fff p5">
+					<p class="a-fdg"><em class="ico ico10"></em><span class="c-e43">59</span>人已报名参加</p>
+					<div class="clear"></div>
+					<p class="fl oupo-d">
+						<em class="ico ico11"></em>
+						<span>倒计时</span>										
+					</p>
+					<div class="fl">
+						<div class="aod-box aod-box-s">
+							<div id="day">00</div>
+							<div id="hour">00</div>
+							<div id="mini">00</div>
+							<div id="mini">00</div>
+						</div>
+						<div class="clear"></div>
+						<div class="aod-fos aod-fos-s">
+							<span>天</span>
+							<span>小时</span>
+							<span>分钟</span>
+							<span>秒</span>
+						</div>
+					</div>
+					<script>
+						//调用时间插件
+						$(document).ready(function() {
+							$.countDownTime({
+								etime:new Date('2014/01/17 00:00:00'), //这个时间有后端php传过来,已字符串的形式
+								days:$('#day'),
+								hours:$('#hour'),
+								minutes:$('#mini'),
+								seconds:$('#mini')
+							});
+						});
+					</script>
+					<a href="#" class="s-btn s-btn1 fr mr20">立即报名</a>
+				</div>
+				
+			</div>
+		</div>
+		
+		<ul class="active-v-tabt-box" id="js_actab_title">
+			<li><a href="javascript:;">发起者信息</a></li>
+			<li><a href="javascript:;">活动介绍</a></li>
+			<li><a href="javascript:;">活动嘉宾</a></li>
+			<li><a href="javascript:;">活动议程</a></li>
+		</ul>
+		
+		<div class="activ-tbox oh bg-fff" id="js_actab_conent">
+			
+			<div class="ac-t-list">
+				<div class="sub-tit-box">
+					<h2>发起者信息</h2>
+				</div>
+				
+				<p class="ac-tmsg"><span>创建者:</span>bidt <a href="#" class="s-btn s-btn8">发通知</a></p>
+				<p class="ac-tmsg"><span>创建时间 :</span>2013-10-12  22:33:11</p>
+				<div class="clear"></div>
+				<table style="width:660px; margin:10px 0;" border="0" cellpadding="0" cellspacing="0" class="acv-table">
+					<tr>
+						<td align="center">申请时间</td>
+						<td align="center">状态</td>
+						<td align="center">操作</td>
+					</tr>
+					<tr>
+						<td align="center">2013-14-15 10:11:11</td>
+						<td align="center"><span class="ico-btn ico-btn1">审核中</span></td>
+						<td align="center">
+							<div class="act-oper">
+								<a href="#">审核</a>
+								<a href="#">编辑</a>
+								<a href="#">导出</a>
+								<a href="#">活动回顾</a>
+								<a href="#">取消活动</a>
+								<a href="#">关闭活动</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">2013-14-15</td>
+						<td align="center"><span class="ico-btn ico-btn2">已通过</span></td>
+						<td align="center">
+							<div class="act-oper">
+								<a href="#">审核</a>
+								<a href="#">编辑</a>
+								<a href="#">导出</a>
+								<a href="#">活动回顾</a>
+								<a href="#">取消活动</a>
+								<a href="#">关闭活动</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">2013-14-15</td>
+						<td align="center"><span class="ico-btn ico-btn3">未通过</span></td>
+						<td align="center">
+							<div class="act-oper">
+								<a href="#">审核</a>
+								<a href="#">编辑</a>
+								<a href="#">导出</a>
+								<a href="#">活动回顾</a>
+								<a href="#">取消活动</a>
+								<a href="#">关闭活动</a>
+							</div>
+						</td>
+					</tr>
+				</table>
+				
+				<p class="ac-tmsg"><span>真实姓名:</span>李林</p>
+				<p class="ac-tmsg"><span>公司:</span>成都鑫海网络游戏公司</p>
+				<p class="ac-tmsg"><span>职位:</span>戏运营</p>
+				<p class="ac-tmsg"><span>手机:</span>15465151</p>
+				<p class="ac-tmsg"><span>邮箱:</span>戏运营</p>
+				<p class="ac-tmsg"><span> QQ:</span>发送到广发改</p>
+			</div>
+			<div class="clear"></div>
+			
+			
+			<div class="ac-t-list oh">
+				<div class="sub-tit-box mb10">
+					<h2>活动介绍</h2>
+				</div>
+				<p class="oh mb20">
+					本次会议以向各CP介绍蜂巢游戏为主，作为手游发行界的资深公司之一。蜂巢游戏已成功运营了多款优秀的产品，从最早的《大掌门》，到目前进入火热阶段的《妖姬三国》，再到准备重磅上线的《猎魂》。蜂巢游戏在拥有大量优质渠道资源之外更有自有媒体和渠道，能够稳固的导入可观的用户量，并且针对游戏的不同量身打造和该游戏最匹配的运营团队。蜂巢游戏努力尝试风格各异的优秀产品，合作方式多样，期待能够在本次会议让各位更加了解我们。
+				</p>
+			</div>
+			
+			
+			<div class="ac-t-list oh">
+				<div class="sub-tit-box mb10">
+					<h2>活动嘉宾</h2>
+				</div>
+				
+				<table border="0" cellpadding="0" cellspacing="0" class="acv-table acv-tables">
+					<tr>
+						<td><span class="c-e43">KPCB凯鹏见鬼了</span></td>
+						<td>李华</td>
+						<td>KPCB系美国最知名的基金公司之一</td>
+					</tr>
+					<tr>
+						<td><span class="c-e43">KPCB凯鹏</span></td>
+						<td>李华</td>
+						<td>KPCB系美国最知名的基金公司之一</td>
+					</tr>
+					<tr>
+						<td><span class="c-e43">KPCB凯鹏</span></td>
+						<td>李华</td>
+						<td>KPCB系美国最知名的基金公司之一</td>
+					</tr>
+					<tr>
+						<td><span class="c-e43">KPCB凯鹏</span></td>
+						<td>李华</td>
+						<td>KPCB系美国最知名的基金公司之一</td>
+					</tr>
+					<tr>
+						<td><span class="c-e43">KPCB凯鹏</span></td>
+						<td>李华</td>
+						<td>KPCB系美国最知名的基金公司之一</td>
+					</tr>
+				</table>
+				
+			</div>
+			
+			
+			<div class="ac-t-list oh">
+				<div class="sub-tit-box mb10">
+					<h2>活动议程</h2>
+				</div>
+				
+				<table border="0" cellpadding="0" cellspacing="0" class="acv-table acv-tables">
+					<tr>
+						<td>13:30-14:00</td>
+						<td>签到</td>
+					</tr>
+					<tr>
+						<td>13:30-14:00</td>
+						<td>签到</td>
+					</tr>
+					<tr>
+						<td>13:30-14:00</td>
+						<td>签到</td>
+					</tr>
+					<tr>
+						<td>13:30-14:00</td>
+						<td>签到</td>
+					</tr>
+					<tr>
+						<td>13:30-14:00</td>
+						<td>签到</td>
+					</tr>
+				</table>
+				<div class="clear"></div>
+					
+				<div class="oh fl slt slt1">
+					<h2>已经通过<span>(59人)</span><a href="#">更多+</a></h2>
+					<p>
+						<span>用户</span>
+						<span class="fr mr10">申请时间</span>
+					</p>
+					
+					<ul>
+						<li>
+							<img src="test/5.jpg" />
+							<a href="#">建个房间</a>
+							<span>前天11:10</span>
+						</li>
+						<li>
+							<img src="test/5.jpg" />
+							<a href="#">建个房间</a>
+							<span>前天11:10</span>
+						</li>
+						<li>
+							<img src="test/5.jpg" />
+							<a href="#">建个房间</a>
+							<span>前天11:10</span>
+						</li>
+						<li>
+							<img src="test/5.jpg" />
+							<a href="#">建个房间</a>
+							<span>前天11:10</span>
+						</li>
+					</ul>
+					
+					
+				</div>
+				
+				
+				<div class="oh fl slt slt2">
+					<h2>暂未通过<span>(59人)</span><a href="#">更多+</a></h2>
+					<p>
+						<span>用户</span>
+						<span class="fr mr10">申请时间</span>
+					</p>
+					
+					<ul>
+						<li>
+							<img src="test/5.jpg" />
+							<a href="#">建个房间</a>
+							<span>前天11:10</span>
+						</li>
+						<li>
+							<img src="test/5.jpg" />
+							<a href="#">建个房间</a>
+							<span>前天11:10</span>
+						</li>
+						<li>
+							<img src="test/5.jpg" />
+							<a href="#">建个房间</a>
+							<span>前天11:10</span>
+						</li>
+						<li>
+							<img src="test/5.jpg" />
+							<a href="#">建个房间</a>
+							<span>前天11:10</span>
+						</li>
+					</ul>
+					
+					
+					
+					
+				</div>
+				<div class="clear"></div>
+				
+				<a href="#" class="s-btn s-btn2" style="width:auto; padding:0 40px;">+ 点此添加活动回顾</a>
+			</div>
+		</div>
+		<h2 class="fs16 c-6c6 mt15 mb15 oh">评论(共有<span class="c-e43">4</span>人参与评论)</h2>
+		<div class="rep-box oh">
+			<div class="rep-list">
+				<div class="rep-left">
+					<img src="test/9.jpg" />
+					<p class="c-333">游戏币：<span class="c-e43">5896</span></p>
+					<p class="c-333 oh">
+						<a class="ico ico1" href="#"></a>
+						<a class="ico ico2" href="#"></a>
+					</p>
+					<p class="mt10">
+						<span  class="fsxx">
+							<em class="ico ico3"></em>
+							<a href="#">发送消息</a>
+						</span>
+						<span  class="jhmp">
+							<em class="ico ico4"></em>
+							<a href="#">交换名片</a>
+						</span>
+					</p>
+				</div>
+				<div class="rep-right">
+					
+					<p class="xx-p">
+						如今好多游戏大打“动作牌”，楼主已无力吐槽！！网上漫天消息说，《射雕ZERO》在1月7日马上迎来测试，看了视频，我只能“呵呵”了！各位点评下吧！如今好多游戏大打“动作牌”，楼主已无力吐槽！！网上漫天消息说，《射雕ZERO》在1月7日马上迎来测试，看了视频，我只能“漫天消息说...
+					</p>
+					<div class="rep-oper">
+						<div>
+							<em class="ico ico6"></em><a href="#">评论</a>
+						</div>
+						<div>
+							<em class="ico ico7"></em><a href="#"><b>6</b>条评论</a>
+						</div>
+						<div>
+							<em class="ico ico8"></em><a href="#">修改评论</a>
+						</div>
+						<div>
+							<em class="ico ico9"></em><a href="#">删除评论</a>
+						</div>
+						<span class="fr c-888 fs12">2013-7/19-12:30</span>
+					</div>
+				</div>
+				
+			</div>
+			<div class="rep-list">
+				<div class="rep-left">
+					<img src="test/9.jpg" />
+					<p class="c-333">游戏币：<span class="c-e43">5896</span></p>
+					<p class="c-333 oh">
+						<a class="ico ico1" href="#"></a>
+						<a class="ico ico2" href="#"></a>
+					</p>
+					<p class="mt10">
+						<span  class="fsxx">
+							<em class="ico ico3"></em>
+							<a href="#">发送消息</a>
+						</span>
+						<span  class="jhmp">
+							<em class="ico ico4"></em>
+							<a href="#">交换名片</a>
+						</span>
+					</p>
+				</div>
+				<div class="rep-right">
+					
+					<p class="xx-p">
+						如今好多游戏大打“动作牌”，楼主已无力吐槽！！网上漫天消息说，《射雕ZERO》在1月7日马上迎来测试，看了视频，我只能“呵呵”了！各位点评下吧！如今好多游戏大打“动作牌”，楼主已无力吐槽！！网上漫天消息说，《射雕ZERO》在1月7日马上迎来测试，看了视频，我只能“漫天消息说...
+					</p>
+					<div class="rep-oper">
+						<div>
+							<em class="ico ico6"></em><a href="#">评论</a>
+						</div>
+						<div>
+							<em class="ico ico7"></em><a href="#"><b>6</b>条评论</a>
+						</div>
+						<div>
+							<em class="ico ico8"></em><a href="#">修改评论</a>
+						</div>
+						<div>
+							<em class="ico ico9"></em><a href="#">删除评论</a>
+						</div>
+						<span class="fr c-888 fs12">2013-7/19-12:30</span>
+					</div>
+					
+					<div class="rep-sub-box">
+						<div class="oh mb10">
+							<img src="test/5.jpg" />
+							<a href="#" class="rsb-tit">路、一直都在</a>
+						</div>
+						<p>大航海时代 V》也将登场系列作主要人物、史实出现过的名人等 100 名航海士，并有相关的「列传任务」让玩家进行攻略，</p>
+						<div class="rep-oper rep-sub-oper">
+							<div>
+								<em class="ico ico8"></em><a href="#">修改评论</a>
+							</div>
+							<div>
+								<em class="ico ico9"></em><a href="#">删除评论</a>
+							</div>
+							<span class="fr c-888 fs12">2013-7/19-12:30</span>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="rep-list">
+				<div class="rep-left">
+					<img src="test/9.jpg" />
+					<p class="c-333">游戏币：<span class="c-e43">5896</span></p>
+					<p class="c-333 oh">
+						<a class="ico ico1" href="#"></a>
+						<a class="ico ico2" href="#"></a>
+					</p>
+					<p class="mt10">
+						<span  class="fsxx">
+							<em class="ico ico3"></em>
+							<a href="#">发送消息</a>
+						</span>
+						<span  class="jhmp">
+							<em class="ico ico4"></em>
+							<a href="#">交换名片</a>
+						</span>
+					</p>
+				</div>
+				<div class="rep-right">
+					<p class="pl-p">
+						评论<span>路一直都在</span> :<a href="#">“《大航海时代 V》继承游戏三大主轴「探索」、「交易」、「海战」，并在之上开发增加新的要素，玩家不只是扮演一位航行各地的船长，还将与许多伙伴一起开创新的故事 ”</a>
+					</p>
+					
+					<div class="rep-oper">
+						<div>
+							<em class="ico ico6"></em><a href="#">评论</a>
+						</div>
+						<div>
+							<em class="ico ico7"></em><a href="#"><b>6</b>条评论</a>
+						</div>
+						<div>
+							<em class="ico ico8"></em><a href="#">修改评论</a>
+						</div>
+						<div>
+							<em class="ico ico9"></em><a href="#">删除评论</a>
+						</div>
+						<span class="fr c-888 fs12">2013-7/19-12:30</span>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	
+</div>
+
+<a href="#" id="js_yjfk" title="意见反馈"></a>
+<a href="#" id="js_ly" title="我要留言"></a>
+<a href="javascript:;" id="js_rtop" title="返回顶部"></a>
+<!--footer s-->
+<div id="footer">
+	<div class="fot-main oh"> <img src="images/t_50.png" />
+		<div class="fot-info">
+			<p> <a href="#">关于我们</a> | <a href="#">加入游戏茶馆</a> | <a href="#">联系我们</a> | <a href="#">寻求报道</a> | <a href="#">订阅</a> </p>
+			<p class="fs12 c-888">©2008-2013 <span class="c-fcb">游戏茶馆</span> | 蜀ICP备11004573号</p>
+		</div>
+	</div>
+</div>
+<!--footer e-->
+<script>
+var activeView = {
+	//内容切换
+	csTabs:function(){
+		var t = $('#js_actab_title li');
+		var c = $('#js_actab_conent .ac-t-list');
+		t.eq(0).addClass('current');
+		c.hide().eq(0).show();
+		t.bind('click',function(){
+			var index = $(this).index();
+			$(this).addClass('current').siblings().removeClass('current');
+			c.hide().eq(index).show();
+		});
+	},
+	init:function(){
+		this.csTabs();
+	}
+};
+
+
+$(document).ready(function(){
+	activeView.init();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的活动</title>
+<link href="../css/base.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--顶部 s-->
+<div id="header">
+	<div class="wrap">
+		<div class="logo-box fl"> <a href="../index.html"><img src="../images/logo.png"/></a>
+			<div class="wb-box oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		<div class="top-ads oh fl">
+			<div class="ta-list"><a href="#"><img src="../test/test6.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="../test/test7.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="../test/t_06.png" /></a></div>
+		</div>
+		<div class="log-box oh fr">
+			<div class="oh"> <a href="#" class="t-btn">注册</a> <a href="#" class="t-btn">登录</a> </div>
+			<div class="log-fot oh">
+				<p class="c-333">使用社交账户快速登陆:</p>
+				<a href="#" title="QQ登录" class="t-ico qq-ico"></a> <a href="#" title="微博登录" class="t-ico wb-ico"></a> </div>
+		</div>
+	</div>
+</div>
+<!--顶部 e--> 
+
+<!--nav s-->
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li class="nav-curr"><a href="#">首页</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">公司</a></li>
+			<li><a href="#">通讯录</a></li>
+			<li><a href="#">活动</a></li>
+			<li><a href="#">新闻</a></li>
+		</ul>
+		<div class="search-box fr pr">
+			<form action="" method="post" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">文章</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="1">文章</li>
+						<li data-id="2">帖子</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="search..." class="search-ipt" />
+				<input type="button" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->
+
+<div  class="wrap oh user-main mt15">
+	<!--左边部分 s-->
+	<div class="user-side">
+		
+		<!--用户信息 s-->
+		<h2 class="user-name fs20">路、一直都在</h2>
+		<div class="user-avatar-box" id="js_avatar_box">
+			<img src="../test/test8.png" />
+			<a href="#" class="edit-avatar" id="js_edit_avatar">
+				<em></em>
+				<span>修改头像</span>
+			</a>
+		</div>
+		<p class="user-game-num"><em></em><b  class="fn">游戏币：</b><span>5984</span></p>
+		<div class="show-mnb">
+			<p>显示已绑定账号</p>
+			<label>
+				<span class="u-ico u-ico1"></span>
+				<input type="checkbox" />
+			</label>
+			<label>
+				<span class="u-ico u-ico2"></span>
+				<input type="checkbox" />
+			</label>
+		</div>
+		
+		<ul class="side-nav side-nav1">
+			<li class="sn1">
+				<a href="my_msg.html">
+					<em></em>
+					<span>我的消息</span>
+				</a>
+			</li>
+			<li class="sn2">
+				<a href="my_collect.html">
+					<em></em>
+					<span>我的收藏</span>
+				</a>
+			</li>
+			<li class="sn3 current">
+				<a href="home.html">
+					<em></em>
+					<span>我的账户</span>
+				</a>
+			</li>
+			<li class="sn4">
+				<a href="my_comments.html">
+					<em></em>
+					<span>我的评论</span>
+				</a>
+			</li>
+		</ul>
+		
+		<ul class="side-nav side-nav2">
+			<li class="sn5">
+				<a href="my_active.html">
+					<em></em>
+					<span>我的活动</span>
+				</a>
+			</li>
+			<li class="sn6">
+				<a href="my_buscard.shtml">
+					<em></em>
+					<span>我的名片</span>
+				</a>
+			</li>
+			<li class="sn7">
+				<a href="my_goods.html">
+					<em></em>
+					<span>我的产品</span>
+				</a>
+			</li>
+			<li class="sn8">
+				<a href="my_company.html">
+					<em></em>
+					<span>我的公司</span>
+				</a>
+			</li>
+		</ul>
+		
+		
+	</div>
+	<!--左边部分 e-->
+	
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的活动</h1>
+			</div>
+            
+            <div class="my-ac-switit fs16">
+            	<a class="current" href="my_active.html">我参加的活动</a>
+                <a href="my_active1.html">我创建的活动</a>
+            </div>
+            
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="i-table ac1-table">
+				<tr class="i-tab-hader">
+					<td><span class="t1">序号</span></td>
+					<td><span>活动名</span></td>
+					<td><span>创建日期</span></td>
+					<td><span>报名人数</span></td>
+                    <td><span>状态</span></td>
+					<td><span>操作</span></td>
+				</tr>
+				<tr class="i-tab-list">
+					<td><span class="t1">0002</span></td>
+					<td><a href="#">第三届网页游戏大赛</a></td>
+					<td>2010-2-12</td>
+					<td>49人</td>
+                    <td><span class="ico-btn ico-btn1">审核中</span></td>
+					<td><a href="#" class="ico-btn ico-btn4">取消报名</a></td>
+				</tr>
+                <tr class="i-tab-list">
+					<td><span class="t1">0002</span></td>
+					<td><a href="#">第三届网页游戏大赛</a></td>
+					<td>2010-2-12</td>
+					<td>49人</td>
+                    <td><span class="ico-btn ico-btn1">审核中</span></td>
+					<td><a href="#" class="ico-btn ico-btn4">取消报名</a></td>
+				</tr>
+                <tr class="i-tab-list">
+					<td><span class="t1">0002</span></td>
+					<td><a href="#">第三届网页游戏大赛</a></td>
+					<td>2010-2-12</td>
+					<td>49人</td>
+                    <td><span class="ico-btn ico-btn1">审核中</span></td>
+					<td><a href="#" class="ico-btn ico-btn4">取消报名</a></td>
+				</tr>
+                <tr class="i-tab-list">
+					<td><span class="t1">0002</span></td>
+					<td><a href="#">第三届网页游戏大赛</a></td>
+					<td>2010-2-12</td>
+					<td>49人</td>
+                    <td><span class="ico-btn ico-btn3">未通过</span></td>
+					<td><a href="#" class="ico-btn ico-btn4">取消报名</a></td>
+				</tr>
+                <tr class="i-tab-list">
+					<td><span class="t1">0002</span></td>
+					<td><a href="#">第三届网页游戏大赛</a></td>
+					<td>2010-2-12</td>
+					<td>49人</td>
+                    <td><span class="ico-btn ico-btn2">已通过</span></td>
+					<td><a href="#" class="ico-btn ico-btn4">取消报名</a></td>
+				</tr>
+			</table>
+            
+            <div class="pager-box"> <span class="current">1</span> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">下一页</a> <a href="#">末页</a> </div>
+            			
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+	
+</div>
+
+<!--footer s-->
+<div id="footer">
+	<div class="fot-main oh"> <img src="../images/t_50.png" />
+		<div class="fot-info">
+			<p> <a href="#">关于我们</a> | <a href="#">加入游戏茶馆</a> | <a href="#">联系我们</a> | <a href="#">寻求报道</a> | <a href="#">订阅</a> </p>
+			<p class="fs12 c-888">©2008-2013 <span class="c-fcb">游戏茶馆</span> | 蜀ICP备11004573号</p>
+		</div>
+	</div>
+</div>
+<!--footer e--> 
+</body>
+</html>

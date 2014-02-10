@@ -1,0 +1,27 @@
+<include file="__THEME__/admin_header" />
+<div id="container" class="so_main">
+  <div class="page_tit">查看意见</div>
+    <div class="form2">
+
+  <form method="post" name="form1" action="{:U('admin/Index/suggest')}">
+    <dl class="lineD">
+      <dt>姓名：</dt>
+      <dd>{$name}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>邮箱：</dt>
+      <dd>{$email}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>内容：</dt>
+      <dd>{$message}</dd>
+    </dl>
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+  </form>
+  </div>
+  
+  
+</div>
+<include file="__THEME__/admin_footer" />

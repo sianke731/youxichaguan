@@ -1,0 +1,124 @@
+
+
+            <div class="boxs isbgs oh">
+            	<div class="b-l">公司标签:</div>
+                <div class="b-r oh box-tags">
+                	<div class="oh w450" id="js_tab_box1">
+                        <volist name="tj_tags" id="v">
+                            <php>if(!in_array($v['id'], $selectedIds)) {</php>
+                            <a href="javascript:;"  class="t-list">{$v.title}</a>
+                            <php>}</php>
+                        </volist>
+                    </div>
+                    <div class="oh mt10 mb10">
+                    	<input type="text" id="js_tag_ipt" class="i-ipt fl mr5" />
+                        <a  href="javascript:;" id="js_tag_btn" class="ico-btn ico-btn5 fl">自定义添加</a>
+                    </div>
+                </div>
+                <div class="clear"></div>	
+                <div class="boxs" style="padding:0;">
+                    <div class="b-l">已添加的标签:</div>
+                    <div class="b-r w450" id="js_res_tas_box">
+                    <volist name="tags" id="vo">
+                    <a data-id="{$vo.id}" class="sel-lis" href="javascript:;"><em></em><b>{$vo.title}</b></a>
+                    </volist>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="tags" id="ts_tag_search_value" value="{$tags_my}" />
+            
+            <div class="clear"></div>
+
+ <if condition="$company[is_verify] neq 1">
+
+<script type="text/javascript"> 
+
+// 字符串长度 - 中文和全角符号为1；英文、数字和半角为0.5
+var getLength = function(str, shortUrl) {
+	if (true == shortUrl) {
+		// 一个URL当作十个字长度计算
+		return Math.ceil(str.replace(/^\s+|\s+$/ig,'').replace(/[^\x00-\xff]/ig,'xx').length/2);
+	} else {
+		return Math.ceil(str.replace(/^\s+|\s+$/ig,'').replace(/[^\x00-\xff]/ig,'xx').length/2);
+	}
+};
+
+
+// 资源ID
+var row_id = '{$row_id|intval}';
+// 应用名称
+var appname = '{$appname}';
+// 资源表名
+var apptable = '{$apptable}';
+
+/**
+ * 标签操作Js类
+ * @type {object}
+ */
+var tagsTs = {};
+
+$('#js_tag_btn').add("#js_tab_box1 a").bind('click',function(){
+	console.log($(this).attr("id"));
+	
+	
+	if($(this).attr("id")=="js_tag_btn"){
+		var str = $('#js_tag_ipt').val();
+	}else{
+		var str = $(this).html();
+	}
+	
+	//console.log(str);
+	if(str == ''){
+		alert('请输入标签名称');
+		$('#js_tag_ipt').focus();
+		arr2 = [];
+		return false;
+	}else{
+		
+		var tagLimit = 10;
+		if(getLength(str) > tagLimit) {
+			alert('标签长度不能超过'+tagLimit+'个汉字');
+			return false;
+		}
+		
+		
+		var list = $('#js_res_tas_box .sel-lis');
+		var arr2 = [];
+		
+		$.post("{:U('company/Index/getTagId')}", {'appname':appname, 'apptable':apptable, 'name':str}, function(res) {
+			if(res.status == 1) {
+				var tagId = parseInt(res.data);
+				// 验证是否重复加入标签
+				var tagArr = $('#ts_tag_search_value').val().split(',');
+				for(var i in tagArr) {
+					if(tagArr[i] == tagId) {
+						alert('标签已存在');
+						return false;
+					}
+				}
+				var ts = '<a href="javascript:;" class="sel-lis" data-id="'+tagId+'"><em></em><b>'+str+'</b></a>';
+				$('#js_res_tas_box').append(ts);
+			} else {
+				alert(res.info);
+				return false;
+			}
+			var value = [];
+			$('#js_res_tas_box a').each(function(i, n) {
+				value.push($(n).data('id'));
+			});
+			$('#ts_tag_search_value').val(value.join(','));
+			$("#js_tag_ipt").val("");
+		}, 'json');
+		
+	}
+});
+$("#js_res_tas_box").find("em").live("click",function(){
+	$(this).parents("a").remove();
+	var value = [];
+	$('#js_res_tas_box a').each(function(i, n) {
+		value.push($(n).data('id'));
+	});
+	$('#ts_tag_search_value').val(value.join(','));
+});
+</script>
+</if> 

@@ -1,0 +1,95 @@
+<include file="__THEME__/admin_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+<style>
+#zyjl{
+	float:left; background-color:#999;
+	margin-bottom:10px;
+}
+#zyjl td{
+	background-color:#FFF
+}
+</style>
+<div id="container" class="so_main">
+    <div class="page_tit">通讯录详情</div>
+    <div class="form2">
+    <dl class="lineD">
+      <dt>头像：</dt>
+      <dd><img src="{$member[avatar][url]}" width="{$member[avatar][width]}" height="{$member[avatar][height]}" /></dd>
+    </dl>
+    <dl class="lineD">
+      <dt>姓名：</dt>
+      <dd>{$member.name}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>公司：</dt>
+      <dd>{$member.company_name}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>职务：</dt>
+      <dd>{$member.position}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>联系电话：</dt>
+      <dd>{$member.phone}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>联系邮箱：</dt>
+      <dd>{$member.email}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>QQ：</dt>
+      <dd>{$member.qq}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>微博：</dt>
+      <dd>{$member.weibo}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>微信：</dt>
+      <dd>{$member.wechat}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>地址：</dt>
+      <dd>{$member.}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>网址：</dt>
+      <dd>{$member.company_name}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>公司地址：</dt>
+      <dd>{$member.company_name}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>所在城市：</dt>
+      <dd>{$member.company_city}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>职业经历：</dt>
+      <dd>
+      <table cellpadding="1" cellspacing="1" width="300" style="" id="zyjl">
+      	<tr>
+        	<td>公司</td>
+        	<td>职位</td>
+        	<td>参与产品</td>
+        </tr>
+        <volist name="member_company" id="vo">
+      	<tr>
+        	<td>{$vo.name}</td>
+        	<td>{$vo.position}</td>
+        	<td>{$vo.product}</td>
+        </tr>
+        </volist>
+      </table>
+      </dd>
+    </dl>
+    
+    
+    
+    <div class="page_btm">
+      <input type="button" onclick="history.back(-1)" id="form_submit" value="返回" class="btn_b">
+      
+    </div>
+</div>
+<include file="__THEME__/admin_footer" />

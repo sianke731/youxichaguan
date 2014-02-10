@@ -1,0 +1,154 @@
+             <div class="boxs isbgs oh">
+            	<div class="b-l">渠道类型:</div>
+                <div class="b-r oh che-box">
+                <volist name="cooperation_area" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="cooperation_area[]" type="checkbox" value="{$k}" id="cooperation_area_{$k}"   <php>if(in_array($k,$publish['areas'])){</php> checked="checked"<php>}</php> >
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">合作游戏平台要求:</div>
+                <div class="b-r oh che-box">
+                <volist name="platform" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="platform_require" type="radio" value="{$k}" id="platform_{$k}" <if condition="$k eq $publish['platform_require']"> checked="checked"</if>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">合作游戏联网要求:</div>
+                <div class="b-r oh che-box">
+                <volist name="networking" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="networking" type="radio" value="{$k}" id="networking{$k}" <if condition="$k eq $publish['network_require']"> checked="checked"</if>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">合作游戏阶段要求:</div>
+                <div class="b-r oh che-box">
+                <volist name="game_phase" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="game_phase" type="radio" value="{$k}" id="networking{$k}" <if condition="$k eq $publish['stage_require']"> checked="checked"</if>>
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                </div>
+                <div class="clear"></div>
+                
+                
+                <div class="oh mt10">
+                	<div class="b-l">对团队游戏要求:</div>
+                    <div class="b-r oh che-box">
+                       <textarea name="game_team_require" class="i-txt" style="width:450px;">{$publish['team_require']}</textarea>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                
+                <div class="oh mt10">
+                	<div class="b-l">有无发行经验:</div>
+                    <div class="b-r oh che-box">
+                	<label class="ckd">
+                    	<input name="experience" type="radio" value="1" id="experience_1" <if condition="1 eq $publish['is_experience']"> checked="checked"</if>>
+                        <span>有</span>
+                    </label>
+                	<label class="ckd">
+                    	<input name="experience" type="radio" value="0" id="experience_0" <if condition="1 eq $publish['is_experience']"> checked="checked"</if>>
+                        <span>暂无</span>
+                    </label>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">曾发行游戏数:</div>
+                <div class="b-r oh che-box">
+                
+                    <select name="has_game_num" class="i-sele fl">
+                        <volist name="has_game_num" id="vo" key="k">
+                            <option value="{$k}" <if condition="$k eq $publish['games']"> selected="selected"</if>>{$vo}</option>
+                        </volist>
+                    </select>
+                
+                </div>
+                <div class="clear"></div>
+            	<div class="b-l">曾代理费用:</div>
+                <div class="b-r oh che-box">
+                    <select name="has_cost" class="i-sele fl">
+                        <volist name="has_cost" id="vo" key="k">
+                            <option value="{$k}" <if condition="$k eq $publish['price']"> selected="selected"</if>>{$vo}</option>
+                        </volist>
+                    </select>
+                </div>
+                <div class="clear"></div>
+                <a href="javascript:;" id="js_add_game_btn" class="ico-btn ico-btn5 mt10 ml20 mb10">+ 添加已发行手游产品</a>
+                
+                <div class="oh add-games" style="display:none;" id="js_add_games_box">
+                	<div class="oh">
+                        <div class="b-l">游戏名:</div>
+                        <div class="b-r oh">
+                           <input type="text" class="i-ipt" />
+                        </div>
+               		</div>
+                    <div class="oh mt10">
+                        <div class="b-l">ICON:</div>
+                        <div class="b-r oh">
+                        	<a href="#" class="ico-btn ico-btn6 fl mr10">上传ICON</a>
+                            <img src="../test/test4.png" width="70" height="70"  class="fl" />
+                        </div>
+               		</div>
+                    
+                    <div class="oh mt5">
+                        <div class="b-l">代理区域:</div>
+                        <div class="b-r oh che-box">
+                            <label class="ckd">
+                                <input type="checkbox" />
+                                <span>立项</span>
+                            </label>
+                            <label class="ckd">
+                                <input type="checkbox" />
+                                <span>demo</span>
+                            </label>
+                            <label class="ckd">
+                                <input type="checkbox" />
+                                <span>已上线</span>
+                            </label>
+                        </div>
+                	</div>
+                    
+                     <div class="oh mt5">
+                        <div class="b-l">代理平台:</div>
+                        <div class="b-r oh che-box">
+                            <label class="ckd">
+                                <input type="checkbox" />
+                                <span>立项</span>
+                            </label>
+                            <label class="ckd">
+                                <input type="checkbox" />
+                                <span>demo</span>
+                            </label>
+                            <label class="ckd">
+                                <input type="checkbox" />
+                                <span>已上线</span>
+                            </label>
+                        </div>
+                	</div>
+                    
+                    <div class="oh mt5">
+                        <div class="b-l" style="line-height:50px;">代理费:</div>
+                        <div class="b-r oh che-box">
+                           <select class="i-sele fl mr10" style="margin-top:0;">
+                           		<option>1-5000</option>
+                                <option>2000-5W</option>
+                           </select>
+                           <span class="fl" style="line-height:40px; *line-height:22px; display:block;">(人民币)</span>
+                        </div>
+                	</div>
+                    
+                </div>
+                
+			</div>
+

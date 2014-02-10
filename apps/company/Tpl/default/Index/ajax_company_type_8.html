@@ -1,0 +1,11 @@
+    <dl class="lineD">
+      <dt>商店类型：</dt>
+      <dd>
+                <volist name="shop_type" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="shop_type[]" type="checkbox" value="{$k}" id="shop_type_{$k}"  <if condition="$company[is_verify] eq 1">disabled="disabled"</if>   <php>if(in_array($k,$platform)){</php> checked="checked"<php>}</php> >
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+      </dd>
+    </dl>

@@ -1,0 +1,62 @@
+<include file="__THEME__/admin_header" />
+<div id="container" class="so_main">
+  <div class="page_tit">添加已发行的手游产品</div>
+    <div class="form2">
+  <form method="post" name="form1" action="{:U('company/Admin/doadd_has_pub',array('company_id'=>$_GET[company_id]))}" id="form1">
+   
+  
+   <dl class="lineD" id='dl_{$pk}'>
+      <dt>游戏名：</dt>
+      <dd>
+      	        <input type="text" name="company_widget_game_name" class="i-ipt" />            		
+      </dd>
+    </dl>
+   <dl class="lineD" id='dl_{$pk}'>
+      <dt>头像：</dt>
+      <dd>
+			<div id="divup_{$upkey}" type="file" rel="{$upkey}">
+			<input type="file" name="attach" rel="{$upkey}" onchange="admin.upload('logo_company',this)" urlquery='attach_type=feed_image&upload_type=image&thumb=1'></div>
+           <div id='show_logo_company'>
+              <img src="/data/upload/2013/0121/10/logo_company.png" class="pic-size">
+          </div>
+           <input name="logo_company" id="form_logo_company" type="hidden" value="75" class="s-txt" style="width:200px;"/>
+      </dd>
+    </dl>
+   <dl class="lineD" id='dl_{$pk}'>
+      <dt>代理区域：</dt>
+      <dd>
+                  	 <volist name="cooperation_area" id="vo" key="k">
+				  		<label class="rds-lb"><input type="checkbox" class="company_widget_game_area" name="company_widget_game_area[]" value="{$k}" /><span>{$vo}</span></label>
+                     </volist>
+      </dd>
+    </dl>
+   <dl class="lineD" id='dl_{$pk}'>
+      <dt>代理平台：</dt>
+      <dd>
+                            <volist name="platform" id="vo" key="k">
+                                <label class="ckd" >
+                                    <input type="checkbox" value="{$k}" class="company_widget_game_platform" name="company_widget_game_platform[]">
+                                    <span>{$vo}</span>
+                                </label>
+                            </volist>
+      </dd>
+    </dl>
+   <dl class="lineD" id='dl_{$pk}'>
+      <dt>代理费：</dt>
+      <dd>
+                            <select  name="company_widget_game_cost" class="i-sele fl mr10">
+                            <volist name="has_cost" id="vo" key="k">
+                            <option value="{$k}">{$vo}</option>
+                            </volist>
+                            </select>
+      </dd>
+    </dl>
+
+    
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" onclick="submitform()" />
+    </div>
+  </form>
+  </div>
+  </div>
+<include file="__THEME__/admin_footer" />

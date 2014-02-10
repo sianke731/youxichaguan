@@ -1,0 +1,66 @@
+    <dl class="lineD">
+      <dt>合作区域：</dt>
+      <dd>
+      	<volist name="cooperation_area" id="vo" key="k">
+        	<input name="cooperation_area[]" type="checkbox" value="{$k}" id="cooperation_area_{$k}" <php>if(in_array($k,$publish['areas'])){</php> checked="checked"<php>}</php>><label style="float:none" for="cooperation_area_{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>合作游戏平台要求：</dt>
+      <dd>
+      	<volist name="platform" id="vo" key="k">
+        	<input name="platform" type="radio" value="{$k}" id="platform_{$k}" <if condition="$k eq $publish['platform_require']"> checked="checked"</if>><label style="float:none" for="platform_{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>合作游戏联网要求：</dt>
+      <dd>
+      	<volist name="networking" id="vo" key="k">
+        	<input name="networking" type="radio" value="{$k}" id="networking{$k}" <if condition="$k eq $publish['network_require']"> checked="checked"</if>><label style="float:none" for="networking{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>合作游戏阶段要求：</dt>
+      <dd>
+      	<volist name="game_phase" id="vo" key="k">
+        	<input name="game_phase" type="radio" value="{$k}" id="game_phase{$k}" <if condition="$k eq $publish['stage_require']"> checked="checked"</if>><label style="float:none" for="game_phase{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>对团队游戏要求：</dt>
+      <dd>
+      	<textarea name="game_team_require">{$publish['team_require']}</textarea>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>有无发行经验：</dt>
+      <dd>
+        <input name="experience" type="radio" value="1" id="experience_1" <if condition="1 eq $publish['is_experience']"> checked="checked"</if>><label style="float:none" for="experience_1">有</label>
+        <input name="experience" type="radio" value="0" id="experience_0" <if condition="0 eq $publish['is_experience']"> checked="checked"</if>><label style="float:none" for="experience_0">暂无</label>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>曾发行游戏数：</dt>
+      <dd>
+      	<select name="has_game_num">
+        	<volist name="has_game_num" id="vo" key="k">
+            	<option value="{$k}" <if condition="$k eq $publish['games']"> selected="selected"</if>>{$vo}</option>
+            </volist>
+        </select>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>曾代理费用：</dt>
+      <dd>
+      	<select name="has_cost">
+        	<volist name="has_cost" id="vo" key="k">
+            	<option value="{$k}" <if condition="$k eq $publish['price']"> selected="selected"</if>>{$vo}</option>
+            </volist>
+        </select>
+      </dd>
+    </dl>
+    

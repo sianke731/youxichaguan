@@ -1,0 +1,32 @@
+    <dl class="lineD">
+      <dt>渠道类型：</dt>
+      <dd>
+      	<volist name="channel_type" id="vo" key="k">
+        	<input name="channel_type[]" type="checkbox" value="{$k}" id="channel_type_{$k}"  <if condition="$k eq $channel['types']"> checked="checked"</if> ><label style="float:none" for="channel_type_{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>合作游戏平台要求：</dt>
+      <dd>
+      	<volist name="platform" id="vo" key="k">
+        	<input name="platform" type="radio" value="{$k}" id="platform_{$k}" <if condition="$k eq $channel['require']"> checked="checked"</if> ><label style="float:none" for="platform_{$k}" >{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>定价模式：</dt>
+      <dd>
+      	<volist name="pricing_model" id="vo" key="k">
+        	<input name="pricing_model[]" type="checkbox" value="{$k}" id="pricing_model_{$k}" <if condition="$k eq $channel['models']"> checked="checked"</if> ><label style="float:none" for="pricing_model_{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>合作区域：</dt>
+      <dd>
+      	<volist name="cooperation_area" id="vo" key="k">
+        	<input name="cooperation_area[]" type="checkbox" value="{$k}" id="cooperation_area_{$k}" <if condition="$k eq $channel['areas']"> checked="checked"</if> ><label style="float:none" for="cooperation_area_{$k}">{$vo}</label>
+        </volist>
+      </dd>
+    </dl>

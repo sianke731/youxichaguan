@@ -1,0 +1,57 @@
+<include file="__THEME__/admin_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+<style>
+#zyjl{
+	float:left; background-color:#999;
+	margin-bottom:10px;
+}
+#zyjl td{
+	background-color:#FFF
+}
+</style>
+<div id="container" class="so_main">
+    <div class="page_tit">通讯录详情</div>
+    <div class="form2">
+  		<form action="{:U('member/Admin/doedit',array('id'=>$member[id]))}" method="post" name="form1">
+    <dl class="lineD">
+      <dt>姓名：</dt>
+      <dd>{$member.name}</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>说明：</dt>
+      <dd>1、直接填写 uid 将通讯录绑定到对应用户<br />
+		2、生成链接，用户点击链接注册后自动绑定到该通讯录	
+		</dd>
+    </dl>
+    <dl class="lineD">
+      <dt>uid绑定：</dt>
+      <dd><input type="text" name="uid" value="{$member.uid}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="bind_button" value="绑定" class="btn_b"></dd>
+    </dl>
+    <dl class="lineD">
+      <dt>链接邀请绑定：</dt>
+      <dd><input type="button" name="add_code" id="add_code" value="生成链接" onclick=""></dd>
+    </dl>
+    
+    <div class="page_btm">
+      
+      
+    </div>
+    </form>
+</div>
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#bind_button").bind("click",function(){
+		uid = $("input[name=uid]").val();
+		window.location.href="{:U('member/Admin/bind',array('id'=>$member[id]))}&uid="+uid;
+	});
+	$("#add_code").bind("click",function(){
+		$.post("{:U('member/Admin/addcode',array('id'=>$member[id]))}",function(data){
+			if(data.status==1){
+				$("#add_code").before('<input type="text" value="{:DOMAIN_URL}/index.php?invite='+data.data+'" name="uid">');
+			}
+		},"json");
+	});
+});
+</script>
+<include file="__THEME__/admin_footer" />

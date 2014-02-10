@@ -1,0 +1,48 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh user-main mt15">
+	<include file="__THEME__/new_left" />
+	
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的消息</h1>
+			</div>
+			
+			<ul class="my-msg-ul">
+				<volist name='list.data' id='notify'>
+				<li>
+					<eq name='notify.appname' value='public'>
+                     <a href="{:U('public/Index/index')}" class="face"><img src="__THEME__/image/middle_1352347100.jpg" width="30px" height="30px" class="my-msg-img"></a>
+                     <else />
+                     <a href="{$notify['app']['app_entry']}" class="face"><img src="{$notify['app']['icon_url']}" width="30px" height="30px" class="my-msg-img"></a>
+                     </eq>
+					<div class="my-msg-info">
+						<h2><eq name='notify.appname' value='public'>
+                                    <p class="name"><a href="{:U('public/Index/index')}">{:L('PUBLIC_WEIBO')}</a></p>
+                                    <else />
+                                    <p class="name"><a href="{$notify['app']['app_entry']}">{$notify['app']['app_alias']}</a></p> 
+                                    </eq></h2>
+						<p>{$notify['body']}</p>
+					</div>
+					<div class="my-msg-r fr oh">
+						<p>{$notify['ctime']|friendlyDate}</p>
+						<a href="{:U('public/Message/notifyDetail',array('appname'=>$group['appname']))}" class="ico-btn ico-btn6">回复</a>
+					</div>
+				</li>
+				</volist>
+			</ul>
+			
+			<div class="pager-box">{$list.html}</div>
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+	
+</div>
+
+<include file="__THEME__/new_footer" />

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>公司列表</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--顶部 s-->
+<div id="header">
+	<div class="wrap">
+		<div class="logo-box fl"> <a href="index.html"><img src="images/logo.png"/></a>
+			<div class="wb-box oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		<div class="top-ads oh fl">
+			<div class="ta-list"><a href="#"><img src="test/test6.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/test7.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/t_06.png" /></a></div>
+		</div>
+		<div class="log-box oh fr">
+			<div class="oh"> <a href="#" class="t-btn">注册</a> <a href="#" class="t-btn">登录</a> </div>
+			<div class="log-fot oh">
+				<p class="c-333">使用社交账户快速登陆:</p>
+				<a href="#" title="QQ登录" class="t-ico qq-ico"></a> <a href="#" title="微博登录" class="t-ico wb-ico"></a> </div>
+		</div>
+	</div>
+</div>
+<!--顶部 e--> 
+
+<!--nav s-->
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li class="nav-curr"><a href="#">首页</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">公司</a></li>
+			<li><a href="#">通讯录</a></li>
+			<li><a href="#">活动</a></li>
+			<li><a href="#">新闻</a></li>
+		</ul>
+		<div class="search-box fr pr">
+			<form action="" method="post" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">文章</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="1">文章</li>
+						<li data-id="2">帖子</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="search..." class="search-ipt" />
+				<input type="button" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->
+
+<div  class="wrap oh  mt15">
+	<div class="sub-side">
+		<div class="oh mb10 bg-fff game-side-btn">
+			<a href="#" class="l-btn l-btn1" style="margin-bottom:0;"><em></em><span>发布公司信息</span></a>
+		</div>
+		
+		<div class="com-side-box pt10 pb20 oh bg-fff">
+			<h2>地域</h2>
+			<ul class="com-side-ul1">
+				<li class="current"><a href="#">不限</a></li>
+				<li><a href="#">成都</a></li>
+				<li><a href="#">上海</a></li>
+				<li><a href="#">北京</a></li>
+				<li><a href="#">西安</a></li>
+				<li><a href="#">广州</a></li>
+			</ul>
+			<h2>活动类别</h2>
+			<ul class="com-side-ul2">
+				<li class="current"><a href="#">不限</a></li>
+				<li><a href="#">游戏媒体</a></li>
+				<li><a href="#">云服务商      </a></li>
+				<li><a href="#">发行商</a></li>
+				<li><a href="#">渠道商         </a></li>
+				<li><a href="#">外包提供商</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="sub-main">
+		<div class="game-search-box commpany-search-box oh bg-fff">
+			<h2>开发商</h2>
+			<p>
+				<a href="#" class="s-btn s-btn8">全部</a>
+				<a href="#">卡牌</a>
+				<a href="#">塔防</a>
+				<a href="#">COC</a>
+				<a href="#">Dota</a>
+			</p>
+			<h2>渠道商</h2>
+			<div class="c-p">
+				<div class="r-tps r-tps1">用户覆盖区域<em></em></div>
+				<a href="#" class="s-btn s-btn8">全部</a>
+				<a href="#">测试</a>
+				<a href="#">已上线</a>
+			</div>
+			<div class="c-p">
+				<div class="r-tps r-tps1">渠道类型<em></em></div>
+				<a href="#" class="s-btn s-btn8">全部</a>
+				<a href="#">测试</a>
+				<a href="#">已上线</a>
+			</div>
+			<div class="c-p">
+				<div class="r-tps r-tps1">定价模式<em></em></div>
+				<a href="#" class="s-btn s-btn8">全部</a>
+				<a href="#">测试</a>
+				<a href="#">已上线</a>
+			</div>
+			
+			
+			<div class="game-order-box mt15">
+				<span>排序</span>
+				<a href="#" class="s-btn s-btn5">最新发布</a>
+				<a href="#" class="s-btn s-btn6">认证公司</a>
+			</div>
+		</div>
+		
+		<ul class="com-rs-ul oh">
+			<li class="cru-list">
+				<div class="cr-l">
+					<a href="commany_view.html"><img src="test/6.jpg" /></a>
+					<div class="cru-tgs">
+						<span class="s-btn s-btn7">推荐</span>
+						<span class="s-btn s-btn5">置顶</span>
+						<span class="vip-btn">认证</span>
+					</div>
+				</div>
+				<div class="cr-r">
+					<h2><a href="#">成都胡莱网页游戏科技游戏公司</a></h2>
+					<div class="crr-if">
+						<div  class="crr-l">
+							<p><span>类型：</span>CP</p>
+							<p><span>地区：</span>成都</p>
+							<p><span>公司规模：</span>20~50人</p>
+							<p><span>网址：</span><a href="#">www.hoolai.com</a></p>
+						</div>
+						<div class="crr-r">
+							<p><span>发行作品:</span></p>
+							<ul class="c-game-lis">
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<h4>
+						据悉，菲军驻扎中业岛，主要是为了加强对其占据的南海7座岛屿和2个沙洲的掌控。事实上，菲军增兵南海自去年12月起就已陆续展开，当时菲军第二艘“汉密尔顿”级巡防舰被部署到巴拉望岛附近海域
+					</h4>
+				</div>
+			</li>
+			<li class="cru-list">
+				<div class="cr-l">
+					<a href="commany_view.html"><img src="test/6.jpg" /></a>
+					<div class="cru-tgs">
+						<span class="s-btn s-btn7">推荐</span>
+						<span class="s-btn s-btn5">置顶</span>
+						<span class="vip-btn">认证</span>
+					</div>
+				</div>
+				<div class="cr-r">
+					<h2><a href="#">成都胡莱网页游戏科技游戏公司</a></h2>
+					<div class="crr-if">
+						<div  class="crr-l">
+							<p><span>类型：</span>CP</p>
+							<p><span>地区：</span>成都</p>
+							<p><span>公司规模：</span>20~50人</p>
+							<p><span>网址：</span><a href="#">www.hoolai.com</a></p>
+						</div>
+						<div class="crr-r">
+							<p><span>发行作品:</span></p>
+							<ul class="c-game-lis">
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<h4>
+						据悉，菲军驻扎中业岛，主要是为了加强对其占据的南海7座岛屿和2个沙洲的掌控。事实上，菲军增兵南海自去年12月起就已陆续展开，当时菲军第二艘“汉密尔顿”级巡防舰被部署到巴拉望岛附近海域
+					</h4>
+				</div>
+			</li>
+			<li class="cru-list">
+				<div class="cr-l">
+					<a href="commany_view.html"><img src="test/6.jpg" /></a>
+					<div class="cru-tgs">
+						<span class="s-btn s-btn7">推荐</span>
+						<span class="s-btn s-btn5">置顶</span>
+						<span class="vip-btn">认证</span>
+					</div>
+				</div>
+				<div class="cr-r">
+					<h2><a href="#">成都胡莱网页游戏科技游戏公司</a></h2>
+					<div class="crr-if">
+						<div  class="crr-l">
+							<p><span>类型：</span>CP</p>
+							<p><span>地区：</span>成都</p>
+							<p><span>公司规模：</span>20~50人</p>
+							<p><span>网址：</span><a href="#">www.hoolai.com</a></p>
+						</div>
+						<div class="crr-r">
+							<p><span>发行作品:</span></p>
+							<ul class="c-game-lis">
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<h4>
+						据悉，菲军驻扎中业岛，主要是为了加强对其占据的南海7座岛屿和2个沙洲的掌控。事实上，菲军增兵南海自去年12月起就已陆续展开，当时菲军第二艘“汉密尔顿”级巡防舰被部署到巴拉望岛附近海域
+					</h4>
+				</div>
+			</li>
+			<li class="cru-list">
+				<div class="cr-l">
+					<a href="commany_view.html"><img src="test/6.jpg" /></a>
+					<div class="cru-tgs">
+						<span class="s-btn s-btn7">推荐</span>
+						<span class="s-btn s-btn5">置顶</span>
+						<span class="vip-btn">认证</span>
+					</div>
+				</div>
+				<div class="cr-r">
+					<h2><a href="#">成都胡莱网页游戏科技游戏公司</a></h2>
+					<div class="crr-if">
+						<div  class="crr-l">
+							<p><span>类型：</span>CP</p>
+							<p><span>地区：</span>成都</p>
+							<p><span>公司规模：</span>20~50人</p>
+							<p><span>网址：</span><a href="#">www.hoolai.com</a></p>
+						</div>
+						<div class="crr-r">
+							<p><span>发行作品:</span></p>
+							<ul class="c-game-lis">
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<h4>
+						据悉，菲军驻扎中业岛，主要是为了加强对其占据的南海7座岛屿和2个沙洲的掌控。事实上，菲军增兵南海自去年12月起就已陆续展开，当时菲军第二艘“汉密尔顿”级巡防舰被部署到巴拉望岛附近海域
+					</h4>
+				</div>
+			</li>
+			<li class="cru-list">
+				<div class="cr-l">
+					<a href="commany_view.html"><img src="test/6.jpg" /></a>
+					<div class="cru-tgs">
+						<span class="s-btn s-btn7">推荐</span>
+						<span class="s-btn s-btn5">置顶</span>
+						<span class="vip-btn">认证</span>
+					</div>
+				</div>
+				<div class="cr-r">
+					<h2><a href="#">成都胡莱网页游戏科技游戏公司</a></h2>
+					<div class="crr-if">
+						<div  class="crr-l">
+							<p><span>类型：</span>CP</p>
+							<p><span>地区：</span>成都</p>
+							<p><span>公司规模：</span>20~50人</p>
+							<p><span>网址：</span><a href="#">www.hoolai.com</a></p>
+						</div>
+						<div class="crr-r">
+							<p><span>发行作品:</span></p>
+							<ul class="c-game-lis">
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="test/1.jpg" />
+										<h3>是哪国</h3>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<h4>
+						据悉，菲军驻扎中业岛，主要是为了加强对其占据的南海7座岛屿和2个沙洲的掌控。事实上，菲军增兵南海自去年12月起就已陆续展开，当时菲军第二艘“汉密尔顿”级巡防舰被部署到巴拉望岛附近海域
+					</h4>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+</div>
+
+<a href="#" id="js_yjfk" title="意见反馈"></a>
+<a href="#" id="js_ly" title="我要留言"></a>
+<a href="javascript:;" id="js_rtop" title="返回顶部"></a>
+<!--footer s-->
+<div id="footer">
+	<div class="fot-main oh"> <img src="images/t_50.png" />
+		<div class="fot-info">
+			<p> <a href="#">关于我们</a> | <a href="#">加入游戏茶馆</a> | <a href="#">联系我们</a> | <a href="#">寻求报道</a> | <a href="#">订阅</a> </p>
+			<p class="fs12 c-888">©2008-2013 <span class="c-fcb">游戏茶馆</span> | 蜀ICP备11004573号</p>
+		</div>
+	</div>
+</div>
+<!--footer e--> 
+</body>
+</html>

@@ -1,0 +1,12 @@
+             <div class="boxs isbgs oh">
+            	<div class="b-l">商店类型:</div>
+                <div class="b-r oh che-box">
+                <volist name="shop_type" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="shop_type[]" type="checkbox" value="{$k}" id="shop_type_{$k}"  <php>if(in_array($k,$platform)){</php> checked="checked"<php>}</php> >
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                </div>
+                <div class="clear"></div>
+			</div>

@@ -1,0 +1,67 @@
+	<!--左边部分 s-->
+	<div class="user-side">
+		
+		<!--用户信息 s-->
+        {:W('UserInformation', array('uid'=>$mid, 'tpl'=>'left', 'isReturn'=>$isReturn))}
+        
+        
+        
+
+		
+		<ul class="side-nav side-nav1">
+			<li class="sn1">
+				<a href="{:U('public/Message/index')}">
+					<em></em>
+					<span>我的消息</span>
+				</a>
+			</li>
+			<li class="sn2">
+				<a href="{:U('public/Collection/index')}">
+					<em></em>
+					<span>我的收藏</span>
+				</a>
+			</li>
+			<li class="sn3 current">
+				<a href="{:U('public/Account/index')}">
+					<em></em>
+					<span>我的账户</span>
+				</a>
+			</li>
+			<li class="sn4">
+				<a href="{:U('public/Comment/index')}">
+					<em></em>
+					<span>我的评论</span>
+				</a>
+			</li>
+		</ul>
+		
+		<ul class="side-nav side-nav2">
+			<li class="sn5">
+				<a href="{:U('event/Index/myactive')}">
+					<em></em>
+					<span>我的活动</span>
+				</a>
+			</li>
+			<li class="sn6">
+				<a href="my_buscard.shtml">
+					<em></em>
+					<span>我的名片</span>
+				</a>
+			</li>
+			<li class="sn7">
+				<a href="my_goods.html">
+					<em></em>
+					<span>我的产品</span>
+				</a>
+			</li>
+			<li class="sn8">
+				<a href="{:U('company/index/index')}">
+					<em></em>
+					<span>我的公司</span>
+				</a>
+			</li>
+		</ul>
+		
+		
+	</div>
+	<!--左边部分 e-->

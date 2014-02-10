@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--顶部 s-->
+<div id="header">
+	<div class="wrap">
+		<div class="logo-box fl"> <a href="index.html"><img src="images/logo.png"/></a>
+			<div class="wb-box oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		<div class="top-ads oh fl">
+			<div class="ta-list"><a href="#"><img src="test/test6.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/test7.png" /></a></div>
+			<div class="ta-list"><a href="#"><img src="test/t_06.png" /></a></div>
+		</div>
+		<!--未登录 s-->
+		<!-- <div class="log-box oh fr">
+			<div class="oh"> <a href="#" class="t-btn">注册</a> <a href="#" class="t-btn">登录</a> </div>
+			<div class="log-fot oh">
+				<p class="c-333">使用社交账户快速登陆:</p>
+				<a href="#" title="QQ登录" class="t-ico qq-ico"></a> <a href="#" title="微博登录" class="t-ico wb-ico"></a> </div>
+		</div> -->
+		<!--未登录 e-->
+		<!--登录之后 s-->
+		<div class="loging-box fr" id="js_login_yes">
+			<div class="loging-top oh">
+				<img src="test/9.jpg" class="user-pic" />
+				<div class="lt-info">
+					<h2><span class="fl">^那伤真痛_</span><em></em></h2>
+					<p><em></em>游戏币：<a href="#">5942</a></p>
+				</div>
+				<ul class="user-oper-list" style="display:none;">
+					<li><a href="#">我的消息</a><a href="#" class="ipts">5</a></li>
+					<li><a href="#">我的收藏</a></li>
+					<li><a href="#">我的账户</a></li>
+					<li><a href="#">我的评论</a></li>
+					<li><a href="#">我的活动</a></li>
+					<li><a href="#">我的名片</a></li>
+					<li><a href="#">我的产品</a></li>
+					<li><a href="#">我的公司</a></li>
+					<li class="log-out"><a href="javascript:;">注销</a></li>
+				</ul>
+				
+				
+			</div>
+		</div>
+		<!--登录之后 e-->
+		
+		
+	</div>
+</div>
+<!--顶部 e--> 
+
+<!--nav s-->
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li class="nav-curr"><a href="#">首页</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">公司</a></li>
+			<li><a href="#">通讯录</a></li>
+			<li><a href="#">活动</a></li>
+			<li><a href="#">新闻</a></li>
+		</ul>
+		<div class="search-box fr pr">
+			<form action="http://www.qq.com" method="post" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">请选择</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="http://www.baidu.com">百度</li>
+						<li data-id="http://www.sina.com">新闻</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="search..." class="search-ipt" id="js_search_ipt" />
+				<input type="submit" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->
+
+<div  class="wrap oh index-main mt15">
+	<div class="msg-box">
+		<h2 class="succeed-h2"><i></i>解读新年中央一号文件要点</h2>
+		
+		<h2 class="error-h2"><i></i>解读新年中央一号文件要点</h2>
+	
+		<p>党的18大是中国经济发展和政策导向的历史性转折点。在宏观的社会要矛盾。<a href="#">点击跳转</a></p>
+	</div>
+	
+</div>
+</body>
+</html>

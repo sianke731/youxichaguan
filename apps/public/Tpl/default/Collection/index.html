@@ -1,0 +1,113 @@
+<include file="__THEME__/new_header" />
+
+<div  class="wrap oh user-main mt15">
+	<include file="__THEME__/new_left" />
+	
+	<!--右边部分 s-->
+	<div class="user-centent">
+		
+		<!--右边主要区域 s-->
+		<div class="user-frame oh">
+			<div class="user-title-box">
+				<h1 class="user-title">我的收藏</h1>
+			</div>
+			<div class="my-ac-switit fs16">
+            	<a <php> if($type =='member'){</php> class="current"<php>}</php> href="{:U('public/Collection',array('type'=>'member'))}">收藏的名片</a>
+                <a <php> if($type =='game'){</php> class="current"<php>}</php> href="{:U('public/Collection',array('type'=>'game'))}">收藏的产品</a>
+                <a <php> if($type =='company'){</php> class="current"<php>}</php> href="{:U('public/Collection',array('type'=>'company'))}">收藏的公司</a>
+            </div>
+			<div class="clear"></div>
+			<php> if($type =='member'){</php>
+			<!-- 收藏的名片 -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="i-table my_goods_table">
+				<tr class="i-tab-hader">
+					<td><span class="t1">序号</span></td>
+					<td><span>用户名</span></td>
+					<td><span>真实姓名</span></td>
+					<td><span>公司</span></td>
+                    <td><span>职位</span></td>
+					<td><span>操作</span></td>
+				</tr>
+				<volist name='data' id='vo'>
+				<tr class="i-tab-list">
+					<td><span class="t1">{$vo.collection_id}</span></td>
+					<td>
+						<div class="tab-wrap">
+							<img src="../test/test4.png" />
+							<p><a href="#">lihuaxxxx</a></p>
+						</div>
+					</td>
+					<td>{$vo.name}</td>
+					<td><span class="ts-info">{$vo.company_id}</span></td>
+                   	<td>{$vo.position}</td>
+					<td>
+						<div class="mg-ooper">
+							<a href="#" class="ico-btn ico-btn4 fl mr10">详情</a>
+                            <a href="{:U('public/Collection/del',array('type'=>'member','collection_id'=>$vo['collection_id']))}" class="ico-btn ico-btn4 fl">取消收藏</a>
+						</div>
+					</td>
+				</tr>
+				</volist>
+			</table>
+			<php>}elseif($type == 'game'){</php>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="i-table my_goods_table">
+				<tr class="i-tab-hader">
+					<td><span class="t1">序号</span></td>
+					<td><span>游戏名</span></td>
+					<td><span>公司</span></td>
+					<td><span>状态</span></td>
+					<td><span>操作</span></td>
+				</tr>
+				<volist name='data' id='vo'>
+				<tr class="i-tab-list">
+					<td><span class="t1">{$vo.collection_id}</span></td>
+					<td>
+						<span class="ts-info">{$vo.name}</span>
+					</td>
+					<td>{$vo.company_id}</td>
+                   	<td><span class="ico-btn ico-btn{$vo.is_verify}">{$verify_list[$vo['is_verify']]}</span></td>
+					<td>
+						<div class="mg-ooper">
+							<a href="#" class="ico-btn ico-btn4 fl mr10">详情</a>
+                            <a href="{:U('public/Collection/del',array('type'=>'game','collection_id'=>$vo['collection_id']))}" class="ico-btn ico-btn4 fl">取消收藏</a>
+						</div>
+					</td>
+				</tr>
+				</volist>
+			</table>
+			<php>}else{</php>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="i-table my_goods_table">
+				<tr class="i-tab-hader">
+					<td><span class="t1">序号</span></td>
+					<td><span>公司名</span></td>
+					<td><span>创建者</span></td>
+					<td><span>状态</span></td>
+					<td><span>操作</span></td>
+				</tr>
+				<volist name='data' id='vo'>
+				<tr class="i-tab-list">
+					<td><span class="t1">{$vo.collection_id}</span></td>
+					<td>
+						<span class="ts-info">{$vo.name}</span>
+					</td>
+					<td>{$vo.uid}</td>
+                   	<td><span class="ico-btn ico-btn{$vo.is_verify}">{$verify_list[$vo['is_verify']]}</span></td>
+					<td>
+						<div class="mg-ooper">
+                            <a href="{:U('public/Collection/del',array('type'=>'company','collection_id'=>$vo['collection_id']))}" class="ico-btn ico-btn4 fl">取消收藏</a>
+						</div>
+					</td>
+				</tr>
+				</volist>
+			</table>
+			<php>}</php>
+			<div class="pager-box">{$html}</div>
+		</div>
+		<!--右边主要区域 e-->
+		
+	</div>
+	<!--右边部分 s-->
+	
+</div>
+
+<include file="__THEME__/new_footer" />

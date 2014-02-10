@@ -1,0 +1,40 @@
+<include file="__THEME__/admin_header" />
+<script type="text/javascript" src = "{:APPS_URL}/admin/_static/jquery-ui-1.10.3.custom.js"></script>
+<link href="{:APPS_URL}/admin/_static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+
+<div id="container" class="so_main">
+  <div class="page_tit">修改公司</div>
+    <div class="Toolbar_inbox">
+    <div class="page right">
+        </div>  
+  	<a class="btn_a" href="{:U('company/Admin/add_has_pub',array('company_id'=>$_GET['id']))}"><span>添加已发行的手游产品</span></a>
+  	</div>
+  <div id="list" class="list">
+  <table width="100%" cellspacing="0" cellpadding="0" border="0">
+      <tbody>
+        <tr>
+        <th class="line_l">游戏名</th>
+        <th class="line_l">ICON</th>
+        <th class="line_l">代理区域</th>
+        <th class="line_l">代理平台</th>
+        <th class="line_l">代理费用</th>
+        <th class="line_l">操作</th>
+        </tr>
+        <volist name="has_pub" id="vo">
+        <tr overstyle='on' id="option_{$vo['id']}">
+            <td>{$vo.name}</td>
+            <td><img src="/data/upload/{$vo.icon.save_path}{$vo.icon.save_name}" width="80" height="80" /></td>
+            <td>{$vo.area_show}</td>
+            <td>{$vo.platform_show}</td>
+            <td>{$cost[$vo[cost]]}<php>//print_r($cost);</php></td>
+            <td>
+            <a class="btn_a" href="{:U('company/Admin/del_has_pub',array('id'=>$vo['id']))}">删除</a>
+            </td>
+        </tr>
+        </volist>
+    </tbody>
+  </table>
+  </div>
+
+  </div>
+<include file="__THEME__/admin_footer" />

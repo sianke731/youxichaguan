@@ -1,0 +1,13 @@
+             <div class="boxs isbgs oh">
+            	<div class="b-l">服务类型:</div>
+                <div class="b-r oh che-box">
+                <volist name="service_type" id="vo" key="k">
+                	<label class="ckd">
+                    	<input name="service_type[]" type="checkbox" value="{$k}" id="service_type{$k}"   <php>if(in_array($k,$service['stage'])){</php> checked="checked"<php>}</php> >
+                        <span>{$vo}</span>
+                    </label>
+                </volist>
+                    
+                </div>
+                <div class="clear"></div>
+			</div>

@@ -1,0 +1,137 @@
+<php>$_title = '第三方登录';$site['site_name'] = '游戏茶馆';</php>
+<include file="__THEME__/new_header_simple" />
+<ul id="login-tab-title" class="wrap oh">
+	<li id="login_title" onclick="changeShow(1)"><a href="javascript:;">游戏茶馆用户绑定登录</a></li>
+	<li class="current" id="register_title" onclick="changeShow(2)"><a href="javascript:;">游戏茶馆用户绑定注册</a></li>
+</ul>
+
+<div id="login-box" class="wrap oh">
+	<div class="res-side fl">
+		
+	</div>
+	<div class="login-main fr" id="register_div">
+		<div class="oh mb10">
+			<span class="fl">邮箱注册方式</span>
+			<span class="fr"><h4>欢迎你，{$user.uname}，您的{$typeName}帐号授权成功！</h4><p>接下来完成简单的设置，即可用{$typeName}帐号直接登录。</p></span>
+		</div>
+		<div class="login-step step1"></div>
+		<form class="res-form"  method="POST" action="{:U('public/Register/doOtherStep1')}" name="ajax_register_form" id="ajax_register_form">
+            <ul>
+                <li>
+                    <dt><label class="label">登陆邮箱</label></dt>
+                    <dd><input type="text" class="i-ipt" value="" name="email" datatype="e" errormsg="邮箱不正确" nullmsg="不能为空"  ajaxurl="{:U('public/Register/isEmailAvailable')}" ></dd>
+					<dd></dd>
+				</li>
+				<li>
+                    <dt><label class="label">用户名</label></dt>
+                    <dd><input type="text"class="i-ipt" value="{$user.uname}" name="uname" datatype="s5-16" errormsg="至少5个字符,最多16个字符！" ajaxurl="{:U('public/Register/isUnameAvailable')}"  ></dd>
+					<dd></dd>
+				</li>
+				<li>
+                    <dt><label class="label">设置密码</label></dt>
+                    <dd><input type="password" class="i-ipt"  value="" name="password"  datatype="*6-16" nullmsg="请设置密码！" errormsg="密码范围在6~16位之间！"></dd>
+					<dd></dd>
+				</li>
+				<li>
+                    <dt><label class="label">确认密码</label></dt>
+                    <dd><input type="password" class="i-ipt"  value="" name="repassword"  datatype="*" recheck="password" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！"></dd>
+					<dd></dd>
+				</li>
+				<li>
+                    <label class="label">&nbsp;</label>
+                    <input type="submit" value="下一步" class="s-btn s-btn1 s-resbtn" />
+				</li>
+            </ul>
+             <input type="hidden" name="other_type" value="{$type}" >
+            <input type="hidden" name="oauth_token" value="{$oauth_token}" >
+            <input type="hidden" name="oauth_token_secret" value="{$oauth_token_secret}" >
+            <input type="hidden" name="other_uid" value="{$user.id}" >
+            <input type="hidden" name="other_face" value="{$user.userface}" >
+            <input type="hidden" name="other_signature" value="{$user.signature}" >
+        </form>		
+	</div>
+	
+	<div class="login-main fr" id="login_div">
+		<div class="oh mb10">
+			<span class="fl">已有帐号登录</span>
+			<span class="fr"><h4>欢迎你，{$user.uname}，您的{$typeName}帐号授权成功！</h4><p>接下来完成简单的设置，即可用{$typeName}帐号直接登录。</p></span>
+		</div>
+		<form class="res-form" method="POST" action="{:U('public/Register/doBindStep1')}">
+            <ul>
+                <li>
+                    <label class="label">电子邮件</label>
+                    <input type="text" class="i-ipt log-user" style="width:253px;" value="" id="account_input" name="login_email" >
+				</li>
+				<li>
+                    <label class="label">密码</label>
+                    <input type="password"class="i-ipt log-pass"  style="width:253px;"  value="" id="pwd_input" name="login_password"  >
+				</li>
+				<li>
+                    <label class="label">&nbsp;</label>
+                    <input type="button" value="登录" id="js_ajax_login" class="s-btn s-btn1 s-resbtn" />
+				</li>
+            </ul>
+            <input type="hidden" name="other_type" id="other_type" value="{$type}" >
+            <input type="hidden" name="oauth_token" value="{$oauth_token}" >
+            <input type="hidden" name="oauth_token_secret" value="{$oauth_token_secret}" >
+            <input type="hidden" name="other_uid" value="{$user.id}" >
+            <input type="hidden" name="other_face" value="{$user.userface}" >
+            <input type="hidden" name="other_signature" value="{$user.signature}" >
+        </form>		
+	</div>
+</div>
+<script type="text/javascript">
+function changeShow(type){
+	if(type == 1){
+		$("#login_title").addClass('current');
+		$("#login_div").show();
+		$("#register_title").removeClass('current');
+		$("#register_div").hide();
+	}else{
+		$("#register_title").addClass('current');
+		$("#register_div").show();
+		$("#login_title").removeClass('current');
+		$("#login_div").hide();
+	}
+}
+
+//ajax登录函数
+function ajaxLogin(){
+	var email = $('#account_input');
+	var pass = $('#pwd_input');
+	$.ajax({
+		type:'POST',
+		url:"{:U('public/Register/doBindStep1')}",
+		data:{email:email.val(),password:pass.val(),other_type:'<php>echo $type;</php>',oauth_token:'<php>echo $oauth_token;</php>',oauth_token_secret:'<php>echo $oauth_token_secret;</php>',other_uid:'<php>echo $user['id'];</php>',other_face:'<php>echo $user['userface'];</php>',other_signature:'<php>echo $user['signature'];</php>'},
+		dataType:'json',
+		error:function(){
+			dialog._create({
+				width:320,
+				errorMsg:'请求错误,请刷新重试'
+			});
+			return false;
+		},
+		success:function(data){
+			
+			if(data.status == 'n'){
+				dialog._create({
+					width:320,
+					errorMsg:data.info
+				});
+			}else{
+				$('#js_ajax_login').val('登录成功，页面跳转中...');
+				window.location.href = "{:U('public/Index/index')}";
+			}
+		}
+	});
+}
+$(function(){
+	$("#ajax_register_form").Validform({
+		tiptype:2
+	});
+	$('#js_ajax_login').on('click',function(){
+		ajaxLogin(); //执行登录
+	});
+})
+</script>
+<include file="__THEME__/new_footer_simple" />

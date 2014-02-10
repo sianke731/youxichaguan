@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><neq name= '_title' value=''>{$_title} - {$site.site_name}<else />{$site.site_name} - {$site.site_slogan}</neq></title>
+<meta content="<neq name= '_keywords' value=''>{$_keywords}<else />{$site.site_header_keywords}</neq>" name="keywords">
+<meta content="<neq name= '_description' value=''>{$_description}<else />{$site.site_header_description}</neq>" name="description">
+{:Addons::hook('public_meta')}
+<link href="__ROOT__/html/css/base.css" rel="stylesheet" type="text/css">
+<link href="__ROOT__/html/css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__ROOT__/html/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__ROOT__/html/js/common.js"></script>
+<!--下面这个js是调用网页尾部一键登录的...-->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--顶部 s-->
+<div id="header">
+	<div class="wrap">
+		<div class="logo-box fl"> <a href="{:U('public/Index/index')}"><img src="__ROOT__/html/images/logo.png"/></a>
+			<div class="wb-box oh">
+				<wb:follow-button uid="2991975565" type="red_2" width="136" height="24" ></wb:follow-button>
+			</div>
+		</div>
+		<div class="top-ads oh fl">
+			<div class="ta-list">{:Addons::hook('show_ad_space', array('place'=>'top_banner_1'))}</div>
+			<div class="ta-list">{:Addons::hook('show_ad_space', array('place'=>'top_banner_2'))}</div>
+			<div class="ta-list">{:Addons::hook('show_ad_space', array('place'=>'top_banner_3'))}</div>
+		</div>
+		<nosession name="mid">
+		<!--未登录 s-->
+		<div class="log-box oh fr">
+			<div class="oh"> <a href="{:U('public/Register')}" class="t-btn">注册</a> <a href="{:U('public/Passport/login')}" class="t-btn">登录</a> </div>
+			<div class="log-fot oh">
+				<p class="c-333">使用社交账户快速登陆:</p>
+				<a href="{:Addons::createAddonShow('Login','login_sync_other',array('type'=>'qzone'))}" title="QQ登录" class="t-ico qq-ico"></a> <a href="{:Addons::createAddonShow('Login','login_sync_other',array('type'=>'sina'))}" title="微博登录" class="t-ico wb-ico"></a> </div>
+		</div>
+		<!--未登录 e-->
+		</nosession>
+		<session name="mid">
+		<!--登录之后 s-->
+		<div class="loging-box fr" id="js_login_yes">
+			<div class="loging-top oh">
+				<img src="{$user['avatar_small']}" class="user-pic" alt="{$user['uname']}" />
+				<div class="lt-info">
+					<h2><span class="fl">{$user['uname']|getShort=6}</span><em></em></h2>
+					<p><em></em>游戏币：<a href="#">{$user['score']}</a></p>
+				</div>
+				<ul class="user-oper-list" style="display:none;">
+					<li><a href="{:U('public/Message/notify')}">我的消息</a><a href="{:U('public/Message/notify')}" class="ipts" id="unreadcount" style="display:none;">0</a></li>
+					<li><a href="{:U('public/Collection/index')}">我的收藏</a></li>
+					<li><a href="{:U('public/Account/index')}">我的账户</a></li>
+					<li><a href="{:U('public/Comment/index',array('type'=>'send'))}">我的评论</a></li>
+					<li><a href="{:U('event/Index/myactive')}">我的活动</a></li>
+					<li><a href="{:U('member/Index/mycard')}">我的名片</a></li>
+					<li><a href="{:U('game/Index/mygame')}">我的产品</a></li>
+					<li><a href="{:U('company/Index/mycompany')}">我的公司</a></li>
+					<li class="log-out"><a href="{:U('public/Passport/logout')}">注销</a></li>
+				</ul>
+				
+				
+			</div>
+		</div>
+		<!--登录之后 e-->
+		</session>
+	</div>
+</div>
+<!--顶部 e--> 
+
+<!--nav s-->
+<div id="nav">
+	<div class="wrap nav-box">
+		<ul class="menu-box fl oh c-fff fs18" id="js_menu_box">
+			<li <php> if(APP_NAME=='public'){</php> class="nav-curr"<php>}</php>><a href="{:U('public/Index/index')}">首页</a></li>
+			<li <php> if(APP_NAME=='game'){</php> class="nav-curr"<php>}</php>><a href="{:U('game/Index/index')}">产品</a></li>
+			<li <php> if(APP_NAME=='company'){</php> class="nav-curr"<php>}</php>><a href="{:U('company/Index/index')}">公司</a></li>
+			<li <php> if(APP_NAME=='member'){</php> class="nav-curr"<php>}</php>><a href="{:U('member/Index/index')}">通讯录</a></li>
+			<li <php> if(APP_NAME=='event'){</php> class="nav-curr"<php>}</php>><a href="{:U('event/Index/index')}">活动</a></li>
+			<li <php> if(APP_NAME=='news'){</php> class="nav-curr"<php>}</php>><a href="{:U('news/Index/index')}">新闻</a></li>
+			<li <php> if(APP_NAME=='group'){</php> class="nav-curr"<php>}</php>><a href="{:U('group/Index/index')}">圈子</a></li>
+		</ul>
+		<div class="search-box fr pr">
+			<form action="{:U('game/Index/index',array('key'=>''))}" method="get" id="search-fm">
+				<div class="search-info fl" id="js_s_info">
+					<h2 id="js_s_t"><b class="fn">请选择</b><em></em></h2>
+					<ul class="search-list pr" style="display:none;" >
+						<li data-id="{:U('game/Index/index',array('key'=>''))}">产品</li>
+						<li data-id="{:U('company/Index/index',array('key'=>''))}">公司</li>
+						<li data-id="{:U('member/Index/index',array('key'=>''))}">通讯录</li>
+						<li data-id="{:U('event/Index/index',array('key'=>''))}">活动</li>
+						<li data-id="{:U('news/Index/index',array('key'=>''))}">新闻</li>
+					</ul>
+				</div>
+				<input type="text" value="1" id="js_hide_type" />
+				<input type="text" placeholder="输入搜索关键词..." class="search-ipt" id="js_search_ipt" />
+				<input type="submit" value=" " class="search-btn" />
+			</form>
+		</div>
+	</div>
+</div>
+<!--nav e-->
