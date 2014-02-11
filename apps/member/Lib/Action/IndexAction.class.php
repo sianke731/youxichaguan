@@ -38,6 +38,7 @@ class IndexAction extends Action
     	if(!empty($_GET["company_type"])){
     		$map["c.type"] = $_GET["company_type"];
     	}
+    	$_GET["order"] = $_GET["order"]?$_GET["order"]:'time';
     	if(!empty($_GET["order"])){
     		if($_GET["order"]=="time"){
     			$order = "m.ctime desc";
