@@ -246,6 +246,7 @@ class IndexAction extends Action {
         $map['sponsor']      = t($_POST['sponsor']);//主办方
         $map['organizer_type']      = t($_POST['organizer_type']);//协办or承办
         $map['organizer']      = t($_POST['organizer']);//承办商or协办商
+        $map['media']    = t($_POST['media']);
         $map['traffic']      = t($_POST['traffic']);//交通路线
         $map['notice']      = keyWordFilter(t($_POST['notice']));//注意事项
         $map['uid']        = $this->mid;
@@ -266,12 +267,12 @@ class IndexAction extends Action {
 		if( $map['sTime'] < mktime(0, 0, 0, date('M'), date('D'), date('Y')) ) {
             $this->error( "开始时间不得早于当前时间" );
         }
-        if( $map['deadline'] < time() ) {
+        /*if( $map['deadline'] < time() ) {
             $this->error( "报名截止时间不得早于当前时间" );
         }
         if( $map['deadline'] > $map['eTime'] ) {
         	$this->error('报名截止时间不能晚于结束时间');
-        }
+        }*/
 
 		$string=iconv("UTF-8","GBK", t($map['explain']));
         $length = strlen($string);

@@ -86,18 +86,27 @@
                 </div>
                 <div class="cr-ac-right fr">
                 
-                	<div class="ca-tlist">
+                	<div class="ca-tlist" style="display:none">
                     	<div class="c-l">截止时间：</div>
                         <div class="c-r">
                         	<input name="deadline" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'});" type="text" class="i-ipt i-ts" value="{$deadline|date="y-m-d H:i:s",###}" />
                         </div>
                     </div>
                     
+                    <!-- 
                     <div class="ca-tlist">
                     	<div class="c-l">报名方式：</div>
                         <div class="c-r">
                             <input name="contact" value="{$contact}" type="text" class="i-ipt ac-ipt1" />
                             <span>活动费用</span>
+                            <input name="cost" value="{$cost}" type="text" class="i-ipt ac-ipt1" />
+                        </div>
+                    </div>
+                     -->
+                    
+                    <div class="ca-tlist">
+                    	<div class="c-l">活动费用：</div>
+                        <div class="c-r">
                             <input name="cost" value="{$cost}" type="text" class="i-ipt ac-ipt1" />
                         </div>
                     </div>
@@ -170,6 +179,12 @@
                             </volist>
                        </select>
                        <input name="organizer" type="text" style="width:120px; margin-left:-1px;" value="{$organizer}" class="i-ipt">
+                    </div>
+                </div>
+                <div class="ca-tlist">
+                    <div class="c-l">媒体支持：</div>
+                    <div class="c-r">
+                       <input type="text" name="media" value="{$media}" class="i-ipt" />
                     </div>
                 </div>
                 
