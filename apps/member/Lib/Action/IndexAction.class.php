@@ -42,9 +42,15 @@ class IndexAction extends Action
     		if($_GET["order"]=="time"){
     			$order = "m.ctime desc";
     			$this->assign('order','time');
-    		}else{
+    		}elseif($_GET["order"]=="verify"){
     			$order = "m.is_verify desc";
     			$this->assign('order','verify');
+    		}elseif($_GET["order"]=="views"){
+    			$order = "m.views desc";
+    			$this->assign('order','views');
+    		}else{
+    			$order = "m.collects desc";
+    			$this->assign('order','collects');
     		}
     	}else{
     		$order = "m.id desc";
@@ -231,6 +237,9 @@ class IndexAction extends Action
     		$member['avatar'] = UPLOAD_URL."/".$avatar_data[0]['save_path'].$avatar_data[0]['save_name'];
     		//dump($member['avatar']);
     	}
+    	
+    	M('Member')->where('id='.$id)->setInc('views'); //加浏览量
+    	
     	$member_company = M("member_company")->where("member_id = ".$self_id)->select();
     	$this->assign("member_company",$member_company);
     	//dump($member);

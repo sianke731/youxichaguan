@@ -58,8 +58,10 @@
             </if>
 			<div class="game-order-box">
 				<span>排序</span>
-				<a href="{:U('member/Index/index',array('order'=>'time'))}" class="s-btn <php>if($order != 'verify'):</php>s-btn5<php>else:</php>s-btn6<php>endif;</php>">最新发布</a>
-				<a href="{:U('member/Index/index',array('order'=>'verify'))}" class="s-btn <php>if($order == 'verify'):</php>s-btn5<php>else:</php>s-btn6<php>endif;</php>">认证公司</a>
+				<a href="{:U('member/Index/index',array('order'=>'time'))}" class="s-btn <php>if($order == 'time'):</php>s-btn5<php>else:</php>s-btn6<php>endif;</php>">最新发布</a>
+				<a href="{:U('member/Index/index',array('order'=>'verify'))}" class="s-btn <php>if($order == 'verify'):</php>s-btn5<php>else:</php>s-btn6<php>endif;</php>">按认证</a>
+				<a href="{:U('member/Index/index',array('order'=>'views'))}" class="s-btn <php>if($order == 'views'):</php>s-btn5<php>else:</php>s-btn6<php>endif;</php>">浏览最多</a>
+				<a href="{:U('member/Index/index',array('order'=>'collects'))}" class="s-btn <php>if($order == 'collects'):</php>s-btn5<php>else:</php>s-btn6<php>endif;</php>">收藏最多</a>
 				<form action="{:U('member/Index/index')}" name="search" id="search" method="get">
                 <input type="hidden" name="app" value="member" />
                 <input type="hidden" name="mod" value="Index" />

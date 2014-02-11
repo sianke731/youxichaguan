@@ -27,9 +27,11 @@ class IndexAction extends Action {
 		if($type){
 			$condition = ' AND type="'.$type.'"';
 		}
-		$count = M('Company')->where('is_verify=3'.$condition)->order('id DESC')->count();
+		$order = t($_GET['order'])?t($_GET['order']):'id';
+		$this->assign('order', $order);
+		$count = M('Company')->where('is_verify=3'.$condition)->order($order.' DESC')->count();
 		$this->assign('count', $count);
-		$list = M('Company')->where('is_verify=3'.$condition)->order('id DESC')->findPage(20);
+		$list = M('Company')->where('is_verify=3'.$condition)->order($order.' DESC')->findPage(20);
 		$this->assign($list);
 		$this->assign('verify_list', C('verify_status'));  //审核状态
 		$this->assign('channel_type', C('channel_type'));  //公司类型
@@ -107,6 +109,8 @@ class IndexAction extends Action {
 		$this->assign('channel_type', C('channel_type'));  //公司类型
 		$this->assign('company_size', C('company_size'));  //公司规模
 		$this->setTitle($data['name'].'公司详情');
+		
+		M('Company')->where('id='.$id)->setInc('views'); //加浏览量
 		
 		switch ($data['type']){
 			case '5'://CP

@@ -72,7 +72,18 @@
 			<div class="game-order-box">
 				<span>排序</span>
 				<a href="{:U('game/Index/index',array('phase'=>$phase,'platform'=>$plat,'area'=>$area,'tag'=>$tag,'p'=>$page,'order'=>'id','key'=>$keys))}" class="s-btn s-btn<php>if($order == 'id'){</php>5<php>}else{</php>6<php>}</php>">最新发布</a>
-				<a href="{:U('game/Index/index',array('phase'=>$phase,'platform'=>$plat,'area'=>$area,'tag'=>$tag,'p'=>$page,'order'=>'is_auth','key'=>$keys))}" class="s-btn s-btn<php>if($order == 'is_auth'){</php>5<php>}else{</php>6<php>}</php>">认证产品</a>
+				<a href="{:U('game/Index/index',array('phase'=>$phase,'platform'=>$plat,'area'=>$area,'tag'=>$tag,'p'=>$page,'order'=>'is_auth','key'=>$keys))}" class="s-btn s-btn<php>if($order == 'is_auth'){</php>5<php>}else{</php>6<php>}</php>">按认证</a>
+				<a href="{:U('game/Index/index',array('phase'=>$phase,'platform'=>$plat,'area'=>$area,'tag'=>$tag,'p'=>$page,'order'=>'views','key'=>$keys))}" class="s-btn s-btn<php>if($order == 'views'){</php>5<php>}else{</php>6<php>}</php>">浏览最多</a>
+				<a href="{:U('game/Index/index',array('phase'=>$phase,'platform'=>$plat,'area'=>$area,'tag'=>$tag,'p'=>$page,'order'=>'collects','key'=>$keys))}" class="s-btn s-btn<php>if($order == 'collects'){</php>5<php>}else{</php>6<php>}</php>">收藏最多</a>
+				<div class="sub-search fr">
+				<form name="search_game" id="search_game" method="GET" action="{:U('game/Index/index')}">
+					<input type="text" class="sub-search-ipt" placeholder="<php>if(!empty($searchkey)){</php>{$searchkey}<php>}else{</php>请输入关键字<php>}</php>" name="key">
+					<input type="hidden" name="app" value="game" />
+					<input type="hidden" name="mod" value="Index" />
+					<input type="hidden" name="act" value="index" />
+					<input type="submit" value="" class="sub-search-btn">
+				</form>
+				</div>
 			</div>
 		</div>
 		

@@ -73,6 +73,9 @@ class IndexAction extends Action {
 		if(empty($data)){
 			$this->error('找不到该产品');
 		}
+		
+		M('Game')->where('id='.$id)->setInc('views'); //加浏览量
+		
 		$this->assign($data);
 		$this->assign('verify_list', C('verify_status'));  //审核状态
 		$this->assign('auth_list', C('auth_status'));  //认证状态
